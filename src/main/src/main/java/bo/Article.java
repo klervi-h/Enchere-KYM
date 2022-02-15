@@ -2,8 +2,6 @@ package bo;
 
 import java.util.Date;
 
-//Class Article
-
 public class Article {
 
 	private int noArticle, prixInitial, prixVente, prixInit, noUtilisateur, noCategorie;
