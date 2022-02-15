@@ -19,11 +19,7 @@ public class Utilisateur {
 		this.email = emailUtil;
 		this.motDePasse = modDePasseUtil;
 		this.telephone = telephoneUtil;
-
-		this.adresse = new Adresse();
-		adresse.setRue(rueUtil);
-		adresse.setCodePostale(codePostaleUtil);
-		adresse.setVille(villeUtil);	
+		this.adresse = new Adresse(rueUtil, codePostaleUtil, villeUtil);	
 	}
 
 	public int getNoUtilisateur() {
