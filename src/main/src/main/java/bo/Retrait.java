@@ -1,7 +1,7 @@
 package bo;
 
 public class Retrait {
-
+		// classe Retrait 
 		private Adresse adresseRetrait;
 
 		
