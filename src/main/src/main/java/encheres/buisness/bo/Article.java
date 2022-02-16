@@ -1,4 +1,4 @@
-package bo;
+package encheres.buisness.bo;
 
 import java.util.Date;
 
