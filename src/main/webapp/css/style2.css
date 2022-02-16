@@ -1,0 +1,71 @@
+{
+  padding: 0 auto;
+  margin: 0 auto;
+  font-family: 'Calibri';
+}
+
+header {
+  background-color: rgb(63, 112, 89);
+  box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.2);
+}
+
+header h3 {
+  color: white;
+  padding: 10px;
+
+}
+
+p.logo{
+  width: 20px;
+  height : 20px;
+}
+
+nav{
+  
+  background-color: rgb(63, 112, 89);
+  border: 5px;
+  padding: 10px;
+  box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.2);
+  color: aliceblue;
+}
+section.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+section.container .item {
+  flex: 1;
+  
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 1px 1px 12px rgb(0, 0, 0, 0.2);
+  border-radius: 20px;
+  margin:20px;
+  padding: 10px;
+  text-align: left;
+  background-color: white;
+}
+
+section.container img, p, h2 {
+  padding: 5px;
+}
+
+section.container p.price {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  text-align: center;
+}
+
+section.container p.vendor {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  color: brown;
+  text-align: center;
+}
+
+
+main{
+  padding-top: 60px;
+}
