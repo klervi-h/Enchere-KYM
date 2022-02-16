@@ -22,7 +22,11 @@ public class Retrait {
 		public void setAdresseRetrait(Adresse adresseRetrait) {
 			this.adresseRetrait = adresseRetrait;
 		}
+
+		@Override
+		public String toString() {
+			return "Retrait [adresseRetrait=" + adresseRetrait + "]";
+		}
 		
-		
-		
+				
 }

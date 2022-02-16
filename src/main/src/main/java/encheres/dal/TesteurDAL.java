@@ -8,7 +8,7 @@ public class TesteurDAL {
 		ArticleDAO articleDAO = DAOFactory.getArticleDao();
 		System.out.println("recuperation d'un article... ");
 		try {
-			Article a = articleDAO.selectById(12);
+			Article a = articleDAO.selectById(5);
 		System.out.println(a.toString());
 	} catch (DALException e) {
 		e.printStackTrace();

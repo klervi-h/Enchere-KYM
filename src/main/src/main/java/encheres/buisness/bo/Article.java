@@ -37,18 +37,14 @@ public class Article {
 		this.adresseRetrait = new Retrait(villeRetrait, codePostaleRetrait, rueRetrait);
 	}
 
+	
+
+	@Override
 	public String toString() {
-		StringBuilder chaine = new StringBuilder();
-		chaine.append("no article : " + noArticle);
-		chaine.append("	nom article "+ nomArticle);
-		chaine.append("	description" + description);
-		chaine.append("	debut "+ dateDebut);
-		chaine.append("	fin "+dateFin);
-		chaine.append("	prix init "+prixInitial);
-		chaine.append("	prix vente" + prixVente);
-		chaine.append("	no utilisateur" + noUtilisateur);
-		chaine.append("	no catégorie :"+ noCategorie);
-		return chaine.toString();
+		return "Article [noArticle=" + noArticle + ", prixInitial=" + prixInitial + ", prixVente=" + prixVente
+				+ ", noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + ", dateDebut=" + dateDebut
+				+ ", dateFin=" + dateFin + ", nomArticle=" + nomArticle + ", description=" + description
+				+ ", adresseRetrait=" + adresseRetrait + "]";
 	}
 
 	public Retrait getAdresseRetrait() {
