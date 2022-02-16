@@ -4,15 +4,25 @@ import java.util.Date;
 
 public class Article {
 
-	private int noArticle, prixInitial, prixVente, prixInit, noUtilisateur, noCategorie;
+	private int noArticle, prixInitial, prixVente, noUtilisateur, noCategorie;
 	private Date dateDebut, dateFin;
 	private String nomArticle, description;
 	private Retrait adresseRetrait;
 
-	public Article () {
+	public Article(){}
 
+	public Article (int noArt, String nomArt, String description, java.sql.Date debutVente, java.sql.Date finVente, int prixInit, int prixVente, int noUtil, int noCat) {
+		this.noArticle=noArt;
+		this.nomArticle = nomArt;
+		this.description = description;
+		this.dateDebut = debutVente;
+		this.dateFin = finVente;
+		this.prixInitial = prixInit;
+		this.prixVente = prixVente;
+		this.noUtilisateur = noUtil;
+		this.noCategorie = noCat;		
 	}
-	
+
 	public Article (int prixInitialArt, int prixInitArt, int noCategorieArt, 
 			String nomArticleVente, String descriptionArticle,
 			Date dateDebutVente, Date dateFinVente, String rueRetrait, String villeRetrait, int codePostaleRetrait) {
@@ -20,11 +30,25 @@ public class Article {
 		this.prixInitial = prixInitialArt;
 		this.dateDebut = dateDebutVente;
 		this.dateFin = dateFinVente;
-		this.prixInit = prixInitArt;
+		this.prixInitial = prixInitArt;
 		this.noCategorie = noCategorieArt;
 		this.nomArticle = nomArticleVente;
 		this.description = descriptionArticle;
 		this.adresseRetrait = new Retrait(villeRetrait, codePostaleRetrait, rueRetrait);
+	}
+
+	public String toString() {
+		StringBuilder chaine = new StringBuilder();
+		chaine.append("no article : " + noArticle);
+		chaine.append("	nom article "+ nomArticle);
+		chaine.append("	description" + description);
+		chaine.append("	debut "+ dateDebut);
+		chaine.append("	fin "+dateFin);
+		chaine.append("	prix init "+prixInitial);
+		chaine.append("	prix vente" + prixVente);
+		chaine.append("	no utilisateur" + noUtilisateur);
+		chaine.append("	no catégorie :"+ noCategorie);
+		return chaine.toString();
 	}
 
 	public Retrait getAdresseRetrait() {
@@ -57,14 +81,6 @@ public class Article {
 
 	public void setPrixVente(int prixVente) {
 		this.prixVente = prixVente;
-	}
-
-	public int getPrixInit() {
-		return prixInit;
-	}
-
-	public void setPrixInit(int prixInit) {
-		this.prixInit = prixInit;
 	}
 
 	public int getNoUtilisateur() {
@@ -114,8 +130,9 @@ public class Article {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
 
-	
+
+
+
 
 }

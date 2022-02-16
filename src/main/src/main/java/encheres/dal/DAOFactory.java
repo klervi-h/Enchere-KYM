@@ -7,7 +7,7 @@ public class DAOFactory {
 	public static ArticleDAO getArticleDao() {
 
 			try {
-				return (ArticleDAO) Class.forName("dal.jdbc.ArticleDaoJdbcImpl").getDeclaredConstructor().newInstance();
+				return (ArticleDAO) Class.forName("encheres.dal.jdbc.ArticleDaoJdbcImpl").getDeclaredConstructor().newInstance();
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 					| InvocationTargetException | NoSuchMethodException | SecurityException
 					| ClassNotFoundException e) {
