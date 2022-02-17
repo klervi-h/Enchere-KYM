@@ -2,11 +2,12 @@ package encheres.buisness.bo;
 
 public class Categorie {
 
+/*
 	private static String INFORMATIQUE = "informatique";
 	private static String AMEUBLEMENT = "Ameublement";
 	private static String VETEMENT = "vetements";
 	private static String SPORTS_ET_LOISIRS = "sports et loisirs";
-
+*/
 	private int noCategorie;
 	private String libelle;
 
@@ -33,6 +34,10 @@ public class Categorie {
 			this.noCategorie = noCategorie;
 		}*/
 
+	@Override
+	public String toString() {
+		return "Categorie [noCategorie=" + noCategorie + ", libelle=" + libelle + "]";
+	}
 
 
 

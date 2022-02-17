@@ -94,4 +94,11 @@ public class Utilisateur {
 		this.adresse = adresse;
 	}
 
+	@Override
+	public String toString() {
+		return "Utilisateur [noUtilisateur=" + noUtilisateur + ", pseudo=" + pseudo + ", nom=" + nom + ", prenom="
+				+ prenom + ", email=" + email + ", motDePasse=" + motDePasse + ", telephone=" + telephone + ", credit="
+				+ credit + ", adresse=" + adresse + "]";
+	}
+	
 }

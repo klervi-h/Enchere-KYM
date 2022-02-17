@@ -47,4 +47,9 @@ public class Encheres {
 		this.montantEnchere = montantEnchere;
 	}
 	
+	@Override
+	public String toString() {
+		return "Encheres [noUtilisateur=" + noUtilisateur + ", noArticle=" + noArticle + ", dateEnchere=" + dateEnchere
+				+ ", montantEnchere=" + montantEnchere + "]";
+	}
 }

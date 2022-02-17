@@ -6,6 +6,7 @@ public class Adresse {
 	private String  rue, ville;
 	
 	public Adresse () {}
+	
 	public Adresse(String rueNew, int codePostaleNew, String villeNew) {
 		this.rue = rueNew;
 		this.codePostale = codePostaleNew;
@@ -28,6 +29,10 @@ public class Adresse {
 	}
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+	@Override
+	public String toString() {
+		return "Adresse [codePostale=" + codePostale + ", rue=" + rue + ", ville=" + ville + "]";
 	}
 	
 
