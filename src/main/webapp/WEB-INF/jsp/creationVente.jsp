@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,8 +58,7 @@
 			<input type="text" name="ville" id="villeRetrait"/><label for="ville">Ville :</label>
 		</fieldset>
 		<button type="button" id="enregistrerNewVente">Enregistrer</button>
-		<button type="button" id="annulerNewVente">Annuler</button>	
-		<input type="submit"/>	
+		<button type="button" id="annulerNewVente">Annuler</button>		
 	</form>
 </body>
 </html>
