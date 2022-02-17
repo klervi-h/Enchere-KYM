@@ -48,16 +48,15 @@
 		<fieldset>
 		<legend><span class="sr-only">Adresse du </span>Retrait</legend>
 			<p>
-				<input type="text" name="rue" id="codePostaleRetrait"> <label
-					for="rue">rue :</label>
+				<label for="rue">rue :</label><input type="text" name="rue" id="codePostaleRetrait"> 
 			</p>
 			<p>
-			<input type="text" name="codePostale" id="codePostaleRetrait"/><label for="codePostale">Code postale :</label>
+			<label for="codePostale">Code postale :</label><input type="text" name="codePostale" id="codePostaleRetrait"/>
 			</p>
 			<p>
-			<input type="text" name="ville" id="villeRetrait"/><label for="ville">Ville :</label>
+			<label for="ville">Ville :</label><input type="text" name="ville" id="villeRetrait"/>
 		</fieldset>
-		<button type="button" id="enregistrerNewVente">Enregistrer</button>
+		<button type="submit" >Enregistrer</button>
 		<button type="button" id="annulerNewVente">Annuler</button>		
 	</form>
 </body>

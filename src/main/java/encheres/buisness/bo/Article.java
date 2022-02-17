@@ -23,11 +23,10 @@ public class Article {
 		this.noCategorie = noCat;		
 	}
 
-	public Article (int prixInitialArt, int prixInitArt, int noCategorieArt, 
-			String nomArticleVente, String descriptionArticle,
-			Date dateDebutVente, Date dateFinVente, String rueRetrait, String villeRetrait, int codePostaleRetrait) {
+	public Article ( 
+			String nomArticleVente, String descriptionArticle, int noCategorieArt, int prixInitArt,
+			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait) {
 
-		this.prixInitial = prixInitialArt;
 		this.dateDebut = dateDebutVente;
 		this.dateFin = dateFinVente;
 		this.prixInitial = prixInitArt;
