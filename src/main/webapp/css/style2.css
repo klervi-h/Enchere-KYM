@@ -1,3 +1,12 @@
+
+/*
+Nom du thème : TEST
+Auteur : Yohann
+Déscription : CSS temporaire non fini just pour voir si les liens fonctionnent
+date derniére modif : 16FEB2022
+Auteur derniére modif : Yohann
+*/
+
 {
   padding: 0 auto;
   margin: 0 auto;
@@ -9,9 +18,10 @@ header {
   box-shadow: 0px 0px 12px rgb(0, 0, 0, 0.2);
 }
 
-header h3 {
+header h1 {
   color: white;
   padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
