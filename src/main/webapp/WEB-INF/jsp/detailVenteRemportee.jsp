@@ -48,7 +48,6 @@
 	<a href="listeDesEncheres">Back</a>
 	</main>
 
-
 </body>
 
 </html>
