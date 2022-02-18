@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Utilisateur;
 
 /**
@@ -19,8 +20,12 @@ public class ProfilVendeur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	//ajout d'un utilisateur pour test d'affichage
-	private Utilisateur profilTest = new Utilisateur("paf","MARTIN","Bernard","aze@ty.com",0101010101,"rue A",101000,"NANTES","password");
+	//private Utilisateur profilTest = new Utilisateur("paf","MARTIN","Bernard","aze@ty.com",0101010101,"rue A",101000,"NANTES","password");
 
+	//utilisateur de la bdd
+	UtilisateurManager uM = new UtilisateurManager();
+	Utilisateur profilTest = null;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
