@@ -18,16 +18,16 @@ import encheres.buisness.bo.Utilisateur;
 
 public class MonProfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	//ajout d'un utilisateur pour test d'affichage
-		private Utilisateur profilTest = new Utilisateur("paf","MARTIN","Bernard","aze@ty.com",0101010101,"rue A",101000,"NANTES","password");
+	private Utilisateur profilTest = new Utilisateur("paf","MARTIN","Bernard","aze@ty.com",0101010101,"rue A",101000,"NANTES","password");
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
-		
+
 		String pseudoUtilisateur = profilTest.getPseudo();
 		String nomUtilisateur = profilTest.getNom();
 		String prenomUtilisateur = profilTest.getPrenom();
@@ -36,7 +36,7 @@ public class MonProfil extends HttpServlet {
 		String rueUtilisateur = profilTest.getAdresse().getRue();
 		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
 		String villeUtilisateur = profilTest.getAdresse().getVille();
-		
+
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
 		request.setAttribute("nomUtil", nomUtilisateur);
 		request.setAttribute("prenomUtil", prenomUtilisateur);
@@ -45,7 +45,7 @@ public class MonProfil extends HttpServlet {
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
-		
+
 		rd.forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
@@ -55,7 +55,7 @@ public class MonProfil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
 		rd.forward(request, response);
 	}
