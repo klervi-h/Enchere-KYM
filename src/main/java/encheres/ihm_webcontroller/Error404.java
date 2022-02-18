@@ -15,15 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/Error404")
 public class Error404 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Error404() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+   
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
