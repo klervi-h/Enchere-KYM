@@ -50,6 +50,7 @@ public class CreationVente extends HttpServlet {
 					dateF.parse(request.getParameter("dateFin"))
 					,request.getParameter("rue"), Integer.parseInt(request.getParameter("codePostale")),request.getParameter("ville"),
 					noUtil);
+			
 			System.out.println(article.toString());
 		} catch (NumberFormatException | ParseException e) {
 			e.printStackTrace();

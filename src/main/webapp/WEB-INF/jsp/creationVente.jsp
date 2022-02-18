@@ -13,14 +13,14 @@
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<p>
 			<label for="article"><span class="sr-only">nom de l'</span>Article
-				: </label> <input type="text" name="denominationArticle" id="article" />
+				: *</label> <input type="text" name="denominationArticle" id="article" />
 		</p>
 		<p>
-			<label for="description">Description : </label> <input type="text"
+			<label for="description">Description : *</label> <input type="text"
 				name="description" id="description" />
 		</p>
 		<p>
-			<label for="categorie">Catégorie </label> <select name="categorie"
+			<label for="categorie">Catégorie *</label> <select name="categorie"
 				id="categorie">
 				<option value="1">Informatique</option>
 				<option value="2">Ameublement</option>
@@ -29,32 +29,32 @@
 			</select>
 		</p>
 		<p>
-			<label for="uploadfoto">Photo de l'article </label>
+			<label for="uploadfoto">Photo de l'article *</label>
 			<button type="button" name="uploadfoto" lang="engl">UPLOADER</button>
 			<!-- uploader de foto -->
 		</p>
 		<p>
-			<label for="prixInit">Mise à prix : </label> <input type="number"
+			<label for="prixInit">Mise à prix : *</label> <input type="number"
 				id="prixInit" name="prixInit" min="10" max="100" />
 		</p>
 		<p>
-			<label for="dateDebut">Début de l'enchère </label> <input type="date"
+			<label for="dateDebut">Début de l'enchère *</label> <input type="date"
 				name="dateDebut" id="dateDebut" />
 		</p>
 		<p>
-			<label for="dateFin">Fin de l'enchère </label> <input type="date"
+			<label for="dateFin">Fin de l'enchère *</label> <input type="date"
 				name="dateFin" id="dateFin">
 		</p>
 		<fieldset>
-		<legend><span class="sr-only">Adresse du </span>Retrait</legend>
+		<legend><span class="sr-only">Adresse du *</span>Retrait</legend>
 			<p>
-				<label for="rue">rue :</label><input type="text" name="rue" id="codePostaleRetrait"> 
+				<label for="rue">rue :*</label><input type="text" name="rue" id="rue"> 
 			</p>
 			<p>
-			<label for="codePostale">Code postale :</label><input type="text" name="codePostale" id="codePostaleRetrait"/>
+			<label for="codePostale">Code postale :*</label><input type="text" name="codePostale" id="codePostaleRetrait"/>
 			</p>
 			<p>
-			<label for="ville">Ville :</label><input type="text" name="ville" id="villeRetrait"/>
+			<label for="ville">Ville :*</label><input type="text" name="ville" id="ville"/>
 		</fieldset>
 		<button type="submit" >Enregistrer</button>
 		<button type="button" id="annulerNewVente">Annuler</button>		
