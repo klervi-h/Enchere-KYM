@@ -22,6 +22,26 @@ public class Utilisateur {
 		this.adresse = new Adresse(rueUtil, codePostaleUtil, villeUtil);	
 	}
 
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, int telephone,
+			String rue, int codePostal, String ville, String motDePasse, int credit) {
+		
+		this.noUtilisateur = noUtilisateur;
+		this.pseudo = pseudo;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.email = email;
+		this.telephone = telephone;
+		this.adresse = new Adresse(rue, codePostal, ville);
+		this.motDePasse = motDePasse;
+		this.credit = credit;
+
+
+	}
+
+	public void setNoUtilisateur(int noUtilisateur) {
+		this.noUtilisateur = noUtilisateur;
+	}
+
 	public int getNoUtilisateur() {
 		return noUtilisateur;
 	}
