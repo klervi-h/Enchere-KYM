@@ -4,6 +4,7 @@ import java.util.Date;
 
 import encheres.buisness.bo.Article;
 import encheres.dal.ArticleDAO;
+import encheres.dal.DALException;
 import encheres.dal.DAOFactory;
 
 
@@ -32,6 +33,12 @@ private ArticleDAO articleDAO;
 		
 		Article article = new Article(nomArticleVente,descriptionArticle,noCategorieArt,prixInitArt,dateDebutVente,dateFinVente,rueRetrait,codePostaleRetrait, villeRetrait, noUtil);
 		
+		try {
+			this.articleDAO.insert(article);
+		} catch (DALException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
 		/*
 		this.validerNom(article,exception);
@@ -52,19 +59,20 @@ private ArticleDAO articleDAO;
 		return article;
 	}
 	
+	
 	/**
 	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre note.
 	 * En cas d'erreur, le code d'erreur est enregistré dans l'objet businessException.
 	 * @param avis
 	 * @param businessException 
 	 */
-	private void validerNom(Article article, BusinessException businessException)
+/*	private void validerNom(Article article, BusinessException businessException)
 	{
 		if(article.getNomArticle().length()>30)
 		{
 			businessException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_NOTE_ERREUR);
 		}
-	}
+	}*/
 	
 	/**
 	 * Cette méthode permet de vérifier les règles à respecter sur la variable membre description.
@@ -72,11 +80,11 @@ private ArticleDAO articleDAO;
 	 * @param avis
 	 * @param businessException
 	 */
-	private void validerDescription(Avis avis, BusinessException businessException)
+/*	private void validerDescription(Avis avis, BusinessException businessException)
 	{
 		if(avis.getDescription()==null  || avis.getDescription().equals("")|| avis.getDescription().length()>150)
 		{
 			businessException.ajouterErreur(CodesResultatBLL.REGLE_AVIS_DESCRIPTION_ERREUR);
 		}
-	}
+	}*/
 }
