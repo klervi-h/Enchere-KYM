@@ -10,7 +10,7 @@
 	<h1>Nouvelle Vente</h1>
 	<img alt="photo de l'article en vente" src="" aria-hidden="true">
 	<form action="" method="post">
-		<!-- à remplire -->
+		<img alt="photo de l'article " src="" aria-hidden="true">
 		<p>
 			<label for="article"><span class="sr-only">nom de l'</span>Article
 				: </label> <input type="text" name="denominationArticle" id="article" />

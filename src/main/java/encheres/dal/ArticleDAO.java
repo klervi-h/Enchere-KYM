@@ -10,4 +10,6 @@ import encheres.buisness.bo.Article;
 	public void insert(Article article) throws DALException;
 	public void update(Article article) throws DALException;
 	public void delete(Integer idArt) throws DALException;*/
+
+	public void insert(Article article) throws DALException;
 }

@@ -25,7 +25,7 @@ public class Article {
 
 	public Article ( 
 			String nomArticleVente, String descriptionArticle, int noCategorieArt, int prixInitArt,
-			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait) {
+			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) {
 
 		this.dateDebut = dateDebutVente;
 		this.dateFin = dateFinVente;
@@ -34,6 +34,7 @@ public class Article {
 		this.nomArticle = nomArticleVente;
 		this.description = descriptionArticle;
 		this.adresseRetrait = new Retrait(villeRetrait, codePostaleRetrait, rueRetrait);
+		this.noUtilisateur = noUtil;
 	}
 
 	
