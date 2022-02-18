@@ -1,9 +1,10 @@
 package encheres.ihm_webcontroller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,21 +42,18 @@ public class CreationVente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		SimpleDateFormat dateD = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat dateF = new SimpleDateFormat("yyyy-MM-dd");
-
-
 		try {
+			Date debut = Date.valueOf(request.getParameter("dateDebut"));
+			Date fin = Date.valueOf(request.getParameter("dateFin"));
 			Article article = new Article(request.getParameter("article"),request.getParameter("description"),
 					Integer.parseInt(request.getParameter("categorie")), Integer.parseInt(request.getParameter("prixInit")),
-					dateD.parse(request.getParameter("dateDebut")),
-					dateF.parse(request.getParameter("dateFin"))
+					debut,fin
 					,request.getParameter("rue"), Integer.parseInt(request.getParameter("codePostale")),request.getParameter("ville"),
 					noUtil);
 			ArticleManager articleManager = new ArticleManager();
 			articleManager.ajouter(article);
 			System.out.println(article.toString());
-		} catch (NumberFormatException | ParseException | BusinessException e) {
+		} catch (NumberFormatException | BusinessException e) {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies ppar l'utilisateur dans la page : CreationVente");
 		}

@@ -57,14 +57,13 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 			stmt.setInt(5, article.getPrixInitial());
 			stmt.setInt(6, article.getNoUtilisateur());
 			stmt.setInt(7, article.getNoCategorie());
-			
+						
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {
 				ResultSet rs = stmt.getGeneratedKeys();
 				if(rs.next()) {
-					article.setNoArticle(rs.getInt(1));}
+					article.setNoArticle(rs.getInt(1));}}
 			}
-		}
 		catch (SQLException e) {
 			throw new DALException("insert article failed - "+ article ,e);
 		}

@@ -1,6 +1,6 @@
 package encheres.buisness.bo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Article {
 
@@ -11,7 +11,7 @@ public class Article {
 
 	public Article(){}
 
-	public Article (int noArt, String nomArt, String description, java.sql.Date debutVente, java.sql.Date finVente, int prixInit, int prixVente, int noUtil, int noCat) {
+	public Article (int noArt, String nomArt, String description, Date debutVente, Date finVente, int prixInit, int prixVente, int noUtil, int noCat) {
 		this.noArticle=noArt;
 		this.nomArticle = nomArt;
 		this.description = description;
