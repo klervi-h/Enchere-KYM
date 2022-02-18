@@ -15,7 +15,7 @@ import encheres.dal.DALException;
 public class ArticleDaoJdbcImpl implements ArticleDAO {
 
 	private static final String sqlSelectById ="select * from ARTICLES_VENDUS where no_article = ?";
-	private static final String sqlInsert ="insert into Articles (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
+	private static final String sqlInsert ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
 
 	@Override
 	public Article selectById(int id) throws DALException {
@@ -57,6 +57,12 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 			stmt.setInt(5, article.getPrixInitial());
 			stmt.setInt(6, article.getNoUtilisateur());
 			stmt.setInt(7, article.getNoCategorie());
+			
+			int nbRows = stmt.executeUpdate();
+			if(nbRows ==1) {
+				ResultSet rs = stmt.getGeneratedKeys();
+				if(rs.next()) {
+					article.setNoArticle(rs.getInt(1));}}
 			}
 		catch (SQLException e) {
 			throw new DALException("insert article failed - "+ article ,e);
