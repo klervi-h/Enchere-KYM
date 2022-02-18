@@ -27,16 +27,15 @@ public class Article {
 			String nomArticleVente, String descriptionArticle, 
 			int noCategorieArt, int prixInitArt,
 			Date dateDebutVente, Date dateFinVente,
-			String rueRetrait, int codePostaleRetrait, 
-			String villeRetrait, int noUtil) {
-
-		this.dateDebut = dateDebutVente;
-		this.dateFin = dateFinVente;
-		this.prixInitial = prixInitArt;
-		this.noCategorie = noCategorieArt;
+			String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) {
+		
 		this.nomArticle = nomArticleVente;
 		this.description = descriptionArticle;
-		this.adresseRetrait = new Retrait(villeRetrait, codePostaleRetrait, rueRetrait);
+		this.noCategorie = noCategorieArt;
+		this.prixInitial = prixInitArt;
+		this.dateDebut = dateDebutVente;
+		this.dateFin = dateFinVente;
+		this.adresseRetrait = new Retrait(rueRetrait, codePostaleRetrait, villeRetrait);
 		this.noUtilisateur = noUtil;
 	}
 
@@ -47,7 +46,7 @@ public class Article {
 		return "Article [noArticle=" + noArticle + ", prixInitial=" + prixInitial + ", prixVente=" + prixVente
 				+ ", noUtilisateur=" + noUtilisateur + ", noCategorie=" + noCategorie + ", dateDebut=" + dateDebut
 				+ ", dateFin=" + dateFin + ", nomArticle=" + nomArticle + ", description=" + description
-				+ ", adresseRetrait=" + adresseRetrait + "]";
+				+ ", adresseRetrait" + adresseRetrait.getAdresseRetrait();
 	}
 
 	public Retrait getAdresseRetrait() {

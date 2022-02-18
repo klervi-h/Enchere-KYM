@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import encheres.buisness.bll.ArticleManager;
+import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bo.Article;
 import encheres.buisness.bo.Utilisateur;
 
@@ -50,9 +52,10 @@ public class CreationVente extends HttpServlet {
 					dateF.parse(request.getParameter("dateFin"))
 					,request.getParameter("rue"), Integer.parseInt(request.getParameter("codePostale")),request.getParameter("ville"),
 					noUtil);
-			
+			ArticleManager articleManager = new ArticleManager();
+			articleManager.ajouter(article);
 			System.out.println(article.toString());
-		} catch (NumberFormatException | ParseException e) {
+		} catch (NumberFormatException | ParseException | BusinessException e) {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies ppar l'utilisateur dans la page : CreationVente");
 		}

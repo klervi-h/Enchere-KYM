@@ -26,12 +26,12 @@ private ArticleDAO articleDAO;
 	 * @return un objet Article en cas de succcès
 	 * @throws BusinessException 
 	 */
-	public Article ajouter(String nomArticleVente, String descriptionArticle, int noCategorieArt, int prixInitArt,
-			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) throws BusinessException
+	public void ajouter(Article article/*String nomArticleVente, String descriptionArticle, int noCategorieArt, int prixInitArt,
+			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil*/) throws BusinessException
 	{
 		BusinessException exception = new BusinessException();
 		
-		Article article = new Article(nomArticleVente,descriptionArticle,noCategorieArt,prixInitArt,dateDebutVente,dateFinVente,rueRetrait,codePostaleRetrait, villeRetrait, noUtil);
+		//Article article = new Article(nomArticleVente,descriptionArticle,noCategorieArt,prixInitArt,dateDebutVente,dateFinVente,rueRetrait,codePostaleRetrait, villeRetrait, noUtil);
 		
 		try {
 			this.articleDAO.insert(article);
@@ -56,7 +56,7 @@ private ArticleDAO articleDAO;
 		{
 			throw exception;
 		}*/
-		return article;
+		
 	}
 	
 	

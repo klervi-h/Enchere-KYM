@@ -7,10 +7,10 @@ public class Adresse {
 	
 	public Adresse () {}
 	
-	public Adresse(String rueNew, int codePostaleNew, String villeNew) {
-		this.rue = rueNew;
-		this.codePostale = codePostaleNew;
-		this.ville = villeNew;
+	public Adresse(String rue, int codePostal, String ville) {
+		this.rue = rue;
+		this.codePostale = codePostal;
+		this.ville = ville;
 	}
 	public int getCodePostale() {
 		return codePostale;
@@ -32,7 +32,7 @@ public class Adresse {
 	}
 	@Override
 	public String toString() {
-		return "Adresse [codePostale=" + codePostale + ", rue=" + rue + ", ville=" + ville + "]";
+		return "Adresse [rue=" + rue + ", codePostale=" + codePostale + ", ville=" + ville + "]";
 	}
 	
 

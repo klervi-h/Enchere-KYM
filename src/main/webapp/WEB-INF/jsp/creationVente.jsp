@@ -35,7 +35,7 @@
 		</p>
 		<p>
 			<label for="prixInit">Mise à prix : *</label> <input type="number"
-				id="prixInit" name="prixInit" min="10" max="100" />
+				id="prixInit" name="prixInit" min="1" max="1000" />
 		</p>
 		<p>
 			<label for="dateDebut">Début de l'enchère *</label> <input type="date"
