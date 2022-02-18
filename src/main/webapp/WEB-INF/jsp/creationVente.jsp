@@ -13,7 +13,7 @@
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<p>
 			<label for="article"><span class="sr-only">nom de l'</span>Article
-				: *</label> <input type="text" name="denominationArticle" id="article" />
+				: *</label> <input type="text" name="article" id="article" />
 		</p>
 		<p>
 			<label for="description">Description : *</label> <input type="text"

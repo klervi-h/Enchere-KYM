@@ -40,13 +40,13 @@ public class CreationVente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		Article article=null;
+		
 		SimpleDateFormat dateD = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat dateF = new SimpleDateFormat("yyyy-MM-dd");
 
 
 		try {
-			article = new Article(request.getParameter("article"),request.getParameter("description"),
+			Article article = new Article(request.getParameter("article"),request.getParameter("description"),
 					Integer.parseInt(request.getParameter("categorie")), Integer.parseInt(request.getParameter("prixInit")),
 					dateD.parse(request.getParameter("dateDebut")),
 					dateF.parse(request.getParameter("dateFin"))
