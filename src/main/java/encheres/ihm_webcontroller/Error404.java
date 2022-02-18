@@ -12,14 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class error404
  */
-@WebServlet("/error404")
-public class error404 extends HttpServlet {
+@WebServlet("/Error404")
+public class Error404 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public error404() {
+    public Error404() {
         super();
         // TODO Auto-generated constructor stub
     }
