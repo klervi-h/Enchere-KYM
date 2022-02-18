@@ -30,6 +30,20 @@
 	</header>
 
 	<main>
+
+		<input type="search" id="site-search" name="q"
+		       aria-label="Search through site content">
+		<button>Rechercher</button>
+		<p>
+		<label for="categorie">Catégorie</label> <select name="categorie"
+			id="categorie">
+			<option value="1">Informatique</option>
+			<option value="2">Ameublement</option>
+			<option value="3">Vêtement</option>
+			<option value="4">Sport&Loisirs</option>
+		</select>
+		</p>
+
 	<section class="container">
 		<div class="item">
 			<img src="https://via.placeholder.com/150x120">

@@ -34,6 +34,8 @@
                          <input type="email" id="email" placeholder="email"required/><br>
                     <label for="telephone">Téléphone :</label><br>
                          <input type="tel" id="telephone" placeholder="numéro de téléphone"/><br>
+                     <label for="rue">Rue :</label><br>
+                         <input type="text" id="rue" placeholder="rue"/><br>    
                      <label for="codePostal">Code Postal :</label><br>
                          <input type="text" id="codePostal" placeholder="code postal"/><br>
                      <label for="ville">Ville :</label><br>

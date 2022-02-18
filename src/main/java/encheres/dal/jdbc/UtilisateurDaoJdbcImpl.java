@@ -4,15 +4,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.UtilisateurDAO;
+import encheres.dal.jdbc.JdbcTools;
 
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
-	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit) values (?,?,?,?,?,?,?, ?, ?, ?)";
+	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) values (?,?,?,?,?,?,?,?,?)";
 
 	@Override
 	public Utilisateur selectById(int id) throws DALException {
@@ -46,7 +48,30 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {
-		// TODO Auto-generated method stub
+
+		try(Connection con = JdbcTools.getConnection();
+					PreparedStatement stmt = con.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);){
+				stmt.setString(1, utilisateur.getPseudo());
+				stmt.setString(2, utilisateur.getNom());
+				stmt.setString(3, utilisateur.getPrenom());
+				stmt.setString(4, utilisateur.getEmail());
+				stmt.setInt(5, utilisateur.getTelephone());
+				stmt.setString(6, utilisateur.getAdresse().getRue());
+				stmt.setInt(7, utilisateur.getAdresse().getCodePostale());
+				stmt.setString(8, utilisateur.getAdresse().getVille());
+				stmt.setString(9, utilisateur.getMotDePasse());
+				
+							
+				int nbRows = stmt.executeUpdate();
+				if(nbRows ==1) {
+					ResultSet rs = stmt.getGeneratedKeys();
+					if(rs.next()) {
+						utilisateur.setNoUtilisateur(rs.getInt(1));}}
+				}
+			catch (SQLException e) {
+				throw new DALException("insert utilisateur failed - "+ utilisateur ,e);
+			}
+		
 		
 	}
 }
