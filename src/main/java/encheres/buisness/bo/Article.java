@@ -24,8 +24,11 @@ public class Article {
 	}
 
 	public Article ( 
-			String nomArticleVente, String descriptionArticle, int noCategorieArt, int prixInitArt,
-			Date dateDebutVente, Date dateFinVente,   String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) {
+			String nomArticleVente, String descriptionArticle, 
+			int noCategorieArt, int prixInitArt,
+			Date dateDebutVente, Date dateFinVente,
+			String rueRetrait, int codePostaleRetrait, 
+			String villeRetrait, int noUtil) {
 
 		this.dateDebut = dateDebutVente;
 		this.dateFin = dateFinVente;
