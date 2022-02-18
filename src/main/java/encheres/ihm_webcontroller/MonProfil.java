@@ -74,19 +74,4 @@ public class MonProfil extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
 		rd.forward(request, response);
 	}
-
-	/**
-	 * @return the profilTest
-	 */
-	public Utilisateur getProfilTest() {
-		return profilTest;
-	}
-
-	/**
-	 * @param profilTest the profilTest to set
-	 */
-	public void setProfilTest(Utilisateur profilTest) {
-		this.profilTest = profilTest;
-	}
-
 }
