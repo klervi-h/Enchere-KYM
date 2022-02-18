@@ -5,11 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import encheres.buisness.bo.Article;
 import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.UtilisateurDAO;
-import encheres.dal.jdbc.JdbcTools;
 
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 

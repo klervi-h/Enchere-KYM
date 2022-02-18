@@ -1,10 +1,30 @@
 package encheres.buisness.bll;
 
+import encheres.buisness.bo.Utilisateur;
+import encheres.dal.DALException;
+import encheres.dal.DAOFactory;
+import encheres.dal.UtilisateurDAO;
+
 public class UtilisateurManager {
-	
+
+	private UtilisateurDAO utilisateurDAO;
 
 	public UtilisateurManager() {
-		// TODO Auto-generated constructor stub
+		this.utilisateurDAO=DAOFactory.getUtilisateurDao();
 	}
+	public Utilisateur afficherParId(int id) throws BusinessException
+	{
+		Utilisateur utilisateur = null;
+		
+		BusinessException exception = new BusinessException();
 
+		try {
+			utilisateur = this.utilisateurDAO.selectById(id);
+		} catch (DALException e) 
+		{
+
+			e.printStackTrace();
+		}
+		return utilisateur;
+	}
 }
