@@ -1,7 +1,5 @@
 package encheres.buisness.bll;
 
-import java.util.Date;
-
 import encheres.buisness.bo.Article;
 import encheres.dal.ArticleDAO;
 import encheres.dal.DALException;
