@@ -36,21 +36,21 @@
 			<h2>Mon profil</h2>
             <form>                   
                     <label for="pseudo">Pseudo :</label><br>
-                        <input type="text" id="pseudo" name="pseudo" placeholder="<%=pseudo %>" autofocus required /><br>
+                        <input type="text" id="pseudo" name="pseudo" value="<%=pseudo %>" autofocus required /><br>
                     <label for="nom">Nom :</label><br>
-                        <input type="text" id="nom" name="nom" placeholder="<%=nom %>" autofocus required/><br>
+                        <input type="text" id="nom" name="nom" value="<%=nom %>" autofocus required/><br>
                     <label for="prenom">Prénom :</label><br>
-                        <input type="text" id="prenom" name="prenom" placeholder="<%=prenom %>" required/><br>
+                        <input type="text" id="prenom" name="prenom" value="<%=prenom %>" required/><br>
                     <label for="email">Email :</label><br>
-                         <input type="email" id="email" placeholder="<%=email %>"required/><br>
+                         <input type="email" id="email" value="<%=email %>"required/><br>
                     <label for="telephone">Téléphone :</label><br>
-                         <input type="tel" id="telephone" placeholder="<%=telephone %>"/><br>
+                         <input type="tel" id="telephone" value="<%=telephone %>"/><br>
                     <label for="rue">Rue :</label><br>
-                         <input type="text" id="rue" placeholder="<%=rue %>"/><br>
+                         <input type="text" id="rue" value="<%=rue %>"/><br>
                      <label for="codePostal">Code Postal :</label><br>
-                         <input type="text" id="codePostal" placeholder="<%=codePostal %>"/><br>
+                         <input type="text" id="codePostal" value="<%=codePostal %>"/><br>
                      <label for="ville">Ville :</label><br>
-                         <input type="text" id="ville" placeholder="<%=ville %>"/><br>                  
+                         <input type="text" id="ville" value="<%=ville %>"/><br>                  
                     <label for="password">Mot de Passe :</label><br>
                          <input type="password" id="password" required/><br>
                     <label for="newPassword">Nouveau mot de passe :</label><br>
