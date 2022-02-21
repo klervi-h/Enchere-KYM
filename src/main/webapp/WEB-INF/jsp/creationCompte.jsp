@@ -46,8 +46,9 @@
                          <input type="password" id="fld-repeat-password" required/><br>
                     
                     <div id="validation">
-                    	<input type="submit" name="boutonCréer" value="Créer" title="Créer"/>
-                        <input type="reset" name="boutonAnnuler" value="Annuler" title="Annuler" />
+                    	<button type="submit" id="creerUtilisateur">Créer</button>
+						<button type="button" id="annulerNewVente">Annuler</button>	
+                    	
                     </div>
             </form>
 	</main>
