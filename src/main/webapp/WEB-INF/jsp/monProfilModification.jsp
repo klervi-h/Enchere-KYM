@@ -26,6 +26,8 @@
     String ville = (String) request.getAttribute("villeUtil");
     String motDePasse = (String) request.getAttribute("password");
     int credit = (int) request.getAttribute("creditUtil");
+    int noUtil = (int) request.getAttribute("noUtil");
+    request.setAttribute("noUtil", noUtil);
     boolean passwordValide = (boolean) request.getAttribute("passworValide");
     boolean confirmationPasswordValide = (boolean) request.getAttribute("confirmationPasswordValide");
     
@@ -61,9 +63,9 @@
                     <label for="password"><%=messageMDP %></label><br>
                          <input type="password" id="password" name="password" required/><br> 
                     <label for="newPassword">Nouveau mot de passe :</label><br>
-                         <input type="password" id="newPassword" name="newPassword" required/><br>
+                         <input type="password" id="newPassword" name="newPassword" /><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
-                         <input type="password" id="fld-repeat-password" name="fld-repeat-password" required/><br>
+                         <input type="password" id="fld-repeat-password" name="fld-repeat-password" /><br>
                     <table><tr><td>Crédit :</td><td><%=credit %></td></tr></table>
 
                     <div id="validation">

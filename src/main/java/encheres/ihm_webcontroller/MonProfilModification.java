@@ -64,6 +64,7 @@ public class MonProfilModification extends HttpServlet {
 		request.setAttribute("creditUtil", creditUtilisateur);
 		request.setAttribute("passworValide", pwValide);
 		request.setAttribute("confirmationPasswordValide", newPwValide);
+		request.setAttribute("noUtil",3);
 
 		rd.forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -75,13 +76,14 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			//TODO boucle if pour vérification validation et refus des mpd
+			//TODO corriger erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil
+			//TODO regler enregistrement saisies util dans bdd 
 			String oldPassword = request.getParameter("oldPassword");
 			String password = request.getParameter("password");
 			String newPassword = request.getParameter("newPassword");
 			String confirmationPassword = request.getParameter("fld-repeat-password");
 
-			if (!password.equals(oldPassword)) {
+			/*if (!password.equals(oldPassword)) {
 				pwValide=false;}
 
 			if (newPassword!=null && confirmationPassword!=null) {
@@ -90,8 +92,9 @@ public class MonProfilModification extends HttpServlet {
 				}
 			}
 
-			if(pwValide && newPwValide) {
+			if(pwValide && newPwValide) {*/
 				Utilisateur utilisateur = new Utilisateur(
+						Integer.parseInt (request.getParameter("noUtil")),
 						request.getParameter("pseudo"),
 						request.getParameter("nom"),
 						request.getParameter("prenom"),
@@ -100,23 +103,25 @@ public class MonProfilModification extends HttpServlet {
 						request.getParameter("rue"),
 						Integer.parseInt(request.getParameter("codePostal")),
 						request.getParameter("ville"),
-						request.getParameter("newPassword")
+						request.getParameter("newPassword"),
+						0
 						);
 
 				UtilisateurManager utilisateurManager = new UtilisateurManager();
 				utilisateurManager.update(utilisateur);
 				System.out.println(utilisateur.toString());
-				RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
-				rd.forward(request, response);
-			}
+				/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
+				rd.forward(request, response);*/
+			//}
 
 		} catch (NumberFormatException | BusinessException e) {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
 		}
-		/*doGet(request, response);*/
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-		rd.forward(request, response);
+		doGet(request, response);
+		//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
+		//rd.forward(request, response);
+	
 	}
 
 }
