@@ -72,6 +72,30 @@ public class MonProfilModification extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		try {
+					
+			Utilisateur utilisateur = new Utilisateur(
+					request.getParameter("pseudo"),
+					request.getParameter("nom"),
+					request.getParameter("prenom"),
+					request.getParameter("email"),
+					Integer.parseInt(request.getParameter("telephone")),
+					request.getParameter("rue"),
+					Integer.parseInt(request.getParameter("codePostal")),
+					request.getParameter("ville"),
+					request.getParameter("password")
+					);
+			
+			UtilisateurManager utilisateurManager = new UtilisateurManager();
+			utilisateurManager.update(utilisateur);
+			System.out.println(utilisateur.toString());
+		} catch (NumberFormatException | BusinessException e) {
+			e.printStackTrace();
+			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+		}
+		
+			
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
 		rd.forward(request, response);
 	}

@@ -34,7 +34,7 @@
 	
 	<main>
 			<h2>Mon profil</h2>
-            <form>                   
+            <form action ="" method="post">                   
                     <label for="pseudo">Pseudo :</label><br>
                         <input type="text" id="pseudo" name="pseudo" value="<%=pseudo %>" autofocus required /><br>
                     <label for="nom">Nom :</label><br>
