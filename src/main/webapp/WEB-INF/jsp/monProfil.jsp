@@ -63,7 +63,7 @@
 
 		</div>
 		<div>
-			<button onclick="window.location.href = 'https://fr.w3docs.com/';">Modifier</button>
+			<input type="button" onclick="window.location.href = 'https://www.w3docs.com/';" value="Modifier"/>
 		</div>
 	</header>
 </body>

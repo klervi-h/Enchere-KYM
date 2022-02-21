@@ -14,34 +14,36 @@ import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Utilisateur;
 
 /**
- * Servlet implementation class ProfilVendeur
+ * Servlet implementation class MonProfilModification
  */
-@WebServlet("/ProfilVendeur")
-public class ProfilVendeur extends HttpServlet {
+@WebServlet("/MonProfilModification")
+public class MonProfilModification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	//ajout d'un utilisateur pour test d'affichage
-	//private Utilisateur profilTest = new Utilisateur("paf","MARTIN","Bernard","aze@ty.com",0101010101,"rue A",101000,"NANTES","password");
-
-	//utilisateur de la bdd
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
-	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MonProfilModification() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/profilVendeur.jsp");
-		
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
 		
 		try {
-			profilTest = uM.afficherParId(4);
-		} catch (BusinessException e) {
+			profilTest = uM.afficherParId(3);
+		} catch (BusinessException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-	
-	
+		
 		String pseudoUtilisateur = profilTest.getPseudo();
 		String nomUtilisateur = profilTest.getNom();
 		String prenomUtilisateur = profilTest.getPrenom();
@@ -50,6 +52,7 @@ public class ProfilVendeur extends HttpServlet {
 		String rueUtilisateur = profilTest.getAdresse().getRue();
 		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
 		String villeUtilisateur = profilTest.getAdresse().getVille();
+		int creditUtilisateur = profilTest.getCredit();
 
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
 		request.setAttribute("nomUtil", nomUtilisateur);
@@ -59,16 +62,17 @@ public class ProfilVendeur extends HttpServlet {
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
+		request.setAttribute("creditUtil", creditUtilisateur);
 		
 		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/profilVendeur.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
 		rd.forward(request, response);
 	}
 
