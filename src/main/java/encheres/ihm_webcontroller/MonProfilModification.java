@@ -25,6 +25,7 @@ public class MonProfilModification extends HttpServlet {
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
+	
 
 
 	/**
@@ -74,7 +75,24 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-			
+			//TODO boucle if pour vérification validation et refus des mpd
+			String oldPassword = request.getParameter("oldPassword");
+			String password = request.getParameter("password");
+			String newPassword = request.getParameter("newPassword");
+			String confirmationPassword = request.getParameter("fld-repeat-password");
+
+			if (password.equals(oldPassword)) {
+
+				if (newPassword!=null) {
+					if (!newPassword.equals(confirmationPassword)) {
+						newPwValide=false;
+					}
+					else if (newPassword.equals(confirmationPassword)) {
+						newPwValide=true;
+					}
+				}
+			}
+
 			
 			Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
@@ -101,5 +119,6 @@ public class MonProfilModification extends HttpServlet {
 		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
 		rd.forward(request, response);*/
 	}
-
+	
+		
 }
