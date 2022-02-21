@@ -26,7 +26,6 @@ public class MonProfilModification extends HttpServlet {
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
 	
-	Password password = new Password();
 
 
 	/**
@@ -76,19 +75,23 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-<<<<<<< HEAD
-			if (password==0) {
-				//password invalid
-				response.sendRedirect("");
-			}	
-			else {
-				//password valid
-				if (password.equals(passwordValide)) {
+			String oldPassword = request.getParameter("oldPassword");
+			String password = request.getParameter("password");
+			String newPassword = request.getParameter("newPassword");
+			String confirmationPassword = request.getParameter("fld-repeat-password");
+
+			if (password.equals(oldPassword)) {
+
+				if (newPassword!=null) {
+					if (!newPassword.equals(confirmationPassword)) {
+						newPwValide=false;
+					}
+					else if (newPassword.equals(confirmationPassword)) {
+						newPwValide=true;
+					}
 				}
 			}
-=======
-			
->>>>>>> branch 'main' of https://github.com/klervi-h/Enchere-KYM
+
 			
 			Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
