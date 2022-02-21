@@ -47,16 +47,16 @@
                     <label for="telephone">Téléphone :</label><br>
                          <input type="tel" id="telephone" name ="telephone" pattern="[0-9]{10}" value="<%=telephone %>"required/><br>
                     <label for="rue">Rue :</label><br>
-                         <input type="text" id="rue"  name ="codePostal" pattern="[0-9]{5}" value="<%=rue %>"required/><br>
+                         <input type="text" id="rue" name="rue" value="<%=rue %>"required/><br>
                      <label for="codePostal">Code Postal :</label><br>
-                         <input type="tel" id="codePostal" value="<%=codePostal %>"required/><br>
+                         <input type="tel" id="codePostal" name ="codePostal" pattern="[0-9]{5}" value="<%=codePostal %>"required/><br>
                      <label for="ville">Ville :</label><br>
-                         <input type="text" id="ville" value="<%=ville %>"required/><br>                  
+                         <input type="text" id="ville" name="ville" value="<%=ville %>"required/><br>                  
                                       
                     <label for="password">Mot de Passe :</label><br>
                          <input type="password" id="password" required/><br> 
                     <label for="newPassword">Nouveau mot de passe :</label><br>
-                         <input type="password" id="newPassword" required/><br>
+                         <input type="password" id="newPassword" name="newPassword" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
                          <input type="password" id="fld-repeat-password" required/><br>
                     <table><tr><td>Crédit :</td><td><%=credit %></td></tr></table>
