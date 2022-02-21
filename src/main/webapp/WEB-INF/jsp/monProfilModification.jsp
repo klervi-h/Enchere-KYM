@@ -24,6 +24,7 @@
     String rue = (String) request.getAttribute("rueUtil");
     int codePostal = (int) request.getAttribute("codePostaleUtil");
     String ville = (String) request.getAttribute("villeUtil");
+    String motDePasse = (String) request.getAttribute("password");
     int credit = (int) request.getAttribute("creditUtil");
     %>
 	<header>
@@ -36,23 +37,24 @@
 			<h2>Mon profil</h2>
             <form action ="" method="post">                   
                     <label for="pseudo">Pseudo :</label><br>
-                        <input type="text" id="pseudo" name="pseudo" value="<%=pseudo %>" autofocus required /><br>
+                        <input type="text" id="pseudo" name="pseudo" value="<%=pseudo %>" required /><br>
                     <label for="nom">Nom :</label><br>
-                        <input type="text" id="nom" name="nom" value="<%=nom %>" autofocus required/><br>
+                        <input type="text" id="nom" name="nom" value="<%=nom %>" required/><br>
                     <label for="prenom">Prénom :</label><br>
                         <input type="text" id="prenom" name="prenom" value="<%=prenom %>" required/><br>
                     <label for="email">Email :</label><br>
                          <input type="email" id="email" value="<%=email %>"required/><br>
                     <label for="telephone">Téléphone :</label><br>
-                         <input type="tel" id="telephone" value="<%=telephone %>"/><br>
+                         <input type="tel" id="telephone" name ="telephone" pattern="[0-9]{10}" value="<%=telephone %>"required/><br>
                     <label for="rue">Rue :</label><br>
-                         <input type="text" id="rue" value="<%=rue %>"/><br>
+                         <input type="text" id="rue"  name ="codePostal" pattern="[0-9]{5}" value="<%=rue %>"required/><br>
                      <label for="codePostal">Code Postal :</label><br>
-                         <input type="text" id="codePostal" value="<%=codePostal %>"/><br>
+                         <input type="tel" id="codePostal" value="<%=codePostal %>"required/><br>
                      <label for="ville">Ville :</label><br>
-                         <input type="text" id="ville" value="<%=ville %>"/><br>                  
+                         <input type="text" id="ville" value="<%=ville %>"required/><br>                  
+                                      
                     <label for="password">Mot de Passe :</label><br>
-                         <input type="password" id="password" required/><br>
+                         <input type="password" id="password" required/><br> 
                     <label for="newPassword">Nouveau mot de passe :</label><br>
                          <input type="password" id="newPassword" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
