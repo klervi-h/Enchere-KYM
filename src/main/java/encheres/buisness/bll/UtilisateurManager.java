@@ -1,5 +1,6 @@
 package encheres.buisness.bll;
 
+
 import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.DAOFactory;
@@ -26,5 +27,19 @@ public class UtilisateurManager {
 			e.printStackTrace();
 		}
 		return utilisateur;
+	}
+	
+	public void ajouter(Utilisateur utilisateur) throws BusinessException
+	{
+		BusinessException exception = new BusinessException();
+		
+		
+		
+		try {
+			this.utilisateurDAO.insert(utilisateur);
+		} catch (DALException e) {
+			
+			e.printStackTrace();
+		}
 	}
 }

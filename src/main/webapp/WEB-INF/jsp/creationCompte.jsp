@@ -34,6 +34,8 @@
                          <input type="email" id="email" placeholder="email"required/><br>
                     <label for="telephone">Téléphone :</label><br>
                          <input type="tel" id="telephone" placeholder="numéro de téléphone"/><br>
+                     <label for="rue">Rue :</label><br>
+                         <input type="text" id="rue" placeholder="rue"/><br>    
                      <label for="codePostal">Code Postal :</label><br>
                          <input type="text" id="codePostal" placeholder="code postal"/><br>
                      <label for="ville">Ville :</label><br>
@@ -44,8 +46,9 @@
                          <input type="password" id="fld-repeat-password" required/><br>
                     
                     <div id="validation">
-                    	<input type="submit" name="boutonCréer" value="Créer" title="Créer"/>
-                        <input type="reset" name="boutonAnnuler" value="Annuler" title="Annuler" />
+                    	<button type="submit" id="creerUtilisateur">Créer</button>
+						<button type="button" id="annulerNewVente">Annuler</button>	
+                    	
                     </div>
             </form>
 	</main>
