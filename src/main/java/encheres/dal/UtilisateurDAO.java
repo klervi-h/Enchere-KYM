@@ -3,6 +3,8 @@ package encheres.dal;
 import encheres.buisness.bo.Utilisateur;
 
  public interface UtilisateurDAO {
+	public void update(Utilisateur utilisateur) throws DALException;
+	 
 	public Utilisateur selectById(int id) throws DALException;
 	/*public List<Article> selectAll() throws DALException;
 	public List<Article> selectByMarque(String marque) throws DALException;

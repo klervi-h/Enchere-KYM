@@ -29,6 +29,21 @@ public class UtilisateurManager {
 		return utilisateur;
 	}
 	
+	public void update(Utilisateur utilisateur) throws BusinessException
+	{
+		
+		BusinessException exception = new BusinessException();
+
+		try {
+			this.utilisateurDAO.update(utilisateur);
+		} catch (DALException e) 
+		{
+
+			e.printStackTrace();
+		}
+	}
+	
+
 	public void ajouter(Utilisateur utilisateur) throws BusinessException
 	{
 		BusinessException exception = new BusinessException();
