@@ -31,12 +31,12 @@ public class TestPoolConnection extends HttpServlet {
 		try {
 			Context context = new InitialContext();
 			//Recherche sde la datasource
-			DataSource dataSource = (DataSource) context.lookup("jdbc/pool_cnx");
-			//Demande une connection : methode getConnection ; en attentente tant qu'il n'y a pas de co dispo
+			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/pool_cnx");
+			//Demande une connection / la methode getConnection met la demande en attentente tant qu'il n'y a pas de connexions dispo dans le pool
 			Connection cnx = dataSource.getConnection();
-			out.print("la co est : "+ (cnx.isClosed()? "fermé":"ouverte"));
-			//Liberer la co lorsqu'ion en a plus besoin
-			cnx.close(); //la co est remise dans le pull
+			out.print("la connexion est : "+ (cnx.isClosed()? "fermé":"ouverte"));
+			//Liberer la co lorsque l'on en a plus besoin
+			cnx.close(); //la connexion n'est pas fermée mais remise dans le pool
 			
 			
 			
