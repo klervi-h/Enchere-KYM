@@ -23,13 +23,7 @@ public class MonProfilModification extends HttpServlet {
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MonProfilModification() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -84,7 +78,7 @@ public class MonProfilModification extends HttpServlet {
 					request.getParameter("rue"),
 					Integer.parseInt(request.getParameter("codePostal")),
 					request.getParameter("ville"),
-					request.getParameter("password")
+					request.getParameter("newPassword")
 					);
 			
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
@@ -95,9 +89,10 @@ public class MonProfilModification extends HttpServlet {
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
 		}
 		
+		doGet(request, response);
 			
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-		rd.forward(request, response);
+		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
+		rd.forward(request, response);*/
 	}
 
 }
