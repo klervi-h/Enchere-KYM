@@ -75,6 +75,7 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
+			//TODO boucle if pour vérification validation et refus des mpd
 			String oldPassword = request.getParameter("oldPassword");
 			String password = request.getParameter("password");
 			String newPassword = request.getParameter("newPassword");
