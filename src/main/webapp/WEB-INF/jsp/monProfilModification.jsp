@@ -26,6 +26,11 @@
     String ville = (String) request.getAttribute("villeUtil");
     String motDePasse = (String) request.getAttribute("password");
     int credit = (int) request.getAttribute("creditUtil");
+    boolean passwordValide = (boolean) request.getAttribute("passworValide");
+    boolean confirmationPasswordValide = (boolean) request.getAttribute("confirmationPasswordValide");
+    
+    String messageMDP = passwordValide? "Mot de passe :":"Mot de passe invalide, veuilliez saisir le bon mot de passe :";
+    String messageNewMDP = confirmationPasswordValide? "Nouveau mot de passe : ":"Les Mots de passe ne correspondent pas :";
     %>
 	<header>
 		<nav id="nav-menu-container">
@@ -53,16 +58,14 @@
                      <label for="ville">Ville :</label><br>
                          <input type="text" id="ville" name="ville" value="<%=ville %>"required/><br>                  
                                       
-                    <label for="password">Mot de Passe :</label><br>
-                         <input type="password" id="password" required/><br> 
+                    <label for="password"><%=messageMDP %></label><br>
+                         <input type="password" id="password" name="password" required/><br> 
                     <label for="newPassword">Nouveau mot de passe :</label><br>
                          <input type="password" id="newPassword" name="newPassword" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
-                         <input type="password" id="fld-repeat-password" required/><br>
+                         <input type="password" id="fld-repeat-password" name="fld-repeat-password" required/><br>
                     <table><tr><td>Crédit :</td><td><%=credit %></td></tr></table>
 
-                         
-                    
                     <div id="validation">
                     	<input type="submit" name="boutonEnregistrer" value="Enregistrer" title="Enregistrer"/>
                         <input type="reset" name="boutonSupprimer" value="Supprimer mon compte" title="Supprimer" />

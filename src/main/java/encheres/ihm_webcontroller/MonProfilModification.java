@@ -19,7 +19,9 @@ import encheres.buisness.bo.Utilisateur;
 @WebServlet("/MonProfilModification")
 public class MonProfilModification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private boolean pwValide;
+    private boolean newPwValide;
+	
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
@@ -30,7 +32,7 @@ public class MonProfilModification extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-		
+				
 		try {
 			profilTest = uM.afficherParId(3);
 		} catch (BusinessException e1) {
@@ -59,6 +61,8 @@ public class MonProfilModification extends HttpServlet {
 		request.setAttribute("villeUtil", villeUtilisateur);
 		request.setAttribute("password", passwordUtilisateur);
 		request.setAttribute("creditUtil", creditUtilisateur);
+		request.setAttribute("passworValide", pwValide);
+		request.setAttribute("confirmationPasswordValide", newPwValide);
 		
 		rd.forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -70,7 +74,8 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-					
+			
+			
 			Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
 					request.getParameter("nom"),
