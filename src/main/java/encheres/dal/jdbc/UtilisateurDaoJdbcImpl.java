@@ -10,6 +10,7 @@ import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.UtilisateurDAO;
 
+
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
