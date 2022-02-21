@@ -23,7 +23,7 @@
 	
 	<main>
 			<h2>Mon profil</h2>
-            <form>                   
+            <form action="" method="post">                   
                     <label for="pseudo">Pseudo :</label><br>
                         <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" autofocus required /><br>
                     <label for="nom">Nom :</label><br>
@@ -31,9 +31,9 @@
                     <label for="prenom">Prénom :</label><br>
                         <input type="text" id="prenom" name="prenom" placeholder="Votre prénom ?" required/><br>
                     <label for="email">Email :</label><br>
-                         <input type="email" id="email" placeholder="email"required/><br>
+                         <input type="text" id="email" placeholder="email"required/><br>
                     <label for="telephone">Téléphone :</label><br>
-                         <input type="tel" id="telephone" placeholder="numéro de téléphone"/><br>
+                         <input type="text" id="telephone" placeholder="numéro de téléphone"/><br>
                      <label for="rue">Rue :</label><br>
                          <input type="text" id="rue" placeholder="rue"/><br>    
                      <label for="codePostal">Code Postal :</label><br>
@@ -41,9 +41,9 @@
                      <label for="ville">Ville :</label><br>
                          <input type="text" id="ville" placeholder="ville"/><br>                  
                     <label for="password">Mot de Passe :</label><br>
-                         <input type="password" id="password" required/><br>
+                         <input type="text" id="password" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
-                         <input type="password" id="fld-repeat-password" required/><br>
+                         <input type="text" id="fld-repeat-password" required/><br>
                     
                     <div id="validation">
                     	<button type="submit" id="creerUtilisateur">Créer</button>
