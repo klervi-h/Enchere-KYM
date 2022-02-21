@@ -38,8 +38,7 @@ public class CreationCompte extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-					
-			Utilisateur utilisateur = new Utilisateur(
+					Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
 					request.getParameter("nom"),
 					request.getParameter("prenom"),

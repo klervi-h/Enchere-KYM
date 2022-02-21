@@ -52,6 +52,7 @@ public class MonProfilModification extends HttpServlet {
 		String rueUtilisateur = profilTest.getAdresse().getRue();
 		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
 		String villeUtilisateur = profilTest.getAdresse().getVille();
+		String passwordUtilisateur = profilTest.getMotDePasse();
 		int creditUtilisateur = profilTest.getCredit();
 
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
@@ -62,6 +63,7 @@ public class MonProfilModification extends HttpServlet {
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
+		request.setAttribute("password", passwordUtilisateur);
 		request.setAttribute("creditUtil", creditUtilisateur);
 		
 		rd.forward(request, response);
