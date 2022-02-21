@@ -23,6 +23,8 @@ public class MonProfilModification extends HttpServlet {
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
+	
+	Password password = new Password();
 
 
 	/**
@@ -68,7 +70,16 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		try {
-					
+			if (password==0) {
+				//password invalid
+				response.sendRedirect("");
+			}	
+			else {
+				//password valid
+				if (password.equals(passwordValide)) {
+				}
+			}
+			
 			Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
 					request.getParameter("nom"),
@@ -94,5 +105,6 @@ public class MonProfilModification extends HttpServlet {
 		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
 		rd.forward(request, response);*/
 	}
-
+	
+		
 }
