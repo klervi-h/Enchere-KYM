@@ -10,12 +10,14 @@ import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.UtilisateurDAO;
 
+
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) values (?,?,?,?,?,?,?,?,?)";
 	private static final String sqlUpdate = "update UTILISATEURS set pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?,credit = ? where idUtilisateur = ?";
 	
+	//PROBLEME AU NIVEAU DE L'UPDATE UTILISATEUR
 	@Override
 	public void update(Utilisateur utilisateur) throws DALException {
 		try(Connection con = JdbcTools.getConnection();

@@ -23,13 +23,7 @@ public class MonProfilModification extends HttpServlet {
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur profilTest = null;
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MonProfilModification() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -74,8 +68,33 @@ public class MonProfilModification extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-		rd.forward(request, response);
+		
+		try {
+					
+			Utilisateur utilisateur = new Utilisateur(
+					request.getParameter("pseudo"),
+					request.getParameter("nom"),
+					request.getParameter("prenom"),
+					request.getParameter("email"),
+					Integer.parseInt(request.getParameter("telephone")),
+					request.getParameter("rue"),
+					Integer.parseInt(request.getParameter("codePostal")),
+					request.getParameter("ville"),
+					request.getParameter("newPassword")
+					);
+			
+			UtilisateurManager utilisateurManager = new UtilisateurManager();
+			utilisateurManager.update(utilisateur);
+			System.out.println(utilisateur.toString());
+		} catch (NumberFormatException | BusinessException e) {
+			e.printStackTrace();
+			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+		}
+		
+		doGet(request, response);
+			
+		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
+		rd.forward(request, response);*/
 	}
 
 }
