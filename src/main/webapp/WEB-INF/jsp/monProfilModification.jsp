@@ -80,7 +80,7 @@
 
 			<p>
 				<label for="password">*Ancient mot de passe :</label> <input
-					type="password" id="password" name="password" required />
+					type="password" id="password" name="mdp" required />
 			</p>
 			<p>
 				<label for="newPassword">Nouveau mot de passe :</label> <input

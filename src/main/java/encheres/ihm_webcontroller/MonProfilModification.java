@@ -22,20 +22,19 @@ public class MonProfilModification extends HttpServlet {
 
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
-	Utilisateur profilTest = null; //new Utilisateur(3,"chuky","Walker","Ranger","chuck@norris.com", "0123456789", "rue du Ranch", 28000, "Texas", "mdp", 4);
+	Utilisateur profilTest =/* null;*/new Utilisateur(3,"chuky","Walker","Ranger","chuck@norris.com", "0123456789", "rue du Ranch", 28000, "Texas", "mdp", 4);
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-
-		try {
+/*	try {
 			profilTest = uM.afficherParId(3);
 		} catch (BusinessException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 
 		String pseudoUtilisateur = profilTest.getPseudo();
 		String nomUtilisateur = profilTest.getNom();
@@ -69,8 +68,8 @@ public class MonProfilModification extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Utilisateur utilisateur=null;
-		try {		
-			String Password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("password");
+		//try {		
+			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
 			utilisateur = new Utilisateur(
 					Integer.parseInt (request.getParameter("noUtil")),
 					request.getParameter("pseudo"),
@@ -81,18 +80,18 @@ public class MonProfilModification extends HttpServlet {
 					request.getParameter("rue"),
 					Integer.parseInt(request.getParameter("codePostal")),
 					request.getParameter("ville"),
-					Password,
+					password,
 					Integer.parseInt(request.getParameter("credit"))
 					);
-			UtilisateurManager utilisateurManager = new UtilisateurManager();
-			utilisateurManager.update(utilisateur);
+		//	UtilisateurManager utilisateurManager = new UtilisateurManager();
+		//	utilisateurManager.update(utilisateur);
 			//verif en console
 			System.out.println(utilisateur.toString());
 
-		} catch (NumberFormatException | BusinessException e) {
-			e.printStackTrace();
-			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
-		}
+	//	} catch (NumberFormatException | BusinessException e) {
+	//		e.printStackTrace();
+	//		System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+	//	}
 		
 		//envoi sur la jsp Mon profil
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
