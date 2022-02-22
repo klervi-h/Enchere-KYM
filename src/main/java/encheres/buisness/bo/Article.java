@@ -39,6 +39,20 @@ public class Article {
 		this.noUtilisateur = noUtil;
 	}
 
+	public Article (int noArt, String nomArt, String description, int noCat, 
+			int prixVente, int prixInit, Date fin, 
+			String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) {
+		
+		this.noArticle=noArt;
+		this.nomArticle = nomArt;
+		this.description = description;
+		this.noCategorie = noCat;
+		this.prixVente = prixVente;
+		this.prixInitial = prixInit;
+		this.dateFin = fin;
+		this.adresseRetrait = new Retrait(rueRetrait, codePostaleRetrait, villeRetrait);
+		this.noUtilisateur = noUtil;		
+	}
 	
 
 	@Override
