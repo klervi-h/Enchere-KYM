@@ -48,10 +48,10 @@ public class DetailVente extends HttpServlet {
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
 		Date dateFinArticle = articleTest.getDateFin();
-		/*String rueUtilisateur = articleTest.getAdresseRetrait().getRueRetrait();
-		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostaleRetrait();
-		String villeUtilisateur = articleTest.getAdresseRetrait().getVilleRetrait();
-		int noUtilArticle = articleTest.getNoUtilisateur();*/
+		String rueUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getRue();
+		int codePostalUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getCodePostale();
+		String villeUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getVille();
+		int noUtilArticle = articleTest.getNoUtilisateur();
 
 		request.setAttribute("nArticle", noArticle);
 		request.setAttribute("nomArticle", nomArticle);
@@ -60,10 +60,10 @@ public class DetailVente extends HttpServlet {
 		request.setAttribute("prixArticle", prixArticle);
 		request.setAttribute("prixInitial", prixInitArticle);
 		request.setAttribute("dateFin", dateFinArticle);
-		/*request.setAttribute("rueUtil", rueUtilisateur);
+		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
-		request.setAttribute("noUtilisateur", noUtilArticle);*/
+		request.setAttribute("noUtilisateur", noUtilArticle);
 
 		rd.forward(request, response);
 	}
