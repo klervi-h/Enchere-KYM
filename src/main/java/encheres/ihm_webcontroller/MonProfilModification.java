@@ -19,14 +19,10 @@ import encheres.buisness.bo.Utilisateur;
 @WebServlet("/MonProfilModification")
 public class MonProfilModification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private boolean pwValide;
-	private boolean newPwValide;
 
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
-	Utilisateur profilTest = null;
-
-
+	Utilisateur profilTest = null; //new Utilisateur(3,"chuky","Walker","Ranger","chuck@norris.com", "0123456789", "rue du Ranch", 28000, "Texas", "mdp", 4);
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -62,8 +58,6 @@ public class MonProfilModification extends HttpServlet {
 		request.setAttribute("villeUtil", villeUtilisateur);
 		request.setAttribute("password", passwordUtilisateur);
 		request.setAttribute("creditUtil", creditUtilisateur);
-		request.setAttribute("passworValide", pwValide);
-		request.setAttribute("confirmationPasswordValide", newPwValide);
 		request.setAttribute("noUtil",3);
 
 		rd.forward(request, response);
@@ -74,54 +68,54 @@ public class MonProfilModification extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		try {
-			//TODO corriger erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil
-			//TODO regler enregistrement saisies util dans bdd 
-		/*	String oldPassword = request.getParameter("oldPassword");
-			String password = request.getParameter("password");
-			String newPassword = request.getParameter("newPassword");
-			String confirmationPassword = request.getParameter("fld-repeat-password");
-
-			if (!password.equals(oldPassword)) {
-				pwValide=false;}
-
-			if (newPassword!=null && confirmationPassword!=null) {
-				if (!newPassword.equals(confirmationPassword)) {
-					newPwValide=false;
-				}
-			}
-
-			if(pwValide && newPwValide) {*/
-				Utilisateur utilisateur = new Utilisateur(
-						Integer.parseInt (request.getParameter("noUtil")),
-						request.getParameter("pseudo"),
-						request.getParameter("nom"),
-						request.getParameter("prenom"),
-						request.getParameter("email"),
-						request.getParameter("telephone"),
-						request.getParameter("rue"),
-						Integer.parseInt(request.getParameter("codePostal")),
-						request.getParameter("ville"),
-						request.getParameter("newPassword"),
-						0
-						);
-
-				UtilisateurManager utilisateurManager = new UtilisateurManager();
-				utilisateurManager.update(utilisateur);
-				System.out.println(utilisateur.toString());
-				/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
-				rd.forward(request, response);*/
-			//}
+		Utilisateur utilisateur=null;
+		try {		
+			String Password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("password");
+			utilisateur = new Utilisateur(
+					Integer.parseInt (request.getParameter("noUtil")),
+					request.getParameter("pseudo"),
+					request.getParameter("nom"),
+					request.getParameter("prenom"),
+					request.getParameter("email"),
+					request.getParameter("telephone"),
+					request.getParameter("rue"),
+					Integer.parseInt(request.getParameter("codePostal")),
+					request.getParameter("ville"),
+					Password,
+					Integer.parseInt(request.getParameter("credit"))
+					);
+			UtilisateurManager utilisateurManager = new UtilisateurManager();
+			utilisateurManager.update(utilisateur);
+			//verif en console
+			System.out.println(utilisateur.toString());
 
 		} catch (NumberFormatException | BusinessException e) {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
 		}
-		doGet(request, response);
-		//RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-		//rd.forward(request, response);
-	
+		
+		//envoi sur la jsp Mon profil
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
+		String pseudoUtilisateur = utilisateur.getPseudo();
+		String nomUtilisateur = utilisateur.getNom();
+		String prenomUtilisateur = utilisateur.getPrenom();
+		String emailUtilisateur = utilisateur.getEmail();
+		String telephoneUtilisateur = utilisateur.getTelephone();
+		String rueUtilisateur = utilisateur.getAdresse().getRue();
+		int codePostalUtilisateur = utilisateur.getAdresse().getCodePostale();
+		String villeUtilisateur = utilisateur.getAdresse().getVille();
+
+		request.setAttribute("pseudonyme", pseudoUtilisateur);
+		request.setAttribute("nomUtil", nomUtilisateur);
+		request.setAttribute("prenomUtil", prenomUtilisateur);
+		request.setAttribute("emailUtil", emailUtilisateur);
+		request.setAttribute("telephoneUtil", telephoneUtilisateur);
+		request.setAttribute("rueUtil", rueUtilisateur);
+		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
+		request.setAttribute("villeUtil", villeUtilisateur);
+
+		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 }
