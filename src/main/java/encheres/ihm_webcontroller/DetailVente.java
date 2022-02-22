@@ -30,7 +30,6 @@ public class DetailVente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		rd.forward(request, response);
 		
 		try {
 			articleTest = aM.afficherParId(3);
@@ -69,6 +68,12 @@ public class DetailVente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*Article article = null;
+		
+		article = new Article(
+				Integer.parseInt(request.getParameter("maProposition"))
+				);*/
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		rd.forward(request, response);
 	}

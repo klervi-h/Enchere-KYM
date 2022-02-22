@@ -1,10 +1,14 @@
 package encheres.dal;
 
+import encheres.buisness.bo.Adresse;
 import encheres.buisness.bo.Article;
 
  public interface ArticleDAO {
 	public Article selectById(int id) throws DALException;
 	public void insert(Article article) throws DALException;
+	public void insertAdresseRetrait(Adresse adresseRetrait, int noArticle) throws DALException;
+		
+	}
 	
 	/*public List<Article> selectAll() throws DALException;
 	public List<Article> selectByMarque(String marque) throws DALException;
@@ -14,4 +18,4 @@ import encheres.buisness.bo.Article;
 	public void delete(Integer idArt) throws DALException;*/
 
 	
-}
+

@@ -72,7 +72,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Retrait :</td>
-				<td><%=rue %><%=codePostal %><%=ville %></td>
+				<td><%=rue%><%=codePostal%><%=ville%></td>
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
