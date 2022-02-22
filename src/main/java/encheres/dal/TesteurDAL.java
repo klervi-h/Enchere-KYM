@@ -13,14 +13,18 @@ public class TesteurDAL {
 		Utilisateur u = utilisateurDAO.selectById(3);
 		System.out.println(u.toString());
 		
-		ArticleDAO articleDAO = DAOFactory.getArticleDao();
+		Utilisateur u2 = new Utilisateur(u.getNoUtilisateur(),u.getPseudo(),u.getNom(),u.getPrenom(),u.getEmail(),1234567890,u.getAdresse().getRue(),u.getAdresse().getCodePostale(),u.getAdresse().getVille(),u.getMotDePasse(),30);
+		
+		utilisateurDAO.update(u2);
+		
+		/*ArticleDAO articleDAO = DAOFactory.getArticleDao();
 		System.out.println("recuperation d'un article... ");
 		try {
 			Article a = articleDAO.selectById(5);
 		System.out.println(a.toString());
 	} catch (DALException e) {
 		e.printStackTrace();
-	}	
+	}*/	
 	}
 
 }
