@@ -13,7 +13,7 @@
     String nom = (String) request.getAttribute("nomUtil");
     String prenom = (String) request.getAttribute("prenomUtil");
     String email = (String) request.getAttribute("emailUtil");
-    int telephone = (int) request.getAttribute("telephoneUtil");
+    String telephone = (String) request.getAttribute("telephoneUtil");
     String rue = (String) request.getAttribute("rueUtil");
     int codePostal = (int) request.getAttribute("codePostaleUtil");
     String ville = (String) request.getAttribute("villeUtil");
@@ -63,7 +63,7 @@
 
 		</div>
 		<div>
-			<input type="button" onclick="window.location.href = 'https://www.w3docs.com/';" value="Modifier"/>
+			<a href="/Enchere-KYM/MonProfilModification">MODIFIER</a>
 		</div>
 	</header>
 </body>
