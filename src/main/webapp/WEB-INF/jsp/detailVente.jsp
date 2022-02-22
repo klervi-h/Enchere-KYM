@@ -20,18 +20,18 @@
 
 <body>
 	<%
-	String nArticle = (String) request.getAttribute("nArticle");
+	int nArticle = (int) request.getAttribute("nArticle");
 	String nomArticle = (String) request.getAttribute("nomArticle");
-    String description = (String) request.getAttribute("description");
-    int categorie = (int) request.getAttribute("categorie");
-    int prix = (int) request.getAttribute("prixArticle");
-    int prixInit = (int) request.getAttribute("prixInitial");
-    String dateFin = (String) request.getAttribute("dateFin");
-    String rue = (String) request.getAttribute("rueUtil");
-    int codePostal = (int) request.getAttribute("codePostaleUtil");
-    String ville = (String) request.getAttribute("villeUtil");
-    int noUtil = (int) request.getAttribute("noUtilisateur");
-    %>
+	String description = (String) request.getAttribute("description");
+	int categorie = (int) request.getAttribute("categorie");
+	int prix = (int) request.getAttribute("prixArticle");
+	int prixInit = (int) request.getAttribute("prixInitial");
+	String dateFin = (String) request.getAttribute("dateFin");
+	String rue = (String) request.getAttribute("rueUtil");
+	int codePostal = (int) request.getAttribute("codePostaleUtil");
+	String ville = (String) request.getAttribute("villeUtil");
+	int noUtil = (int) request.getAttribute("noUtilisateur");
+	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
 because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
@@ -48,27 +48,27 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
-		<p><%=nArticle%><%=nomArticle %></p>
+		<p><%=nomArticle%></p>
 		<table>
 			<tr>
 				<td>Description :</td>
-				<td><%=description %></td>
+				<td><%=description%></td>
 			</tr>
 			<tr>
 				<td>Catégorie :</td>
-				<td><%=categorie %></td>
+				<td><%=categorie%></td>
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td><%=prix %></td>
+				<td><%=prix%></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
-				<td><%=prixInit %></td>
+				<td><%=prixInit%></td>
 			</tr>
 			<tr>
 				<td>Fin de l'enchère:</td>
-				<td><%=dateFin %></td>
+				<td><%=dateFin%></td>
 			</tr>
 			<tr>
 				<td>Retrait :</td>
@@ -76,15 +76,16 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
-				<td><%=noUtil %></td>
+				<td><%=noUtil%></td>
 			</tr>
 		</table>
+		<form action="" method="post">
+			<label for="newPrixVente">Ma proposition: </label> <input
+				type="number" id="newPrixVente" name="newPrixVente" min="1"
+				max="1000" value="<%=prix + 1%>" /> <input type="submit"
+				value="Enchérir" /> <input type="text" name="numeroArticle" value="<%=nArticle%>" hidden="true">
+		</form>
 
-		<label for="prixInit">Ma proposition: </label> <input type="number"
-			id="prixInit" name="prixInit" min="1" max="1000" /> <input
-			type="button"
-			onclick="window.location.href = 'https://www.w3docs.com/';"
-			value="Enchérir" />
 	</main>
 
 </body>

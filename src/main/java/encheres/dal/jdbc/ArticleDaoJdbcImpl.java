@@ -15,18 +15,19 @@ import encheres.dal.DALException;
 public class ArticleDaoJdbcImpl implements ArticleDAO {
 
 	private static final String sqlSelectById ="select * from ARTICLES_VENDUS where no_article = ?";
+	private static final String sqlSelectByIdAdresseArt = " select * from RETRAITS where no_article = ?";
 	private static final String sqlInsertArticles ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
 	private static final String sqlInsertRetraits ="insert into RETRAITS (no_article, rue, code_postal, ville)values(?,?,?,?)";
 
 	@Override
 	public Article selectById(int id) throws DALException {
 		Article art = null;
+		Adresse adr = null;
 		try (Connection con = JdbcTools.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sqlSelectById);)
 		{
 			stmt.setInt(1,id);
 			ResultSet rs = stmt.executeQuery();
-
 			if(rs.next()) {
 				art = new Article(rs.getInt("no_article"),
 						rs.getString("nom_article"),
@@ -43,6 +44,25 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 		} catch (SQLException e) {
 			throw new DALException("selcetById failde - id = "+ id, e);			
 		}
+			
+			try (Connection con = JdbcTools.getConnection();
+					PreparedStatement stmt = con.prepareStatement(sqlSelectByIdAdresseArt);)
+			{
+				stmt.setInt(1,id);
+				ResultSet rs = stmt.executeQuery();
+				if(rs.next()) {
+					adr = new Adresse(
+							rs.getString("rue"),
+							Integer.parseInt(rs.getString("code_postal")),
+							rs.getString("ville")
+							);
+					System.out.println(rs.getString(2));
+				}
+			} catch (SQLException e) {
+				throw new DALException("selcetById failde - id = "+ id, e);			
+			}
+		
+			art.setAdresseRetrait(adr);
 		return art;
 	}
 
