@@ -49,7 +49,6 @@ private ArticleDAO articleDAO;
 		
 		try {
 			this.articleDAO.insert(article);
-			this.articleDAO.insertAdresseRetrait(article.getAdresseRetrait(), article.getNoArticle());
 		} catch (DALException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
