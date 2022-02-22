@@ -20,11 +20,17 @@
 
 <body>
 	<%
+	String nArticle = (String) request.getAttribute("nArticle");
 	String nomArticle = (String) request.getAttribute("nomArticle");
     String description = (String) request.getAttribute("description");
     int categorie = (int) request.getAttribute("categorie");
     int prix = (int) request.getAttribute("prixArticle");
-    int prixInitial = (int) request.getAttribute("prixInitial");
+    int prixInit = (int) request.getAttribute("prixInitial");
+    String dateFin = (String) request.getAttribute("dateFin");
+    String rue = (String) request.getAttribute("rueUtil");
+    int codePostal = (int) request.getAttribute("codePostaleUtil");
+    String ville = (String) request.getAttribute("villeUtil");
+    int noUtil = (int) request.getAttribute("noUtilisateur");
     %>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -42,7 +48,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
-		<p><%=nomArticle %></p>
+		<p><%=nArticle%><%=nomArticle %></p>
 		<table>
 			<tr>
 				<td>Description :</td>
@@ -58,19 +64,19 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
-				<td><%=prixInitial %></td>
+				<td><%=prixInit %></td>
 			</tr>
 			<tr>
 				<td>Fin de l'enchère:</td>
-				<td></td>
+				<td><%=dateFin %></td>
 			</tr>
 			<tr>
 				<td>Retrait :</td>
-				<td></td>
+				<td><%=rue%><%=codePostal%><%=ville%></td>
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
-				<td></td>
+				<td><%=noUtil %></td>
 			</tr>
 		</table>
 

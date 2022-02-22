@@ -15,7 +15,8 @@ import encheres.dal.DALException;
 public class ArticleDaoJdbcImpl implements ArticleDAO {
 
 	private static final String sqlSelectById ="select * from ARTICLES_VENDUS where no_article = ?";
-	private static final String sqlInsert ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
+	private static final String sqlInsertArticles ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
+	private static final String sqlInsertRetraits ="insert into RETRAITS (no_article, rue, code_postal, ville)values(?,?,?,?)";
 
 	@Override
 	public Article selectById(int id) throws DALException {
@@ -38,18 +39,18 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 						rs.getInt("no_categorie")
 						);
 				System.out.println(rs.getString(2));
-						}
+			}
 		} catch (SQLException e) {
 			throw new DALException("selcetById failde - id = "+ id, e);			
 		}
 		return art;
-}
+	}
 
 	@Override
 	public void insert(Article article) throws DALException {
 
 		try(Connection con = JdbcTools.getConnection();
-				PreparedStatement stmt = con.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);){
+				PreparedStatement stmt = con.prepareStatement(sqlInsertArticles, Statement.RETURN_GENERATED_KEYS);){
 			stmt.setString(1, article.getNomArticle());
 			stmt.setString(2, article.getDescription());
 			stmt.setDate(3, (Date) article.getDateDebut());
@@ -57,20 +58,34 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 			stmt.setInt(5, article.getPrixInitial());
 			stmt.setInt(6, article.getNoUtilisateur());
 			stmt.setInt(7, article.getNoCategorie());
-						
+
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {
 				ResultSet rs = stmt.getGeneratedKeys();
 				if(rs.next()) {
 					article.setNoArticle(rs.getInt(1));}}
-			}
-		catch (SQLException e) {
-			throw new DALException("insert article failed - "+ article ,e);
 		}
+		catch (SQLException e) {
+			throw new DALException("insert article failed - "+ article ,e);}
+	}
+
+	@Override
+	public void insertAdresseRetrait(Adresse adresseRetrait, int noArticle) throws DALException {
+		try(Connection con = JdbcTools.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sqlInsertRetraits, Statement.RETURN_GENERATED_KEYS);){
+			stmt.setInt(1, noArticle);
+			stmt.setString(2, adresseRetrait.getRue());
+			stmt.setInt(3, adresseRetrait.getCodePostale());
+			stmt.setString(4, adresseRetrait.getVille());
+		}
+		catch (SQLException e) {
+			throw new DALException("insert retrait failed - "+ noArticle + adresseRetrait,e);
+		}
+
 	};
 
 
-/*
+	/*
 	private static final String STYLO = "stylo";
 	private static final String RAMETTE ="ramette";
 
@@ -292,5 +307,5 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 		return articles;
 	}
 
- */
+	 */
 }
