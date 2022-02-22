@@ -1,7 +1,6 @@
 package encheres.buisness.bll;
 
 import encheres.buisness.bo.Article;
-import encheres.buisness.bo.Utilisateur;
 import encheres.dal.ArticleDAO;
 import encheres.dal.DALException;
 import encheres.dal.DAOFactory;
@@ -18,7 +17,7 @@ private ArticleDAO articleDAO;
 	public ArticleManager() {
 		this.articleDAO=DAOFactory.getArticleDao();
 	}
-	//Modif MAT ajout constructeur
+
 	public Article afficherParId(int id) throws BusinessException
 	{
 		Article article = null;

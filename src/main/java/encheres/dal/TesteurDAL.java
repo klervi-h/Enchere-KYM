@@ -17,14 +17,14 @@ public class TesteurDAL {
 		
 		utilisateurDAO.update(u2);
 		
-		/*ArticleDAO articleDAO = DAOFactory.getArticleDao();
+		ArticleDAO articleDAO = DAOFactory.getArticleDao();
 		System.out.println("recuperation d'un article... ");
 		try {
-			Article a = articleDAO.selectById(5);
+			Article a = articleDAO.selectById(3);
 		System.out.println(a.toString());
 	} catch (DALException e) {
 		e.printStackTrace();
-	}*/	
+	}	
 	}
 
 }

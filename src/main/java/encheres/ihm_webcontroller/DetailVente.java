@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
-import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Article;
-import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class DetailVente
