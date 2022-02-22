@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Détail vente</title>
+<title>Vente Remportée Vendeur</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
@@ -72,7 +72,11 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td></td>
 			</tr>
 		</table>
-		<input type="submit" value="Back"/>
+		<form action="listeEnchereConnecte.jsp" name="back">
+			<input type="submit"
+				value="Back" />
+		</form>
+
 	</main>
 
 </body>
