@@ -26,7 +26,11 @@
     int prix = (int) request.getAttribute("prixArticle");
     int prixInitial = (int) request.getAttribute("prixInitial");
     %>
-
+<!-- 		request.setAttribute("dateFin", dateFinArticle);
+		request.setAttribute("rueUtil", rueUtilisateur);
+		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
+		request.setAttribute("villeUtil", villeUtilisateur);
+		request.setAttribute("noUtilisateur", noUtilArticle); -->
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
 because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
 	<header>
