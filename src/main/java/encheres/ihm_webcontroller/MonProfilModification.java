@@ -78,12 +78,12 @@ public class MonProfilModification extends HttpServlet {
 		try {
 			//TODO corriger erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil
 			//TODO regler enregistrement saisies util dans bdd 
-			String oldPassword = request.getParameter("oldPassword");
+		/*	String oldPassword = request.getParameter("oldPassword");
 			String password = request.getParameter("password");
 			String newPassword = request.getParameter("newPassword");
 			String confirmationPassword = request.getParameter("fld-repeat-password");
 
-			/*if (!password.equals(oldPassword)) {
+			if (!password.equals(oldPassword)) {
 				pwValide=false;}
 
 			if (newPassword!=null && confirmationPassword!=null) {
