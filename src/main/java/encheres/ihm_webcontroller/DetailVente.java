@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class DetailVente
@@ -85,8 +86,28 @@ public class DetailVente extends HttpServlet {
 		}
 		articleTest.setPrixVente(newPrixVente);
 		
-		articleTest = aM.
+		//TODO articleTest = aM. faire comme dans modif profil articleTest
 
+		/*try {		
+			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
+			utilisateur = new Utilisateur(
+					Integer.parseInt (request.getParameter("noUtil")),
+					request.getParameter("pseudo"),
+					request.getParameter("nom"),
+					request.getParameter("prenom"),
+					request.getParameter("email"),
+					request.getParameter("telephone"),
+					request.getParameter("rue"),
+					Integer.parseInt(request.getParameter("codePostal")),
+					request.getParameter("ville"),
+					password,
+					Integer.parseInt(request.getParameter("credit"))
+					);
+		//	UtilisateurManager utilisateurManager = new UtilisateurManager();
+		//	utilisateurManager.update(utilisateur);
+			//verif en console
+			System.out.println(utilisateur.toString());*/
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		rd.forward(request, response);
 	}
