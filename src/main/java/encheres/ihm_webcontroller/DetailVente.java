@@ -48,9 +48,9 @@ public class DetailVente extends HttpServlet {
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
 		Date dateFinArticle = articleTest.getDateFin();
-		String rueUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getRue();
-		int codePostalUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getCodePostale();
-		String villeUtilisateur = articleTest.getAdresseRetrait().getAdresseRetrait().getVille();
+		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
+		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
+		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
 		int noUtilArticle = articleTest.getNoUtilisateur();
 
 		request.setAttribute("nArticle", noArticle);
