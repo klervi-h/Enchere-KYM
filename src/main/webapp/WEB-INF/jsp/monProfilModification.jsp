@@ -20,7 +20,7 @@
     String nom = (String) request.getAttribute("nomUtil");
     String prenom = (String) request.getAttribute("prenomUtil");
     String email = (String) request.getAttribute("emailUtil");
-    int telephone = (int) request.getAttribute("telephoneUtil");
+    String telephone = (String) request.getAttribute("telephoneUtil");
     String rue = (String) request.getAttribute("rueUtil");
     int codePostal = (int) request.getAttribute("codePostaleUtil");
     String ville = (String) request.getAttribute("villeUtil");
