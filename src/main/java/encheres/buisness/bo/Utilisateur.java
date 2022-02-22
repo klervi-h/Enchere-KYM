@@ -3,15 +3,15 @@ package encheres.buisness.bo;
 public class Utilisateur {
 
 	private int noUtilisateur;
-	private String pseudo, nom, prenom, email, motDePasse;
-	private int telephone, credit;
+	private String pseudo, nom, prenom, email, motDePasse, telephone;
+	private int credit;
 	private Adresse adresse;
 
 	public Utilisateur () {
 	}
 
 	public Utilisateur (String pseudonyme, String nomUtil, String prenomUtil,
-			String emailUtil, int telephoneUtil, String rueUtil, int codePostaleUtil, String villeUtil, String modDePasseUtil) {
+			String emailUtil, String telephoneUtil, String rueUtil, int codePostaleUtil, String villeUtil, String modDePasseUtil) {
 
 		this.pseudo = pseudonyme;
 		this.nom = nomUtil;
@@ -22,7 +22,7 @@ public class Utilisateur {
 		this.adresse = new Adresse(rueUtil, codePostaleUtil, villeUtil);	
 	}
 
-	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, int telephone,
+	public Utilisateur(int noUtilisateur, String pseudo, String nom, String prenom, String email, String telephone,
 			String rue, int codePostal, String ville, String motDePasse, int credit) {
 		
 		this.noUtilisateur = noUtilisateur;
@@ -90,11 +90,11 @@ public class Utilisateur {
 		this.motDePasse = motDePasse;
 	}
 
-	public int getTelephone() {
+	public String getTelephone() {
 		return telephone;
 	}
 
-	public void setTelephone(int telephone) {
+	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
 

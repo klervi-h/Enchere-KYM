@@ -26,7 +26,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 			stmt.setString(2, utilisateur.getNom());
 			stmt.setString(3, utilisateur.getPrenom());
 			stmt.setString(4, utilisateur.getEmail());
-			stmt.setInt(5, utilisateur.getTelephone());
+			stmt.setString(5, utilisateur.getTelephone());
 			stmt.setString(6, utilisateur.getAdresse().getRue());
 			stmt.setInt(7, utilisateur.getAdresse().getCodePostale());
 			stmt.setString(8, utilisateur.getAdresse().getVille());
@@ -60,7 +60,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 						rs.getString("nom"),
 						rs.getString("prenom"),
 						rs.getString("email"),
-						rs.getInt("telephone"),
+						rs.getString("telephone"),
 						rs.getString("rue"),
 						rs.getInt("code_postal"),
 						rs.getString("ville"),
@@ -84,7 +84,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 				stmt.setString(2, utilisateur.getNom());
 				stmt.setString(3, utilisateur.getPrenom());
 				stmt.setString(4, utilisateur.getEmail());
-				stmt.setInt(5, utilisateur.getTelephone());
+				stmt.setString(5, utilisateur.getTelephone());
 				stmt.setString(6, utilisateur.getAdresse().getRue());
 				stmt.setInt(7, utilisateur.getAdresse().getCodePostale());
 				stmt.setString(8, utilisateur.getAdresse().getVille());

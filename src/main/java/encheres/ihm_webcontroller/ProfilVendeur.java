@@ -46,7 +46,7 @@ public class ProfilVendeur extends HttpServlet {
 		String nomUtilisateur = profilTest.getNom();
 		String prenomUtilisateur = profilTest.getPrenom();
 		String emailUtilisateur = profilTest.getEmail();
-		int telephoneUtilisateur = profilTest.getTelephone();
+		String telephoneUtilisateur = profilTest.getTelephone();
 		String rueUtilisateur = profilTest.getAdresse().getRue();
 		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
 		String villeUtilisateur = profilTest.getAdresse().getVille();
