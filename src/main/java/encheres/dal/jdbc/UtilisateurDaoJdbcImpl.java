@@ -33,8 +33,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 			stmt.setString(9, utilisateur.getMotDePasse());
 			stmt.setInt(10, utilisateur.getCredit());
 			stmt.setInt(11, utilisateur.getNoUtilisateur());
-			
-						
+								
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {
 				ResultSet rs = stmt.getGeneratedKeys();
@@ -44,7 +43,8 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 		catch (SQLException e) {
 			throw new DALException("insert utilisateur failed - "+ utilisateur ,e);
 		}
-	}		
+	}	
+	
 	@Override
 	public Utilisateur selectById(int id) throws DALException {
 		Utilisateur util = null;
