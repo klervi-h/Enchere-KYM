@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bll.UtilisateurManager;
@@ -22,30 +23,32 @@ public class MonProfilModification extends HttpServlet {
 
 	//ajout d'un utilisateur pour test d'affichage
 	UtilisateurManager uM = new UtilisateurManager();
-	Utilisateur profilTest =/* null;*/new Utilisateur(3,"chuky","Walker","Ranger","chuck@norris.com", "0123456789", "rue du Ranch", 28000, "Texas", "mdp", 4);
+	Utilisateur utilisateur =null;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfilModification.jsp");
-/*	try {
-			profilTest = uM.afficherParId(3);
+		HttpSession session = request.getSession();
+		int noUtil = (int) session.getAttribute("noUtil");
+		try {
+			utilisateur = uM.afficherParId(noUtil);
 		} catch (BusinessException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}*/
+		}
 
-		String pseudoUtilisateur = profilTest.getPseudo();
-		String nomUtilisateur = profilTest.getNom();
-		String prenomUtilisateur = profilTest.getPrenom();
-		String emailUtilisateur = profilTest.getEmail();
-		String telephoneUtilisateur = profilTest.getTelephone();
-		String rueUtilisateur = profilTest.getAdresse().getRue();
-		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
-		String villeUtilisateur = profilTest.getAdresse().getVille();
-		String passwordUtilisateur = profilTest.getMotDePasse();
-		int creditUtilisateur = profilTest.getCredit();
+		String pseudoUtilisateur = utilisateur.getPseudo();
+		String nomUtilisateur = utilisateur.getNom();
+		String prenomUtilisateur = utilisateur.getPrenom();
+		String emailUtilisateur = utilisateur.getEmail();
+		String telephoneUtilisateur = utilisateur.getTelephone();
+		String rueUtilisateur = utilisateur.getAdresse().getRue();
+		int codePostalUtilisateur = utilisateur.getAdresse().getCodePostale();
+		String villeUtilisateur = utilisateur.getAdresse().getVille();
+		String passwordUtilisateur = utilisateur.getMotDePasse();
+		int creditUtilisateur = utilisateur.getCredit();
 
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
 		request.setAttribute("nomUtil", nomUtilisateur);
@@ -67,11 +70,18 @@ public class MonProfilModification extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Utilisateur utilisateur=null;
-		//try {		
+		HttpSession session = request.getSession();
+		int noUtil = (int) session.getAttribute("noUtil");
+		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		int credit;
+
+		try {
+			Utilisateur utilisateur=null;
+			credit = utilisateurManager.afficherParId(noUtil).getCredit();	
 			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
+
 			utilisateur = new Utilisateur(
-					Integer.parseInt (request.getParameter("noUtil")),
+					noUtil,
 					request.getParameter("pseudo"),
 					request.getParameter("nom"),
 					request.getParameter("prenom"),
@@ -81,38 +91,19 @@ public class MonProfilModification extends HttpServlet {
 					Integer.parseInt(request.getParameter("codePostal")),
 					request.getParameter("ville"),
 					password,
-					Integer.parseInt(request.getParameter("credit"))
+					credit
 					);
-		//	UtilisateurManager utilisateurManager = new UtilisateurManager();
-		//	utilisateurManager.update(utilisateur);
+			utilisateurManager.update(utilisateur);
 			//verif en console
 			System.out.println(utilisateur.toString());
 
-	//	} catch (NumberFormatException | BusinessException e) {
-	//		e.printStackTrace();
-	//		System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
-	//	}
-		
+		} catch (NumberFormatException | BusinessException e) {
+			e.printStackTrace();
+			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+		}
+
 		//envoi sur la jsp Mon profil
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
-		String pseudoUtilisateur = utilisateur.getPseudo();
-		String nomUtilisateur = utilisateur.getNom();
-		String prenomUtilisateur = utilisateur.getPrenom();
-		String emailUtilisateur = utilisateur.getEmail();
-		String telephoneUtilisateur = utilisateur.getTelephone();
-		String rueUtilisateur = utilisateur.getAdresse().getRue();
-		int codePostalUtilisateur = utilisateur.getAdresse().getCodePostale();
-		String villeUtilisateur = utilisateur.getAdresse().getVille();
-
-		request.setAttribute("pseudonyme", pseudoUtilisateur);
-		request.setAttribute("nomUtil", nomUtilisateur);
-		request.setAttribute("prenomUtil", prenomUtilisateur);
-		request.setAttribute("emailUtil", emailUtilisateur);
-		request.setAttribute("telephoneUtil", telephoneUtilisateur);
-		request.setAttribute("rueUtil", rueUtilisateur);
-		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
-		request.setAttribute("villeUtil", villeUtilisateur);
-
 		rd.forward(request, response);
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

@@ -21,7 +21,7 @@
 <body>
 	<%
 	String pseudo = (String) request.getAttribute("pseudonyme");
-	String nom = (String) request.getAttribute("nomUtil");
+	String nom =(String) request.getAttribute("nomUtil");
 	String prenom = (String) request.getAttribute("prenomUtil");
 	String email = (String) request.getAttribute("emailUtil");
 	String telephone = (String) request.getAttribute("telephoneUtil");
@@ -41,8 +41,6 @@
 	<main>
 		<h2>Mon profil</h2>
 		<form action="" method="post">
-			<input type="text" name="noUtil" value="<%=noUtil%>" hidden="true">
-			<input type="text" name="credit" value="<%=credit%>" hidden="true">
 			<p>
 				<label for="pseudo">Pseudo :</label> <input type="text" id="pseudo"
 					name="pseudo" value="<%=pseudo%>" required />

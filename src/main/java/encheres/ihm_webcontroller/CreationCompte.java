@@ -23,8 +23,6 @@ import encheres.buisness.bo.Utilisateur;
 public class CreationCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -32,6 +30,7 @@ public class CreationCompte extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
 		rd.forward(request, response);
 	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -49,7 +48,6 @@ public class CreationCompte extends HttpServlet {
 					request.getParameter("ville"),
 					request.getParameter("password")
 					);
-			
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
 			utilisateurManager.ajouter(utilisateur);
 			System.out.println(utilisateur.toString());
@@ -57,8 +55,6 @@ public class CreationCompte extends HttpServlet {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : CreationCompte");
 		}
-		
-			
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
 		rd.forward(request, response);
 	}

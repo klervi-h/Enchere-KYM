@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bll.UtilisateurManager;
@@ -26,7 +27,7 @@ public class MonProfil extends HttpServlet {
 
 	//utilisateur de la bdd
 	UtilisateurManager uM = new UtilisateurManager();
-	Utilisateur profilTest = null;
+	Utilisateur utilisateur = null;
 	
 	
 	
@@ -34,23 +35,25 @@ public class MonProfil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		int noUtil = (int) session.getAttribute("noUtil");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
 		
 		try {
-			profilTest = uM.afficherParId(3);
+			utilisateur = uM.afficherParId(noUtil);
 		} catch (BusinessException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
-		String pseudoUtilisateur = profilTest.getPseudo();
-		String nomUtilisateur = profilTest.getNom();
-		String prenomUtilisateur = profilTest.getPrenom();
-		String emailUtilisateur = profilTest.getEmail();
-		String telephoneUtilisateur = profilTest.getTelephone();
-		String rueUtilisateur = profilTest.getAdresse().getRue();
-		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
-		String villeUtilisateur = profilTest.getAdresse().getVille();
+		String pseudoUtilisateur = utilisateur.getPseudo();
+		String nomUtilisateur = utilisateur.getNom();
+		String prenomUtilisateur = utilisateur.getPrenom();
+		String emailUtilisateur = utilisateur.getEmail();
+		String telephoneUtilisateur = utilisateur.getTelephone();
+		String rueUtilisateur = utilisateur.getAdresse().getRue();
+		int codePostalUtilisateur = utilisateur.getAdresse().getCodePostale();
+		String villeUtilisateur = utilisateur.getAdresse().getVille();
 
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
 		request.setAttribute("nomUtil", nomUtilisateur);
@@ -69,8 +72,7 @@ public class MonProfil extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
 		rd.forward(request, response);
 	}
