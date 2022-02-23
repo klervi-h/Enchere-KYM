@@ -55,6 +55,7 @@ public class DetailVenteRemportee extends HttpServlet {
 			e1.printStackTrace();
 		}
 		String telephoneUtilisateur = vendeur.getTelephone();
+		String pseudoUtilisateur = vendeur.getPseudo();
 
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
@@ -63,9 +64,9 @@ public class DetailVenteRemportee extends HttpServlet {
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
-		request.setAttribute("noVendeur", noVendeur);
 		
 		request.setAttribute("telephoneUtil", telephoneUtilisateur);
+		request.setAttribute("pseudoVendeur", pseudoUtilisateur);
 		
 		rd.forward(request, response);
 	}

@@ -27,8 +27,8 @@
 	String rue = (String) request.getAttribute("rueUtil");
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
-	int noVendeur = (int) request.getAttribute("noVendeur");
 	String telephone = (String) request.getAttribute("telephoneUtil");
+	String pseudo = (String) request.getAttribute("pseudoVendeur");
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -65,7 +65,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
-				<td><%=noVendeur%></td>
+				<td><%=pseudo%></td>
 			</tr>
 			<tr>
 				<td>Tel :</td>
