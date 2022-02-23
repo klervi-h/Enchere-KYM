@@ -25,9 +25,9 @@
 			<h2>Mon profil</h2>
             <form action="" method="post">                   
                     <label for="pseudo">Pseudo :</label><br>
-                        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" autofocus required /><br>
+                        <input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required /><br>
                     <label for="nom">Nom :</label><br>
-                        <input type="text" id="nom" name="nom" placeholder="nom" autofocus required/><br>
+                        <input type="text" id="nom" name="nom" placeholder="nom" required/><br>
                     <label for="prenom">Prénom :</label><br>
                         <input type="text" id="prenom" name="prenom" placeholder="Votre prénom ?" required/><br>
                     <label for="email">Email :</label><br>
@@ -47,7 +47,7 @@
                     
                     <div id="validation">
                     	<button type="submit" id="creerUtilisateur">Créer</button>
-						<button type="button" id="annulerNewVente">Annuler</button>	
+						<a href="Accueil" type="button" id="annulerCréation">Annuler</a>	
                    	
                     </div>
             </form>

@@ -20,17 +20,13 @@
 		<nav id="nav-menu-container">
 			<h1>ENI - Enchéres</h1>
 			<ul class="nav-menu">
-				<li class="nav-item"><a class="nav-link" data-toggle="modal"
-					data-target=".connexion" href="connection.html">Se connecter</a></li>
-				<li class="nav-item"><a class="nav-link" data-toggle="modal"
-					data-target=".inscription" href="creationCompte.html">S'inscrire</a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="Connexion">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="CreationCompte">S'inscrire</a></li>
 			</ul>
 		</nav>
 	</header>
 
 	<main>
-
 		<input type="search" id="site-search" name="q"
 		       aria-label="Search through site content">
 		<button>Rechercher</button>
