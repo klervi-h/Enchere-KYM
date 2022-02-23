@@ -8,17 +8,17 @@
 </head>
 <body>
 	<nav>
-		<a>acceuil</a>
-		<a>Vendre un article</a>
-		<a>Mon profil</a>
-		<a>Deconnection</a>		
+		<a href="">acceuil</a>
+		<a href="">Vendre un article</a>
+		<a href="">Mon profil</a>
+		<a href="">Deconnection</a>		
 	</nav>
 	<main>
 		<h1>Liste des enchères</h1>
 		<section aria-label="filtre">
 			<h2>Filtres :</h2>
 			<form action="" method="post">
-				<input type="text" aria-label="Rechercher article par mot clef" name="recherche" placeholder="Le nom de l'article contient">
+				<p><input type="text" aria-label="Rechercher article par mot clef" name="recherche" placeholder="Le nom de l'article contient">
 				<label for="categorie">Catégorie :</label> <select name="categorie"
 				id="categorie">
 				<option value="5" selected="selected">Toutes</option>
