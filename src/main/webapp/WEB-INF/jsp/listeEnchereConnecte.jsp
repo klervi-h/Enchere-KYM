@@ -53,7 +53,7 @@
 		</section>
 		<ul aria-label="Encheres">
 		<%
-		List<Article> listeEncheres = new ;
+		//List<Article> listeEncheres = new ArrayList<Article>() ;
 							
 		%>
 		
