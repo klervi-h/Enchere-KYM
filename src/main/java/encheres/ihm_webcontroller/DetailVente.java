@@ -84,6 +84,7 @@ public class DetailVente extends HttpServlet {
 		}
 		articleTest.setPrixVente(newPrixVente);
 		
+		
 		ArticleManager articleManager = new ArticleManager();
 		try {
 			articleManager.update(articleTest);
@@ -95,6 +96,7 @@ public class DetailVente extends HttpServlet {
 		System.out.println(articleTest.toString());
 		
 		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		
 		int prixArticle = articleTest.getPrixVente();
 		request.setAttribute("prixArticle", prixArticle);
