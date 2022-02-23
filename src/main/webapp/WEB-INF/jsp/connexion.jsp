@@ -27,7 +27,7 @@
 
 	<main>
 		<form action="" method="post">
-			<label for="pseudo">Identifiant :</label><br>
+			<label for="pseudo">Pseudo :</label><br>
 			<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required /><br>
 			<label for="nom">Mot de passe :</label><br> 
 			<input type="password" id="password" name="password" placeholder="mot de passe"  required /><br>
@@ -37,10 +37,10 @@
 						<!--  <input type="checkbox" id= remember name="remember"/>
 						 <label for="achat">Se souvenir de moi</label> -->
 					</div>
-				<a href="">Mot de passe oublié</a>
+				<!--<a href="">Mot de passe oublié</a>-->
 			</div>
 
-			<a href="/WEB-INF/jsp/creationCompte.js">Créer un compte</a>
+			<a href="CreationCompte">Créer un compte</a>
 
 		</form>
 
