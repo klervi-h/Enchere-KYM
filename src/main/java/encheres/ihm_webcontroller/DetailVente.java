@@ -1,7 +1,6 @@
 package encheres.ihm_webcontroller;
 
 import java.io.IOException;
-import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bo.Article;
-import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class DetailVente
@@ -33,7 +31,7 @@ public class DetailVente extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		try {
-			articleTest = aM.afficherParId(2);
+			articleTest = aM.afficherParId(1);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
@@ -86,6 +84,24 @@ public class DetailVente extends HttpServlet {
 		}
 		articleTest.setPrixVente(newPrixVente);
 		
+		ArticleManager articleManager = new ArticleManager();
+		try {
+			articleManager.update(articleTest);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//verif en console
+		System.out.println(articleTest.toString());
+		
+		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
+		
+		int prixArticle = articleTest.getPrixVente();
+		request.setAttribute("prixArticle", prixArticle);
+		
+		rd.forward(request, response);*/
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		//TODO articleTest = aM. faire comme dans modif profil articleTest
 
 		/*try {		
@@ -108,8 +124,7 @@ public class DetailVente extends HttpServlet {
 			//verif en console
 			System.out.println(utilisateur.toString());*/
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
-		rd.forward(request, response);
+		
 	}
 
 }

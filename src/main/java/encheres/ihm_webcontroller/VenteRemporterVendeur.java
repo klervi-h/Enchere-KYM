@@ -56,6 +56,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 			e1.printStackTrace();
 		}
 		String pseudoVendeur = vendeur.getPseudo();
+		
 
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
