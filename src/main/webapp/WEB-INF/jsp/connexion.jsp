@@ -27,17 +27,20 @@
 
 	<main>
 		<form action="" method="post">
-			<label for="pseudo">Identifiant :</label><br> <input type="text"
-				id="pseudo" name="pseudo" placeholder="Pseudo" autofocus required /><br>
-			<label for="nom">Mot de passe :</label><br> <input type="text"
-				id="mdp" name="mdp" placeholder="mdp" autofocus required /><br>
+			<label for="pseudo">Identifiant :</label><br>
+			<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required /><br>
+			<label for="nom">Mot de passe :</label><br> 
+			<input type="password" id="password" name="password" placeholder="mot de passe"  required /><br>
 			<div id="validation">
 				<button type="submit" id="connexion">Connexion</button>
-				<label for="achat">Se souvenir de moi</label> <input type="radio"
-					name="remember" /> <a href="">Mot de passe oublié</a>
+					<div>
+						<!--  <input type="checkbox" id= remember name="remember"/>
+						 <label for="achat">Se souvenir de moi</label> -->
+					</div>
+				<a href="">Mot de passe oublié</a>
 			</div>
 
-			<button type="button" id="creerCompte">Créer un compte</button>
+			<a href="/WEB-INF/jsp/creationCompte.js">Créer un compte</a>
 
 		</form>
 

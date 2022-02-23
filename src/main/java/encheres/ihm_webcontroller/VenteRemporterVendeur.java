@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
+import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class VenteRemporterVendeur
@@ -22,6 +24,9 @@ public class VenteRemporterVendeur extends HttpServlet {
        
 	ArticleManager aM = new ArticleManager();
 	Article articleTest = null;
+	UtilisateurManager uM = new UtilisateurManager();
+	Utilisateur vendeur = null;
+	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -39,20 +44,31 @@ public class VenteRemporterVendeur extends HttpServlet {
 		String descriptionArticle = articleTest.getDescription();
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
+		String dateFinArticle = articleTest.getDateFin().toString();
 		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
 		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
 		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
-		int noUtilArticle = articleTest.getNoUtilisateur();
+		int noVendeur = articleTest.getNoUtilisateur();
+		
+		try {
+			vendeur = uM.afficherParId(noVendeur);
+		} catch (BusinessException e1) {
+			e1.printStackTrace();
+		}
+		String pseudoVendeur = vendeur.getPseudo();
 
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
 		request.setAttribute("prixArticle", prixArticle);
 		request.setAttribute("prixInitial", prixInitArticle);
+		request.setAttribute("dateFin", dateFinArticle);
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
-		request.setAttribute("noUtilisateur", noUtilArticle);
-
+		request.setAttribute("noVendeur", noVendeur);
+		
+		request.setAttribute("pseudoVendeur", pseudoVendeur);
+		
 		rd.forward(request, response);
 	}
 
