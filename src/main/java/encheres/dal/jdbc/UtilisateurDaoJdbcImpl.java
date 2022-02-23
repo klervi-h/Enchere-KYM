@@ -10,15 +10,14 @@ import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.UtilisateurDAO;
 
-
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit) values (?,?,?,?,?,?,?,?,?,?)";
 	private static final String sqlUpdate = "update UTILISATEURS set pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?,credit = ? where no_utilisateur = ?";
 	private static final String sqlSelectByPs ="select mot_de_passe from UTILISATEURS where pseudo =?";
+	private static final String sql_ID_SELECT_BY_PSEUDO = "select no_utilisateur from UTILISATEURS where pseudo =?";
 
-	//PROBLEME AU NIVEAU DE L'UPDATE UTILISATEUR
 	@Override
 	public void update(Utilisateur utilisateur) throws DALException {
 		try(Connection con = JdbcTools.getConnection();
@@ -34,7 +33,6 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 			stmt.setString(9, utilisateur.getMotDePasse());
 			stmt.setInt(10, utilisateur.getCredit());
 			stmt.setInt(11, utilisateur.getNoUtilisateur());
-
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {
 				ResultSet rs = stmt.getGeneratedKeys();
@@ -54,7 +52,6 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 		{
 			stmt.setInt(1,id);
 			ResultSet rs = stmt.executeQuery();
-
 			if(rs.next()) {
 				util = new Utilisateur(rs.getInt("no_utilisateur"),
 						rs.getString("pseudo"),
@@ -78,7 +75,6 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {
-
 		try(Connection con = JdbcTools.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sqlInsert, Statement.RETURN_GENERATED_KEYS);){
 			stmt.setString(1, utilisateur.getPseudo());
@@ -90,6 +86,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 			stmt.setInt(7, utilisateur.getAdresse().getCodePostale());
 			stmt.setString(8, utilisateur.getAdresse().getVille());
 			stmt.setString(9, utilisateur.getMotDePasse());
+
 			stmt.setInt(10, utilisateur.getCredit());
 
 
@@ -102,35 +99,40 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 		catch (SQLException e) {
 			throw new DALException("insert utilisateur failed - "+ utilisateur ,e);
 		}
-
 	}
 
-
 	@Override
-
 	public String selectByPassword(String pseudo) throws DALException {
-
 		String password=null;
 		try (Connection con = JdbcTools.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sqlSelectByPs);)
 		{stmt.setString(1,pseudo);
 		ResultSet rs = stmt.executeQuery();
-
 		if(rs.next()) {
 			password = rs.getString("mot_de_passe");
-			
 			System.out.println(password);
-			
 		}
-	} catch (SQLException e) {
-		throw new DALException("selcetByPassword failed - pseudo = "+ pseudo, e);			
-	}
-		
+		} catch (SQLException e) {
+			throw new DALException("selcetByPassword failed - pseudo = "+ pseudo, e);			
+		}
 		return password;
 	}
-
 	
-
-
+	@Override
+	public int idSelectByPseudo(String pseudo) throws DALException{
+		int id=0;
+		try (Connection con = JdbcTools.getConnection();
+				PreparedStatement stmt = con.prepareStatement(sql_ID_SELECT_BY_PSEUDO);)
+		{stmt.setString(1,pseudo);
+		ResultSet rs = stmt.executeQuery();
+		if(rs.next()) {
+			id = rs.getInt("no_utilisateur");
+			System.out.println(id);
+		}
+		} catch (SQLException e) {
+			throw new DALException("selcetIdByPseudo failed - pseudo = "+ pseudo, e);			
+		}
+		return id;
+	}	
 }
 
