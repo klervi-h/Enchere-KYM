@@ -11,6 +11,12 @@ public class Test {
 		
 		Utilisateur util = null;
 		UtilisateurManager uM = new UtilisateurManager();
+		try {
+			int til = uM.idParPseudo("paf");
+		} catch (BusinessException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		
 		try {
 			util = uM.afficherParId(3);
