@@ -31,19 +31,19 @@
                     <label for="prenom">Prénom :</label><br>
                         <input type="text" id="prenom" name="prenom" placeholder="Votre prénom ?" required/><br>
                     <label for="email">Email :</label><br>
-                         <input type="text" id="email" placeholder="email"required/><br>
+                         <input type="text" name="email" placeholder="email"required/><br>
                     <label for="telephone">Téléphone :</label><br>
-                         <input type="text" id="telephone" placeholder="numéro de téléphone"/><br>
+                         <input type="text" name="telephone" placeholder="numéro de téléphone"/><br>
                      <label for="rue">Rue :</label><br>
-                         <input type="text" id="rue" placeholder="rue"/><br>    
+                         <input type="text" name="rue" placeholder="rue"/><br>    
                      <label for="codePostal">Code Postal :</label><br>
-                         <input type="text" id="codePostal" placeholder="code postal"/><br>
+                         <input type="text" name="codePostal" placeholder="code postal"/><br>
                      <label for="ville">Ville :</label><br>
-                         <input type="text" id="ville" placeholder="ville"/><br>                  
+                         <input type="text" name="ville" placeholder="ville"/><br>                  
                     <label for="password">Mot de Passe :</label><br>
-                         <input type="password" id="password" required/><br>
+                         <input type="password" name="password" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
-                         <input type="password" id="fld-repeat-password" required/><br>
+                         <input type="password" name="fld-repeat-password" required/><br>
                     
                     <div id="validation">
                     	<button type="submit" id="creerUtilisateur">Créer</button>

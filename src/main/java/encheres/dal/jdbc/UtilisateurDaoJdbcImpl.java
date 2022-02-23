@@ -14,7 +14,7 @@ import encheres.dal.UtilisateurDAO;
 public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
-	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) values (?,?,?,?,?,?,?,?,?)";
+	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe, credit) values (?,?,?,?,?,?,?,?,?,?)";
 	private static final String sqlUpdate = "update UTILISATEURS set pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?,credit = ? where no_utilisateur = ?";
 	private static final String sqlSelectByPs ="select mot_de_passe from UTILISATEURS where pseudo =?";
 
@@ -90,6 +90,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 			stmt.setInt(7, utilisateur.getAdresse().getCodePostale());
 			stmt.setString(8, utilisateur.getAdresse().getVille());
 			stmt.setString(9, utilisateur.getMotDePasse());
+			stmt.setInt(10, utilisateur.getCredit());
 
 
 			int nbRows = stmt.executeUpdate();
