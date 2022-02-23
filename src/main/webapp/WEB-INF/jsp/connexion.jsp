@@ -26,7 +26,7 @@
 	</header>
 
 	<main>
-		<form action="connexion" method="post">
+		<form action="" method="post">
 			<label for="pseudo">Identifiant :</label><br>
 			<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo" required /><br>
 			<label for="nom">Mot de passe :</label><br> 
@@ -34,13 +34,13 @@
 			<div id="validation">
 				<button type="submit" id="connexion">Connexion</button>
 					<div>
-						<input type="checkbox" id= remember name="remember"/>
-						<label for="achat">Se souvenir de moi</label>
+						<!--  <input type="checkbox" id= remember name="remember"/>
+						 <label for="achat">Se souvenir de moi</label> -->
 					</div>
 				<a href="">Mot de passe oublié</a>
 			</div>
 
-			<button href="/WEB-INF/jsp/creationCompte.js" type="button" id="creerCompte">Créer un compte</button>
+			<a href="/WEB-INF/jsp/creationCompte.js">Créer un compte</a>
 
 		</form>
 

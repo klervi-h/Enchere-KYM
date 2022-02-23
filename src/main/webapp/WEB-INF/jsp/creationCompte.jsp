@@ -48,7 +48,7 @@
                     <div id="validation">
                     	<button type="submit" id="creerUtilisateur">Créer</button>
 						<button type="button" id="annulerNewVente">Annuler</button>	
-                    	
+                   	
                     </div>
             </form>
 	</main>

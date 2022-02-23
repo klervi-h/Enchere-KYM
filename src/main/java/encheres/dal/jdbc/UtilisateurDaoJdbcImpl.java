@@ -16,7 +16,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 	private static final String sqlSelectById ="select * from UTILISATEURS where no_utilisateur = ?";
 	private static final String sqlInsert ="insert into UTILISATEURS (pseudo, nom, prenom, email, telephone, rue, code_postal, ville, mot_de_passe) values (?,?,?,?,?,?,?,?,?)";
 	private static final String sqlUpdate = "update UTILISATEURS set pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?,credit = ? where no_utilisateur = ?";
-	private static final String sqlSelectByPs ="select pseudo, password from UTILISATEURS where pseudo =?";
+	private static final String sqlSelectByPs ="select mot_de_passe from UTILISATEURS where pseudo =?";
 
 	//PROBLEME AU NIVEAU DE L'UPDATE UTILISATEUR
 	@Override
@@ -127,6 +127,8 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 		
 		return password;
 	}
+
+	
 
 
 }

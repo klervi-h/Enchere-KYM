@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import encheres.buisness.bll.BusinessException;
+import encheres.buisness.bll.LoginChecker;
+import encheres.buisness.bll.UtilisateurManager;
 import encheres.dal.UtilisateurDAO;
 import encheres.dal.jdbc.UtilisateurDaoJdbcImpl;
 
@@ -19,15 +22,15 @@ import encheres.dal.jdbc.UtilisateurDaoJdbcImpl;
 @WebServlet("/Connexion")
 public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
+
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				
-				
-				
+
+
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/connexion.jsp");
 		rd.forward(request, response);	
 	}
@@ -36,22 +39,32 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+		String chemin = null;
 		String pseudo = request.getParameter("pseudo");
 		String password = request.getParameter("password");
-		
-		UtilisateurDaoJdbcImpl us = new UtilisateurDaoJdbcImpl();
-		
-		if(us.check(pseudo, password))
+
+		int noUtil ;
+
+		LoginChecker logCK = new LoginChecker();
+
+		try {
+			if (logCK.checkPassword(pseudo, password))
 			{
 				HttpSession session = request.getSession();
-				session.setAttribute("pseudo", pseudo);
-				response.sendRedirect("accueil.jsp");
-				
+				session.setAttribute("pseudo", pseudo );
+				chemin="/WEB-INF/jsp/accueil.jsp";
+
 			}
 			else
-				{response.sendRedirect("connection.jsp");
-	}
+			{chemin ="/WEB-INF/jsp/connexion.jsp";
+			}
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-}
+		RequestDispatcher rd = request.getRequestDispatcher(chemin);
+		rd.forward(request, response);	
+	}
 }
