@@ -25,31 +25,34 @@ public class ProfilVendeur extends HttpServlet {
 
 	//utilisateur de la bdd
 	UtilisateurManager uM = new UtilisateurManager();
-	Utilisateur profilTest = null;
+	Utilisateur vendeur = null;
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/profilVendeur.jsp");
+		String pseudoVendeur = request.getParameter("param1");
+		int idVendeur = 4;
 		
 		
 		try {
-			profilTest = uM.afficherParId(4);
+			idVendeur = uM.idParPseudo(pseudoVendeur);
+			vendeur = uM.afficherParId(idVendeur);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	
 	
-		String pseudoUtilisateur = profilTest.getPseudo();
-		String nomUtilisateur = profilTest.getNom();
-		String prenomUtilisateur = profilTest.getPrenom();
-		String emailUtilisateur = profilTest.getEmail();
-		String telephoneUtilisateur = profilTest.getTelephone();
-		String rueUtilisateur = profilTest.getAdresse().getRue();
-		int codePostalUtilisateur = profilTest.getAdresse().getCodePostale();
-		String villeUtilisateur = profilTest.getAdresse().getVille();
+		String pseudoUtilisateur = vendeur.getPseudo();
+		String nomUtilisateur = vendeur.getNom();
+		String prenomUtilisateur = vendeur.getPrenom();
+		String emailUtilisateur = vendeur.getEmail();
+		String telephoneUtilisateur = vendeur.getTelephone();
+		String rueUtilisateur = vendeur.getAdresse().getRue();
+		int codePostalUtilisateur = vendeur.getAdresse().getCodePostale();
+		String villeUtilisateur = vendeur.getAdresse().getVille();
 
 		request.setAttribute("pseudonyme", pseudoUtilisateur);
 		request.setAttribute("nomUtil", nomUtilisateur);
