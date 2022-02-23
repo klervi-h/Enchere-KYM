@@ -73,7 +73,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=telephone%></td>
 			</tr>
 		</table>
-		<form action="listeEnchereConnecte.jsp" name="back">
+		<form action="/Enchere-KYM/Accueil"name="back">
 			<input type="submit"
 				value="Back" />
 		</form>
