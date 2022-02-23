@@ -1,6 +1,7 @@
 package encheres.ihm_webcontroller;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
+import encheres.buisness.bll.EncheresManager;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Encheres;
 
 /**
  * Servlet implementation class DetailVente
@@ -23,6 +26,7 @@ public class DetailVente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//Création d'un article test de la bdd
 	ArticleManager aM = new ArticleManager();
+	EncheresManager eM = new EncheresManager();
 	Article article = null;
 	
 	/**
@@ -72,18 +76,23 @@ public class DetailVente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int noUtil = (int) session.getAttribute("noUtil");
-		
 		int newPrixVente = Integer.parseInt(request.getParameter("newPrixVente"));
 		int nArticle = Integer.parseInt(request.getParameter("numeroArticle"));
-
+		long millis=System.currentTimeMillis();
+		Date date=new Date(millis); 
+		Encheres encheres = new Encheres(noUtil, nArticle, date, newPrixVente);
+		
 		try {
 			article = aM.afficherParId(nArticle);
+			if(eM.afficherParId(nArticle)!=null) {
+				eM.update(encheres);
+			}else{
+				eM.ajouter(encheres);
+			};
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
 		article.setPrixVente(newPrixVente);
-		
-		
 		
 		ArticleManager articleManager = new ArticleManager();
 		try {
