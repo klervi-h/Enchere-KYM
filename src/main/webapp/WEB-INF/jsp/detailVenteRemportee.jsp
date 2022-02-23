@@ -44,7 +44,6 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 
 		<h2>Vous avez remporté la vente</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
-		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
 		<p><%=nomArticle%></p>
 		<table>

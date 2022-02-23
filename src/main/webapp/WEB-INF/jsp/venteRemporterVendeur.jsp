@@ -20,15 +20,15 @@
 
 <body>
 	<%
-	String nomArticle = (String) request.getAttribute("nomArticle");
-	String description = (String) request.getAttribute("description");
-	int prix = (int) request.getAttribute("prixArticle");
-	int prixInit = (int) request.getAttribute("prixInitial");
-	String rue = (String) request.getAttribute("rueUtil");
-	int codePostal = (int) request.getAttribute("codePostaleUtil");
-	String ville = (String) request.getAttribute("villeUtil");
-	int noVendeur = (int) request.getAttribute("noVendeur");
-	String telephone = (String) request.getAttribute("telephoneUtil");
+//	String nomArticle = (String) request.getAttribute("nomArticle");
+//	String description = (String) request.getAttribute("description");
+//	int prix = (int) request.getAttribute("prixArticle");
+//	//int prixInit = (int) request.getAttribute("prixInitial");
+//	String rue = (String) request.getAttribute("rueUtil");
+	//	int codePostal = (int) request.getAttribute("codePostaleUtil");
+//	String ville = (String) request.getAttribute("villeUtil");
+//	int noVendeur = (int) request.getAttribute("noVendeur");
+//	String telephone = (String) request.getAttribute("telephoneUtil");
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -42,38 +42,37 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 
 	<main>
 
-		<h2>Vous avez remporté la vente</h2>
+		<h2>Jojo44 a remporté l'enchère</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
-		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
-		<p><%=nomArticle%></p>
+		<p></p>
 		<table>
 			<tr>
 				<td>Description :</td>
-				<td><%=description%></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td><%=prix%></td>
+				<td></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
-				<td><%=prixInit%></td>
+				<td></td>
 			</tr>
+			<tr>
+				<td>Fin de l'enchère :</td>
+				<td></td>
+			</tr>
+			<tr>
 			<tr>
 				<td>Retrait :</td>
-				<td><%=rue%><%=codePostal%><%=ville%></td>
+				<td></td>
 			</tr>
-			<tr>
 				<td>Vendeur :</td>
-				<td><%=noVendeur%></td>
-			</tr>
-			<tr>
-				<td>Tel :</td>
-				<td><%=telephone%></td>
+				<td></td>
 			</tr>
 		</table>
-		<form action="/Enchere-KYM/Accueil"name="back">
+		<form action="/Enchere-KYM/Accueil"name="retrait effectué">
 			<input type="submit"
 				value="Back" />
 		</form>

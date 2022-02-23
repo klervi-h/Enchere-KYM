@@ -34,7 +34,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/venteRemporterVendeur.jsp");
 		
-		try {
+		/*try {
 			articleTest = aM.afficherParId(2);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
@@ -65,7 +65,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 		request.setAttribute("villeUtil", villeUtilisateur);
 		request.setAttribute("noVendeur", noVendeur);
 		
-		request.setAttribute("telephoneUtil", telephoneUtilisateur);
+		request.setAttribute("telephoneUtil", telephoneUtilisateur);*/
 		
 		rd.forward(request, response);
 	}
