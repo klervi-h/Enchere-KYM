@@ -23,7 +23,7 @@ public class DetailVente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//Création d'un article test de la bdd
 	ArticleManager aM = new ArticleManager();
-	Article articleTest = null;
+	Article article = null;
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -34,22 +34,22 @@ public class DetailVente extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		try {
-			articleTest = aM.afficherParId(1);
+			article = aM.afficherParId(1);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
 
-		int noArticle = articleTest.getNoArticle();
-		String nomArticle = articleTest.getNomArticle();
-		String descriptionArticle = articleTest.getDescription();
-		int catArticle = articleTest.getNoCategorie();
-		int prixArticle = articleTest.getPrixVente();
-		int prixInitArticle = articleTest.getPrixInitial();
-		String dateFinArticle = articleTest.getDateFin().toString();
-		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
-		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
-		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
-		int noUtilArticle = articleTest.getNoUtilisateur();
+		int noArticle = article.getNoArticle();
+		String nomArticle = article.getNomArticle();
+		String descriptionArticle = article.getDescription();
+		int catArticle = article.getNoCategorie();
+		int prixArticle = article.getPrixVente();
+		int prixInitArticle = article.getPrixInitial();
+		String dateFinArticle = article.getDateFin().toString();
+		String rueUtilisateur = article.getAdresseRetrait().getRue();
+		int codePostalUtilisateur = article.getAdresseRetrait().getCodePostale();
+		String villeUtilisateur = article.getAdresseRetrait().getVille();
+		int noUtilArticle = article.getNoUtilisateur();
 
 		request.setAttribute("nArticle", noArticle);
 		request.setAttribute("nomArticle", nomArticle);
@@ -72,66 +72,31 @@ public class DetailVente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int noUtil = (int) session.getAttribute("noUtil");
-		/*Article article = null;
-		 *newPrixVente
-
-		article = new Article(
-				Integer.parseInt(request.getParameter("maProposition"))
-				);*/
-
+		
 		int newPrixVente = Integer.parseInt(request.getParameter("newPrixVente"));
 		int nArticle = Integer.parseInt(request.getParameter("numeroArticle"));
 
 		try {
-			articleTest = aM.afficherParId(nArticle);
+			article = aM.afficherParId(nArticle);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
-		articleTest.setPrixVente(newPrixVente);
+		article.setPrixVente(newPrixVente);
+		
 		
 		
 		ArticleManager articleManager = new ArticleManager();
 		try {
-			articleManager.update(articleTest);
+			articleManager.update(article);
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//verif en console
-		System.out.println(articleTest.toString());
+		System.out.println(article.toString());
 		
-		/*RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		
-		int prixArticle = articleTest.getPrixVente();
-		request.setAttribute("prixArticle", prixArticle);
-		
-		rd.forward(request, response);*/
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-		//TODO articleTest = aM. faire comme dans modif profil articleTest
-
-		/*try {		
-			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
-			utilisateur = new Utilisateur(
-					Integer.parseInt (request.getParameter("noUtil")),
-					request.getParameter("pseudo"),
-					request.getParameter("nom"),
-					request.getParameter("prenom"),
-					request.getParameter("email"),
-					request.getParameter("telephone"),
-					request.getParameter("rue"),
-					Integer.parseInt(request.getParameter("codePostal")),
-					request.getParameter("ville"),
-					password,
-					Integer.parseInt(request.getParameter("credit"))
-					);
-		//	UtilisateurManager utilisateurManager = new UtilisateurManager();
-		//	utilisateurManager.update(utilisateur);
-			//verif en console
-			System.out.println(utilisateur.toString());*/
-		
-		
 	}
 
 }
