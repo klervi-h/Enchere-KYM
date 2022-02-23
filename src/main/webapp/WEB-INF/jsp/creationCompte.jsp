@@ -41,9 +41,9 @@
                      <label for="ville">Ville :</label><br>
                          <input type="text" id="ville" placeholder="ville"/><br>                  
                     <label for="password">Mot de Passe :</label><br>
-                         <input type="text" id="password" required/><br>
+                         <input type="password" id="password" required/><br>
                     <label for="fld-repeat-password">Confirmation :</label><br>
-                         <input type="text" id="fld-repeat-password" required/><br>
+                         <input type="password" id="fld-repeat-password" required/><br>
                     
                     <div id="validation">
                     	<button type="submit" id="creerUtilisateur">Créer</button>
