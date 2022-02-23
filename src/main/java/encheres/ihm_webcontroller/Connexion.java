@@ -13,8 +13,6 @@ import javax.servlet.http.HttpSession;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bll.LoginChecker;
 import encheres.buisness.bll.UtilisateurManager;
-import encheres.dal.UtilisateurDAO;
-import encheres.dal.jdbc.UtilisateurDaoJdbcImpl;
 
 /**
  * Servlet implementation class Connexion
@@ -28,9 +26,7 @@ public class Connexion extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
+	
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/connexion.jsp");
 		rd.forward(request, response);	
 	}
@@ -43,8 +39,14 @@ public class Connexion extends HttpServlet {
 		String chemin = null;
 		String pseudo = request.getParameter("pseudo");
 		String password = request.getParameter("password");
-
-		int noUtil ;
+		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		int noUtil=0;
+		try {
+			noUtil= utilisateurManager.idParPseudo(pseudo) ;
+		} catch (BusinessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		LoginChecker logCK = new LoginChecker();
 
@@ -52,9 +54,8 @@ public class Connexion extends HttpServlet {
 			if (logCK.checkPassword(pseudo, password))
 			{
 				HttpSession session = request.getSession();
-				session.setAttribute("pseudo", pseudo );
+				session.setAttribute("noUtil", noUtil );
 				chemin="/WEB-INF/jsp/accueil.jsp";
-
 			}
 			else
 			{chemin ="/WEB-INF/jsp/connexion.jsp";

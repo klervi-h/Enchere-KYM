@@ -24,10 +24,10 @@
 	String description = (String) request.getAttribute("description");
 	int prix = (int) request.getAttribute("prixArticle");
 	int prixInit = (int) request.getAttribute("prixInitial");
-	String rue = (String) request.getAttribute("rueUtil");
-	int codePostal = (int) request.getAttribute("codePostaleUtil");
-	String ville = (String) request.getAttribute("villeUtil");
-	String telephone = (String) request.getAttribute("telephoneUtil");
+	String rue = (String) request.getAttribute("rueVendeur");
+	int codePostal = (int) request.getAttribute("codePostaleVendeur");
+	String ville = (String) request.getAttribute("villeVendeur");
+	String telephone = (String) request.getAttribute("telephoneVendeur");
 	String pseudo = (String) request.getAttribute("pseudoVendeur");
 	%>
 

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
@@ -32,6 +33,7 @@ public class DetailVenteRemportee extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVenteRemportee.jsp");
 		
 		try {
@@ -44,9 +46,9 @@ public class DetailVenteRemportee extends HttpServlet {
 		String descriptionArticle = articleTest.getDescription();
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
-		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
-		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
-		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
+		String rueVendeur = articleTest.getAdresseRetrait().getRue();
+		int codePostalVendeur = articleTest.getAdresseRetrait().getCodePostale();
+		String villeVendeur = articleTest.getAdresseRetrait().getVille();
 		int noVendeur = articleTest.getNoUtilisateur();
 		
 		try {
@@ -54,18 +56,18 @@ public class DetailVenteRemportee extends HttpServlet {
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
-		String telephoneUtilisateur = vendeur.getTelephone();
-		String pseudoUtilisateur = vendeur.getPseudo();
+		String telephoneVendeur = vendeur.getTelephone();
+		String pseudoVendeur = vendeur.getPseudo();
 
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
 		request.setAttribute("prixArticle", prixArticle);
 		request.setAttribute("prixInitial", prixInitArticle);
-		request.setAttribute("rueUtil", rueUtilisateur);
-		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
-		request.setAttribute("villeUtil", villeUtilisateur);
-		request.setAttribute("telephoneUtil", telephoneUtilisateur);
-		request.setAttribute("pseudoVendeur", pseudoUtilisateur);
+		request.setAttribute("rueVendeur", rueVendeur);
+		request.setAttribute("codePostaleVendeur", codePostalVendeur);
+		request.setAttribute("villeVendeur", villeVendeur);
+		request.setAttribute("telephoneVendeur", telephoneVendeur);
+		request.setAttribute("pseudoVendeur", pseudoVendeur);
 		
 		rd.forward(request, response);
 	}

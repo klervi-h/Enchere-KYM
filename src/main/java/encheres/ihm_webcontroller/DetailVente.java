@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
@@ -23,11 +24,13 @@ public class DetailVente extends HttpServlet {
 	//Création d'un article test de la bdd
 	ArticleManager aM = new ArticleManager();
 	Article articleTest = null;
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
+		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		try {
@@ -67,6 +70,8 @@ public class DetailVente extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		int noUtil = (int) session.getAttribute("noUtil");
 		/*Article article = null;
 		 *newPrixVente
 
