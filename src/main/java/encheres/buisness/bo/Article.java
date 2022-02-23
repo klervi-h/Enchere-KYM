@@ -11,7 +11,8 @@ public class Article {
 
 	public Article(){}
 
-	public Article (int noArt, String nomArt, String description, Date debutVente, Date finVente, int prixInit, int prixVente, int noUtil, int noCat) {
+	public Article (int noArt, String nomArt, String description, Date debutVente, Date finVente, 
+			int prixInit, int prixVente, int noUtil, int noCat) {
 		this.noArticle=noArt;
 		this.nomArticle = nomArt;
 		this.description = description;
@@ -20,7 +21,7 @@ public class Article {
 		this.prixInitial = prixInit;
 		this.prixVente = prixVente;
 		this.noUtilisateur = noUtil;
-		this.noCategorie = noCat;		
+		this.noCategorie = noCat;
 	}
 
 	public Article ( 
@@ -37,21 +38,6 @@ public class Article {
 		this.dateFin = dateFinVente;
 		this.adresseRetrait = new Adresse(rueRetrait, codePostaleRetrait, villeRetrait);
 		this.noUtilisateur = noUtil;
-	}
-
-	public Article (int noArt, String nomArt, String description, int noCat, 
-			int prixVente, int prixInit, Date fin, 
-			String rueRetrait, int codePostaleRetrait, String villeRetrait, int noUtil) {
-		
-		this.noArticle=noArt;
-		this.nomArticle = nomArt;
-		this.description = description;
-		this.noCategorie = noCat;
-		this.prixVente = prixVente;
-		this.prixInitial = prixInit;
-		this.dateFin = fin;
-		this.adresseRetrait = new Adresse(rueRetrait, codePostaleRetrait, villeRetrait);
-		this.noUtilisateur = noUtil;		
 	}
 	
 

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class DetailVente
@@ -21,7 +22,7 @@ import encheres.buisness.bo.Article;
 @WebServlet("/DetailVente")
 public class DetailVente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    //Création d'un article test de la bdd
+	//Création d'un article test de la bdd
 	ArticleManager aM = new ArticleManager();
 	Article articleTest = null;
 	/**
@@ -30,20 +31,20 @@ public class DetailVente extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+
 		try {
-			articleTest = aM.afficherParId(3);
+			articleTest = aM.afficherParId(2);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		int noArticle = articleTest.getNoArticle();
 		String nomArticle = articleTest.getNomArticle();
 		String descriptionArticle = articleTest.getDescription();
 		int catArticle = articleTest.getNoCategorie();
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
-		Date dateFinArticle = articleTest.getDateFin();
+		String dateFinArticle = articleTest.getDateFin().toString();
 		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
 		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
 		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
@@ -69,10 +70,43 @@ public class DetailVente extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		/*Article article = null;
-		
+		 *newPrixVente
+
 		article = new Article(
 				Integer.parseInt(request.getParameter("maProposition"))
 				);*/
+
+		int newPrixVente = Integer.parseInt(request.getParameter("newPrixVente"));
+		int nArticle = Integer.parseInt(request.getParameter("numeroArticle"));
+
+		try {
+			articleTest = aM.afficherParId(nArticle);
+		} catch (BusinessException e1) {
+			e1.printStackTrace();
+		}
+		articleTest.setPrixVente(newPrixVente);
+		
+		//TODO articleTest = aM. faire comme dans modif profil articleTest
+
+		/*try {		
+			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
+			utilisateur = new Utilisateur(
+					Integer.parseInt (request.getParameter("noUtil")),
+					request.getParameter("pseudo"),
+					request.getParameter("nom"),
+					request.getParameter("prenom"),
+					request.getParameter("email"),
+					request.getParameter("telephone"),
+					request.getParameter("rue"),
+					Integer.parseInt(request.getParameter("codePostal")),
+					request.getParameter("ville"),
+					password,
+					Integer.parseInt(request.getParameter("credit"))
+					);
+		//	UtilisateurManager utilisateurManager = new UtilisateurManager();
+		//	utilisateurManager.update(utilisateur);
+			//verif en console
+			System.out.println(utilisateur.toString());*/
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		rd.forward(request, response);

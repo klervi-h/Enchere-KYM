@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Détail vente</title>
+<title>Vente Remportée Vendeur</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
@@ -20,13 +20,10 @@
 
 <body>
 	<%
-	int nArticle = (int) request.getAttribute("nArticle");
 	String nomArticle = (String) request.getAttribute("nomArticle");
 	String description = (String) request.getAttribute("description");
-	int categorie = (int) request.getAttribute("categorie");
 	int prix = (int) request.getAttribute("prixArticle");
 	int prixInit = (int) request.getAttribute("prixInitial");
-	String dateFin = (String) request.getAttribute("dateFin");
 	String rue = (String) request.getAttribute("rueUtil");
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
@@ -44,7 +41,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 
 	<main>
 
-		<h2>Détail vente</h2>
+		<h2>Vous avez remporté la vente</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
@@ -55,20 +52,12 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=description%></td>
 			</tr>
 			<tr>
-				<td>Catégorie :</td>
-				<td><%=categorie%></td>
-			</tr>
-			<tr>
 				<td>Meilleure offre :</td>
 				<td><%=prix%></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
 				<td><%=prixInit%></td>
-			</tr>
-			<tr>
-				<td>Fin de l'enchère:</td>
-				<td><%=dateFin%></td>
 			</tr>
 			<tr>
 				<td>Retrait :</td>
@@ -78,12 +67,14 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td>Vendeur :</td>
 				<td><%=noUtil%></td>
 			</tr>
+			<tr>
+				<td>Tel :</td>
+				<td></td>
+			</tr>
 		</table>
-		<form action="" method="post">
-			<label for="newPrixVente">Ma proposition: </label> <input
-				type="number" id="newPrixVente" name="newPrixVente" min="1"
-				max="1000" value="<%=prix + 1%>" /> <input type="submit"
-				value="Enchérir" /> <input type="text" name="numeroArticle" value="<%=nArticle%>" hidden="true">
+		<form action="listeEnchereConnecte.jsp" name="back">
+			<input type="submit"
+				value="Back" />
 		</form>
 
 	</main>
