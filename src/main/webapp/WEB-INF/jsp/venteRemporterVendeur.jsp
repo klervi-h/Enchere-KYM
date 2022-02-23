@@ -20,15 +20,15 @@
 
 <body>
 	<%
-//	String nomArticle = (String) request.getAttribute("nomArticle");
-//	String description = (String) request.getAttribute("description");
-//	int prix = (int) request.getAttribute("prixArticle");
-//	//int prixInit = (int) request.getAttribute("prixInitial");
-//	String rue = (String) request.getAttribute("rueUtil");
-	//	int codePostal = (int) request.getAttribute("codePostaleUtil");
-//	String ville = (String) request.getAttribute("villeUtil");
-//	int noVendeur = (int) request.getAttribute("noVendeur");
-//	String telephone = (String) request.getAttribute("telephoneUtil");
+	String nomArticle = (String) request.getAttribute("nomArticle");
+	String description = (String) request.getAttribute("description");
+	int prix = (int) request.getAttribute("prixArticle");
+	int prixInit = (int) request.getAttribute("prixInitial");
+	String dateFin = (String) request.getAttribute("dateFin");
+	String rue = (String) request.getAttribute("rueUtil");
+	int codePostal = (int) request.getAttribute("codePostaleUtil");
+	String ville = (String) request.getAttribute("villeUtil");
+	String pseudoVendeur = (String) request.getAttribute("pseudoVendeur");
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -45,36 +45,38 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 		<h2>Jojo44 a remporté l'enchère</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<!--Nom de l'article-->
-		<p></p>
+		<p><%=nomArticle%></p>
 		<table>
 			<tr>
 				<td>Description :</td>
-				<td></td>
+				<td><%=description%></td>
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td></td>
+				<td><%=prix%></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
-				<td></td>
+				<td><%=prixInit%></td>
 			</tr>
 			<tr>
 				<td>Fin de l'enchère :</td>
-				<td></td>
+				<td><%=dateFin%></td>
 			</tr>
-			<tr>
 			<tr>
 				<td>Retrait :</td>
-				<td></td>
+				<td><%=rue%><%=codePostal%><%=ville%></td>
 			</tr>
+			<tr>
+			<tr>
+
+
 				<td>Vendeur :</td>
-				<td></td>
+				<td><%=pseudoVendeur%></td>
 			</tr>
 		</table>
-		<form action="/Enchere-KYM/Accueil"name="retrait effectué">
-			<input type="submit"
-				value="Back" />
+		<form action="/Enchere-KYM/Accueil" name="retrait effectué">
+			<input type="submit" value="Back" />
 		</form>
 
 	</main>

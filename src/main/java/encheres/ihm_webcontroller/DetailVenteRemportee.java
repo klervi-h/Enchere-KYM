@@ -64,7 +64,6 @@ public class DetailVenteRemportee extends HttpServlet {
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
-		
 		request.setAttribute("telephoneUtil", telephoneUtilisateur);
 		request.setAttribute("pseudoVendeur", pseudoUtilisateur);
 		

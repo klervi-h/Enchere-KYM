@@ -34,7 +34,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/venteRemporterVendeur.jsp");
 		
-		/*try {
+		try {
 			articleTest = aM.afficherParId(2);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
@@ -44,6 +44,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 		String descriptionArticle = articleTest.getDescription();
 		int prixArticle = articleTest.getPrixVente();
 		int prixInitArticle = articleTest.getPrixInitial();
+		String dateFinArticle = articleTest.getDateFin().toString();
 		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
 		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
 		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
@@ -54,18 +55,19 @@ public class VenteRemporterVendeur extends HttpServlet {
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
-		String telephoneUtilisateur = vendeur.getTelephone();
+		String pseudoVendeur = vendeur.getPseudo();
 
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
 		request.setAttribute("prixArticle", prixArticle);
 		request.setAttribute("prixInitial", prixInitArticle);
+		request.setAttribute("dateFin", dateFinArticle);
 		request.setAttribute("rueUtil", rueUtilisateur);
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
 		request.setAttribute("noVendeur", noVendeur);
 		
-		request.setAttribute("telephoneUtil", telephoneUtilisateur);*/
+		request.setAttribute("pseudoVendeur", pseudoVendeur);
 		
 		rd.forward(request, response);
 	}
