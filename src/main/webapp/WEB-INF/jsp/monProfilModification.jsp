@@ -5,7 +5,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Créer un nouveau compte ENI-Encheres.org</title>
+<title>Modification de mon profil</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
