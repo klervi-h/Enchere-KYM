@@ -29,6 +29,7 @@
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
 	String pseudoVendeur = (String) request.getAttribute("pseudoVendeur");
+	String acheteur = (String) request.getAttribute("acheteur");
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -42,7 +43,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 
 	<main>
 
-		<h2>Jojo44 a remporté l'enchère</h2>
+		<h2><%=acheteur %> a remporté l'enchère</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<!--Nom de l'article-->
 		<p><%=nomArticle%></p>
@@ -53,7 +54,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td><%=prix%></td>
+				<td><%=prix%> pts par <a href=""><span class="sr-only">profil </span><%=acheteur %></a></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>

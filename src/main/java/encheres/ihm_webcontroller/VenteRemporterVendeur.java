@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
+import encheres.buisness.bll.EncheresManager;
 import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Encheres;
 import encheres.buisness.bo.Utilisateur;
 
 /**
@@ -23,9 +25,12 @@ public class VenteRemporterVendeur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	ArticleManager aM = new ArticleManager();
-	Article articleTest = null;
+	Article article = null;
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur vendeur = null;
+	Utilisateur acheteur = null;
+	EncheresManager eM= new EncheresManager();
+	Encheres encheres = null;
 	
 
 	/**
@@ -33,29 +38,28 @@ public class VenteRemporterVendeur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/venteRemporterVendeur.jsp");
+		int idArt = 2;
 		
 		try {
-			articleTest = aM.afficherParId(2);
+			article = aM.afficherParId(idArt);
+			encheres = eM.afficherParId(idArt);
+			vendeur = uM.afficherParId(article.getNoUtilisateur());
+			acheteur = uM.afficherParId(encheres.getNoUtilisateur());
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
 
-		String nomArticle = articleTest.getNomArticle();
-		String descriptionArticle = articleTest.getDescription();
-		int prixArticle = articleTest.getPrixVente();
-		int prixInitArticle = articleTest.getPrixInitial();
-		String dateFinArticle = articleTest.getDateFin().toString();
-		String rueUtilisateur = articleTest.getAdresseRetrait().getRue();
-		int codePostalUtilisateur = articleTest.getAdresseRetrait().getCodePostale();
-		String villeUtilisateur = articleTest.getAdresseRetrait().getVille();
-		int noVendeur = articleTest.getNoUtilisateur();
-		
-		try {
-			vendeur = uM.afficherParId(noVendeur);
-		} catch (BusinessException e1) {
-			e1.printStackTrace();
-		}
+		String nomArticle = article.getNomArticle();
+		String descriptionArticle = article.getDescription();
+		int prixArticle = article.getPrixVente();
+		int prixInitArticle = article.getPrixInitial();
+		String dateFinArticle = article.getDateFin().toString();
+		String rueUtilisateur = article.getAdresseRetrait().getRue();
+		int codePostalUtilisateur = article.getAdresseRetrait().getCodePostale();
+		String villeUtilisateur = article.getAdresseRetrait().getVille();
+		int noVendeur = article.getNoUtilisateur();
 		String pseudoVendeur = vendeur.getPseudo();
+		String pseudoAcheteur = acheteur.getPseudo();
 		
 
 		request.setAttribute("nomArticle", nomArticle);
@@ -69,6 +73,7 @@ public class VenteRemporterVendeur extends HttpServlet {
 		request.setAttribute("noVendeur", noVendeur);
 		
 		request.setAttribute("pseudoVendeur", pseudoVendeur);
+		request.setAttribute("acheteur", pseudoAcheteur);
 		
 		rd.forward(request, response);
 	}

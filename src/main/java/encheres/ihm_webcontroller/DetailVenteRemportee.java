@@ -12,8 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
+import encheres.buisness.bll.EncheresManager;
 import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Article;
+import encheres.buisness.bo.Encheres;
 import encheres.buisness.bo.Utilisateur;
 
 /**
@@ -27,7 +29,6 @@ public class DetailVenteRemportee extends HttpServlet {
 	Article articleTest = null;
 	UtilisateurManager uM = new UtilisateurManager();
 	Utilisateur vendeur = null;
-	
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,9 +36,10 @@ public class DetailVenteRemportee extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 				
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVenteRemportee.jsp");
+		int noArt=2;
 		
 		try {
-			articleTest = aM.afficherParId(2);
+			articleTest = aM.afficherParId(noArt);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
