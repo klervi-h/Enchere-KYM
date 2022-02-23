@@ -40,7 +40,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 					utilisateur.setNoUtilisateur(rs.getInt(1));}}
 		}
 		catch (SQLException e) {
-			throw new DALException("insert utilisateur failed - "+ utilisateur ,e);
+			throw new DALException("update utilisateur failed - "+ utilisateur ,e);
 		}
 	}	
 

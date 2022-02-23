@@ -33,7 +33,7 @@ public class EncheresDaoJdbcImpl implements EncheresDAO {
 					encheres.setNoUtilisateur(rs.getInt(1));}}
 		}
 		catch (SQLException e) {
-			throw new DALException("insert encheres failed - "+ encheres ,e);
+			throw new DALException("update encheres failed - "+ encheres ,e);
 		}
 	}	
 

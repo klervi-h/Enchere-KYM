@@ -40,7 +40,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 					article.setNoArticle(rs.getInt(1));}}
 			}
 		catch (SQLException e) {
-			throw new DALException("insert article failed - "+ article ,e);
+			throw new DALException("update article failed - "+ article ,e);
 		}
 	}	
 	
