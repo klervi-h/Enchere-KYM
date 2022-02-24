@@ -72,12 +72,11 @@ public class MonProfilModification extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		int noUtil = (int) session.getAttribute("noUtil");
-		UtilisateurManager utilisateurManager = new UtilisateurManager();
 		int credit;
 
 		try {
 			Utilisateur utilisateur=null;
-			credit = utilisateurManager.afficherParId(noUtil).getCredit();	
+			credit = uM.afficherParId(noUtil).getCredit();	
 			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
 
 			utilisateur = new Utilisateur(
@@ -93,7 +92,7 @@ public class MonProfilModification extends HttpServlet {
 					password,
 					credit
 					);
-			utilisateurManager.update(utilisateur);
+			uM.update(utilisateur);
 			//verif en console
 			System.out.println(utilisateur.toString());
 
@@ -105,7 +104,7 @@ public class MonProfilModification extends HttpServlet {
 	
 		//Suppression utilisateur
 		try {
-			utilisateurManager.delete(utilisateur);
+			uM.delete(utilisateur);
 			chemin = "/Accueil";
 		} catch (BusinessException e) {
 			e.printStackTrace();
