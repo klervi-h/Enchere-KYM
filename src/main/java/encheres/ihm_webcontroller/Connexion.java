@@ -55,10 +55,10 @@ public class Connexion extends HttpServlet {
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("noUtil", noUtil );
-				chemin="/WEB-INF/jsp/accueil.jsp";
+				chemin="Acceuil";
 			}
 			else
-			{chemin ="/WEB-INF/jsp/connexion.jsp";
+			{chemin ="Connexion";
 			}
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
