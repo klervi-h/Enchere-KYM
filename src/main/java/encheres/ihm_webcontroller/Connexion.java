@@ -55,10 +55,10 @@ public class Connexion extends HttpServlet {
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("noUtil", noUtil );
-				chemin="Acceuil";
+				chemin="/Accueil";
 			}
 			else
-			{chemin ="Connexion";
+			{chemin ="/Connexion";
 			}
 		} catch (BusinessException e) {
 			// TODO Auto-generated catch block
