@@ -54,7 +54,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td><%=prix%> pts par <a href="ProfilVendeur?param1=<%=acheteur%>"><span class="sr-only">profil </span><%=acheteur %></a></td>
+				<td><%=prix%> pts par <a href="ProfilVendeur?idVendeur=<%=acheteur%>"><span class="sr-only">profil </span> <%=acheteur%> </a></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>
