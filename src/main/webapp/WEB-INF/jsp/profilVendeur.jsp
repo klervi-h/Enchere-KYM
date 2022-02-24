@@ -7,8 +7,7 @@
 <title>Profil vendeur</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/StylelSheet.css">
-<link rel="stylesheet" href="css/StylelSheetM.css">
+<link rel="stylesheet" href="css/StyleSheetM.css">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -24,7 +23,7 @@
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
 	%>
-		<header>
+	<header>
 		<nav class="navbar">
 			<div class="logo">
 				<h1>ENI - Enchères</h1>
@@ -41,49 +40,49 @@
 			</div>
 		</nav>
 	</header>
+	<div>
 		<div>
-			<div>
-				<a href="AccueilConnectee">ENI - Enchères</a>
-			</div>
-			<main>
-				<table>
-					<tr>
-						<td>Pseudo :</td>
-						<td><%=pseudo%></td>
-					</tr>
-					<tr>
-						<td>Nom :</td>
-						<td><%=nom%></td>
-					</tr>
-					<tr>
-						<td>Prénom :</td>
-						<td><%=prenom%></td>
-					</tr>
-					<tr>
-						<td>Email :</td>
-						<td><%=email%></td>
-					</tr>
-					<tr>
-						<td>Téléphone :</td>
-						<td><%=telephone%></td>
-					</tr>
-					<tr>
-						<td>Rue :</td>
-						<td><%=rue%></td>
-					</tr>
-					<tr>
-						<td>Code postal :</td>
-						<td><%=codePostal%></td>
-					</tr>
-					<tr>
-						<td>Ville :</td>
-						<td><%=ville%></td>
-					</tr>
-
-				</table>
-			</main>
-
+			<a href="AccueilConnectee">ENI - Enchères</a>
 		</div>
+		<main>
+			<table class="tab1">
+				<tr>
+					<td>Pseudo :</td>
+					<td><%=pseudo%></td>
+				</tr>
+				<tr>
+					<td>Nom :</td>
+					<td><%=nom%></td>
+				</tr>
+				<tr>
+					<td>Prénom :</td>
+					<td><%=prenom%></td>
+				</tr>
+				<tr>
+					<td>Email :</td>
+					<td><%=email%></td>
+				</tr>
+				<tr>
+					<td>Téléphone :</td>
+					<td><%=telephone%></td>
+				</tr>
+				<tr>
+					<td>Rue :</td>
+					<td><%=rue%></td>
+				</tr>
+				<tr>
+					<td>Code postal :</td>
+					<td><%=codePostal%></td>
+				</tr>
+				<tr>
+					<td>Ville :</td>
+					<td><%=ville%></td>
+				</tr>
+
+			</table>
+		</main>
+
+	</div>
 </body>
 
 </head>
