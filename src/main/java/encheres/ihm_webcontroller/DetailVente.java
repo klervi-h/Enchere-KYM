@@ -14,8 +14,10 @@ import javax.servlet.http.HttpSession;
 import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bll.EncheresManager;
+import encheres.buisness.bll.UtilisateurManager;
 import encheres.buisness.bo.Article;
 import encheres.buisness.bo.Encheres;
+import encheres.buisness.bo.Utilisateur;
 
 /**
  * Servlet implementation class DetailVente
@@ -28,6 +30,8 @@ public class DetailVente extends HttpServlet {
 	ArticleManager aM = new ArticleManager();
 	EncheresManager eM = new EncheresManager();
 	Article article = null;
+	UtilisateurManager uM = new UtilisateurManager();
+	Utilisateur vendeur = null;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -42,6 +46,7 @@ public class DetailVente extends HttpServlet {
 		int idArt = Integer.parseInt(request.getParameter("idArticle"));
 		try {
 			article = aM.afficherParId(idArt);
+			vendeur = uM.afficherParId(article.getNoUtilisateur());
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
@@ -57,6 +62,7 @@ public class DetailVente extends HttpServlet {
 		int codePostalUtilisateur = article.getAdresseRetrait().getCodePostale();
 		String villeUtilisateur = article.getAdresseRetrait().getVille();
 		int noUtilArticle = article.getNoUtilisateur();
+		String pseudoVendeur = vendeur.getPseudo();
 
 		request.setAttribute("connecte", connecte);
 		request.setAttribute("nArticle", noArticle);
@@ -70,6 +76,7 @@ public class DetailVente extends HttpServlet {
 		request.setAttribute("codePostaleUtil", codePostalUtilisateur);
 		request.setAttribute("villeUtil", villeUtilisateur);
 		request.setAttribute("noUtilisateur", noUtilArticle);
+		request.setAttribute("pseudoVendeur", pseudoVendeur);
 
 		rd.forward(request, response);
 	}
