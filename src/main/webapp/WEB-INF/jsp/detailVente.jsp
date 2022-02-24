@@ -73,8 +73,8 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=dateFin%></td>
 			</tr>
 			<tr>
-				<td>Retrait :</td>
-				<td><%=rue%><%=codePostal%><%=ville%></td>
+				<td>Retrait : </td>
+				<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
