@@ -20,7 +20,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 	private static final String sqlSelectByIdAdresseArt = " select * from RETRAITS where no_article = ?";
 	private static final String sqlInsertArticles ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
 	private static final String sqlInsertRetraits ="insert into RETRAITS (no_article, rue, code_postal, ville)values(?,?,?,?)";
-	private static final String sqlUpdate ="update ARTICLES_VENDUS set nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_initial = ?, no_utilisateur = ?, no_categorie = ?";
+	private static final String sqlUpdate ="update ARTICLES_VENDUS set nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_vente = ?, no_utilisateur = ?, no_categorie = ? where no_article = ?";
 	private static final String sqlSelectAll = "select * from ARTICLES_VENDUS";
 	
 	//TODO update à tester
@@ -32,9 +32,10 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 			stmt.setString(2, article.getDescription());
 			stmt.setDate(3, article.getDateDebut());
 			stmt.setDate(4, article.getDateFin());
-			stmt.setInt(5, article.getPrixInitial());
+			stmt.setInt(5, article.getPrixVente());
 			stmt.setInt(6, article.getNoUtilisateur());
 			stmt.setInt(7, article.getNoCategorie());
+			stmt.setInt(8, article.getNoArticle());
 								
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {

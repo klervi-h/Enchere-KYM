@@ -21,7 +21,7 @@
 <body>
 	<header>
 		<nav id="nav-menu-container">
-			<h1>ENI - Enchéres</h1>
+			<a href ="AccueilConnectee">ENI - Enchères</a>
 		</nav>
 	</header>
 

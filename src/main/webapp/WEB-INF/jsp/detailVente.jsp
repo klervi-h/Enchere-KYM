@@ -31,13 +31,15 @@
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
 	int noUtil = (int) request.getAttribute("noUtilisateur");
+	boolean connecte = (boolean) request.getAttribute("connecte");
+	String estConnecte = connecte?"disabled":"";
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
 because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
 	<header>
 		<h1>
-			<a href=Acceuil.html>ENI - Enchères</a>
+			<a href=AccueilConnectee>ENI - Enchères</a>
 		</h1>
 	</header>
 
@@ -82,9 +84,9 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 		<form action="" method="post">
 			<label for="newPrixVente">Ma proposition: </label> <input
 				type="number" id="newPrixVente" name="newPrixVente" min="1"
-				max="1000" value="<%=prix + 1%>" /> <input
-				type="submit" value="Enchérir" /><input type="text"
-				name="numeroArticle" value="<%=nArticle%>" hidden="true">
+				max="1000" value="<%=prix + 1%>" <%=connecte%>/> <input type="submit"
+				value="Enchérir" <%=estConnecte%>/><input type="text" name="numeroArticle"
+				value="<%=nArticle%>" hidden="true">
 		</form>
 
 	</main>

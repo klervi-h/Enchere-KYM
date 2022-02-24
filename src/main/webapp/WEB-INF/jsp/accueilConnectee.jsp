@@ -12,7 +12,7 @@
 </head>
 <body>
 	<nav>
-		<a href="/Accueil">acceuil</a> <a href="CreationVente">Vendre un article</a> <a href="MonProfil">Mon
+		<a href="CreationVente">Vendre un article</a> <a href="MonProfil">Mon
 			profil</a> <a href="Deconnexion">Deconnexion</a>
 	</nav>
 	<main>

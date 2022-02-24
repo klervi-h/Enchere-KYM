@@ -15,16 +15,16 @@ public class EncheresDaoJdbcImpl implements EncheresDAO {
 	
 	private static final String sqlSelectById ="select * from ENCHERES where no_article = ?";
 	private static final String sqlInsert ="insert into ENCHERES (no_utilisateur, no_article, date_enchere, montant_enchere) values (?,?,?,?)";
-	private static final String sqlUpdate = "update ENCHERES set no_utilisateur = ?,no_article = ?,date_enchere = ?,montant_enchere = ?,telephone = ?";
+	private static final String sqlUpdate = "update ENCHERES set no_utilisateur = ?,date_enchere = ?,montant_enchere = ? where no_article = ?";
 
 	@Override
 	public void update(Encheres encheres) throws DALException {
 		try(Connection con = JdbcTools.getConnection();
 				PreparedStatement stmt = con.prepareStatement(sqlUpdate, Statement.RETURN_GENERATED_KEYS);){
 			stmt.setInt(1, encheres.getNoUtilisateur());
-			stmt.setInt(2, encheres.getNoArticle());
-			stmt.setDate(3, (Date) encheres.getDateEnchere());
-			stmt.setInt(4, encheres.getMontantEnchere());
+			stmt.setDate(2, (Date) encheres.getDateEnchere());
+			stmt.setInt(3, encheres.getMontantEnchere());
+			stmt.setInt(4, encheres.getNoArticle());
 		
 			int nbRows = stmt.executeUpdate();
 			if(nbRows ==1) {
@@ -55,7 +55,7 @@ public class EncheresDaoJdbcImpl implements EncheresDAO {
 				System.out.println(rs.getString(2));
 			}
 		} catch (SQLException e) {
-			throw new DALException("selcetById failde - id = "+ id, e);			
+			throw new DALException("selectById failed - id = "+ id, e);			
 		}
 		return encheres;
 	}

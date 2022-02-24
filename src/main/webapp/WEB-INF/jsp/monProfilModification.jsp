@@ -34,7 +34,7 @@
 	%>
 	<header>
 		<nav id="nav-menu-container">
-			<h1>ENI - Enchères</h1>
+			<a href ="AccueilConnectee">ENI - Enchères</a>
 		</nav>
 	</header>
 

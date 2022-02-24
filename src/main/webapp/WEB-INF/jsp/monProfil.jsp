@@ -21,7 +21,7 @@
 	<header>
 		<div>
 			<div>
-				<h1>ENI-Enchères</h1>
+				<a href ="AccueilConnectee">ENI - Enchères</a>
 			</div>
 			<main>
 				<table>

@@ -28,11 +28,16 @@ public class DetailVente extends HttpServlet {
 	ArticleManager aM = new ArticleManager();
 	EncheresManager eM = new EncheresManager();
 	Article article = null;
-	
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		boolean connecte = false;
+		if(null==session.getAttribute("noUtil")){
+			connecte = true;
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
 		int idArt = Integer.parseInt(request.getParameter("idArticle"));
 		try {
@@ -53,6 +58,7 @@ public class DetailVente extends HttpServlet {
 		String villeUtilisateur = article.getAdresseRetrait().getVille();
 		int noUtilArticle = article.getNoUtilisateur();
 
+		request.setAttribute("connecte", connecte);
 		request.setAttribute("nArticle", noArticle);
 		request.setAttribute("nomArticle", nomArticle);
 		request.setAttribute("description", descriptionArticle);
@@ -79,7 +85,7 @@ public class DetailVente extends HttpServlet {
 		long millis=System.currentTimeMillis();
 		Date date=new Date(millis); 
 		Encheres encheres = new Encheres(noUtil, nArticle, date, newPrixVente);
-		
+
 		try {
 			article = aM.afficherParId(nArticle);
 			if(eM.afficherParId(nArticle)!=null) {
@@ -91,7 +97,7 @@ public class DetailVente extends HttpServlet {
 			e1.printStackTrace();
 		}
 		article.setPrixVente(newPrixVente);
-		
+
 		ArticleManager articleManager = new ArticleManager();
 		try {
 			articleManager.update(article);
@@ -101,9 +107,9 @@ public class DetailVente extends HttpServlet {
 		}
 		//verif en console
 		System.out.println(article.toString());
-		
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		RequestDispatcher rd = request.getRequestDispatcher("/AccueilConnectee");
+		rd.forward(request, response);
 	}
 
 }

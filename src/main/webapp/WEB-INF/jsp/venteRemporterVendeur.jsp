@@ -36,14 +36,16 @@
 because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
 	<header>
 		<h1>
-			<a href=Acceuil.html>ENI - Enchères</a>
+			<a href="AccueilConnectee">ENI - Enchères</a>
 		</h1>
 	</header>
 
 
 	<main>
 
-		<h2><%=acheteur %> a remporté l'enchère</h2>
+		<h2><%=acheteur%>
+			a remporté l'enchère
+		</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<!--Nom de l'article-->
 		<p><%=nomArticle%></p>
@@ -54,7 +56,9 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 			</tr>
 			<tr>
 				<td>Meilleure offre :</td>
-				<td><%=prix%> pts par <a href="ProfilVendeur?idVendeur=<%=acheteur%>"><span class="sr-only">profil </span> <%=acheteur%> </a></td>
+				<td><%=prix%> pts par <a
+					href="ProfilVendeur?idVendeur=<%=acheteur%>"><span
+						class="sr-only">profil </span> <%=acheteur%> </a></td>
 			</tr>
 			<tr>
 				<td>Mise à Prix :</td>

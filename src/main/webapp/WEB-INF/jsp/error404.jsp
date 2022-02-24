@@ -23,7 +23,7 @@
 	<p>la page que vous recherchez semble introuvable</p>
 	<h2>Code d'erreur 404</h2>
 	
-	<a href="Accueil">retour vers la page d'accueil</a>
+	<a href ="AccueilConnectee">Retour vers l'accueil</a>
 
 </body>
 

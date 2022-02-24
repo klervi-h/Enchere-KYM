@@ -19,6 +19,7 @@
 <head></head>
 
 <body>
+	<a href="AccueilConnectee">ENI - Enchères</a>
 	<%
 	String nomArticle = (String) request.getAttribute("nomArticle");
 	String description = (String) request.getAttribute("description");
@@ -72,9 +73,8 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=telephone%></td>
 			</tr>
 		</table>
-		<form action="/Enchere-KYM/Accueil"name="back">
-			<input type="submit"
-				value="Back" />
+		<form action="/Enchere-KYM/Accueil" name="back">
+			<input type="submit" value="Back" />
 		</form>
 
 	</main>

@@ -7,6 +7,7 @@
 <title>Création d'une vente</title>
 </head>
 <body>
+<a href ="AccueilConnectee">ENI - Enchères</a>
 	<h1>Nouvelle Vente</h1>
 	<img alt="photo de l'article en vente" src="" aria-hidden="true">
 	<form action="" method="post">
