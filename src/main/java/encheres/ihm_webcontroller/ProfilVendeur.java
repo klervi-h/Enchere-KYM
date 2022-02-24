@@ -32,7 +32,7 @@ public class ProfilVendeur extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/profilVendeur.jsp");
-		String pseudoVendeur = request.getParameter("param1");
+		String pseudoVendeur = request.getParameter("idVendeur");
 		int idVendeur = 4;
 		
 		
