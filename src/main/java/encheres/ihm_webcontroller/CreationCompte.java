@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import encheres.buisness.bll.ArticleManager;
 import encheres.buisness.bll.BusinessException;
 import encheres.buisness.bll.UtilisateurManager;
 
@@ -22,7 +22,7 @@ import encheres.buisness.bo.Utilisateur;
 @WebServlet("/CreationCompte")
 public class CreationCompte extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -30,14 +30,14 @@ public class CreationCompte extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
 		rd.forward(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		try {
-					Utilisateur utilisateur = new Utilisateur(
+			Utilisateur utilisateur = new Utilisateur(
 					request.getParameter("pseudo"),
 					request.getParameter("nom"),
 					request.getParameter("prenom"),
