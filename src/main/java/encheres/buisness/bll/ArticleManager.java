@@ -39,17 +39,18 @@ public class ArticleManager {
 	/**
 	 * 
 	 * retourne une liste d'article
+	 * @throws Exception 
 	 */
-	public List<Article> getCatalogue() throws BusinessException{
-		List<Article> articles=null;
+	public List<Article> getCatalogue() throws Exception{
+		List<Article> listeArticles=null;
 		try {
-			articles = ArticleDAO
+			listeArticles = this.articleDAO.selectAll();
 		} catch (DALException e) {
 			e.printStackTrace();
 			throw new Exception("Erreur récupération catalogue", e);
 		}
 		
-		return articles;
+		return listeArticles;
 	}
 
 	/**

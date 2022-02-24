@@ -42,7 +42,16 @@
 
 	<section class="container">
 	
-		<% @include file="WEB-INF/listeArticle.html" %>
+ <%// @include file="WEB-INF/listeArticle.html" %>
+		
+		<ul aria-label = "Listes des articles">
+			<%
+		
+		
+		%>
+		
+		</ul>
+	
 		
 		
 		<!--  <div class="item">
