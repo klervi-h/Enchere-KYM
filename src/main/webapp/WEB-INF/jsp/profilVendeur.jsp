@@ -7,6 +7,12 @@
 <title>Profil vendeur</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/StylelSheet.css">
+<link rel="stylesheet" href="css/StylelSheetM.css">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
 <body>
 	<%
 	String pseudo = (String) request.getAttribute("pseudonyme");
@@ -18,7 +24,23 @@
 	int codePostal = (int) request.getAttribute("codePostaleUtil");
 	String ville = (String) request.getAttribute("villeUtil");
 	%>
-	<header>
+		<header>
+		<nav class="navbar">
+			<div class="logo">
+				<h1>ENI - Enchères</h1>
+			</div>
+
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="Connexion">Se connecter</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="CreationCompte">S'inscrire</a>
+				</div>
+
+			</div>
+		</nav>
+	</header>
 		<div>
 			<div>
 				<a href="AccueilConnectee">ENI - Enchères</a>
@@ -62,7 +84,6 @@
 			</main>
 
 		</div>
-	</header>
 </body>
 
 </head>

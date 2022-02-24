@@ -16,6 +16,7 @@
 	content="Enchere, objet seconde main, Pas d'échange d'argent">
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
 <link rel="stylesheet" href="css/StylelSheet.css">
+
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');

@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+.sr-only {
+	position: absolute;
+	left: -500px;
+}
+
+body {
+	margin: 0px;
+	font-family: 'Raleway', sans-serif;
+	background-color: #53594f ;
+	color: #ffffd9;
+}
+.ligneSupp{
+	background-color: #000700;
+	color: #ffffd9;
+	height: 40px;
+}
+.imageLogo{
+	width : 20%;
+	height : auto;
+}
+.navbar {
+	padding-top: 1%;
+	padding-bottom: 1%;
+	background-color: #2a3027;
+	color: #ffffd9;
+	margin: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
+	
+}
+
+.link {
+	margin-right: 5%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.logo {
+	font-size: 10px;
+}
+
+a {
+	color: #80d8ff;
+	padding: 0.5%;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px;
+}
+
+li {
+	background-color: #ffffd9;
+	color: #001d0a;
+	margin: 3%;
+	width: 100%;
+	height: 150%;
+box-shadow: 0px 5px 5px #000700;
+}
+
+h2 {
+	background-color: #a5cc77;
+	color: #001d0a;
+	margin: 0px;
+	padding: 1%;
+}
+
+h2 a {
+	background-color: #a5cc77;
+	color: #001d0a;
+}
+
+.article {
+	margin: 3%;
+}
+/*
+.boxes
+{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+
+.bx1
+{
+  background-color: #40241A;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fotoCV
+{
+  box-shadow: 0px 0px 20px #ECD7CB ;
+  border-radius: 140px / 150px;
+  width: 203px;
+  height: 230px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.bx2
+{
+  background-color: #B4FFF0;
+  padding-left: 5%;
+}
+
+
+.entête_1
+{
+  font-size: 1.4em;
+  color: #40241A;
+  font-weight: bold;
+  font-style: italic;
+  font-family: dosis;
+}
+
+.entête_2
+{
+  font-size: 1.5em;
+  color: #40241A;
+  font-weight: bold;
+  font-family: dosis;
+}
+
+h2
+{
+  font-size: 1.5em;
+  color: #40241A;
+  font-weight: bold;
+  font-family: dosis;
+}
+p
+{
+  font-family: Liberation Sans;
+  font-size: 1.1em;
+  width: 75%;
+  padding-bottom: 5%;
+}
+
+/*fin entête*/
+
+/*le corps */
+/*
+.corp
+{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+}
+*/
+/*colone de gauche
+.colone-gauche
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #40241A ;
+  color: #B4FFF0;
+}
+
+.colone-gauche h2
+{
+  background-color: #9C786C;
+  width: 70%;
+  margin: auto;
+  padding-left: 7%;
+  font-weight: normal;
+}
+
+.colone-gauche p
+{
+  margin: auto;
+  margin-top: 5%;
+}
+*/
+/*bloc de droite ("section")
+
+section
+{
+  font-family: Liberation sans;
+  font-size: 1.3em;
+  width: 80%;
+  margin: auto;
+  font-weight: normal;
+}
+
+section em
+{
+  font-style: normal;
+  font-size: 0.9em;
+}
+section h3
+{
+  background-color: #9C786C;
+  color: #40241A;
+  font-family: Dosis;
+  font-size: 1.8em;
+  font-weight: normal;
+  text-align: center;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+*/
+/*formation
+
+.o
+{
+  text-align: center;
+  width: 25%;
+  padding-bottom: 3%;
+}
+*/
+/*XP pro
+
+.a
+{
+ text-align: center;
+ width: 5%;
+ padding-bottom: 3%;
+}
+*/
+/*competences info
+
+.ci 
+{
+  padding-bottom: 3%;
+}
+*/
