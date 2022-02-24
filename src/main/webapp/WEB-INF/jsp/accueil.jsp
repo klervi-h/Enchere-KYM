@@ -32,6 +32,7 @@
 	</header>
 
 	<main>
+	<!-- 
 		<input type="search" id="site-search" name="q"
 		       aria-label="Search through site content">
 		<button>Rechercher</button>
@@ -44,6 +45,7 @@
 			<option value="4">Sport&Loisirs</option>
 		</select>
 		</p>
+		 -->
 
 	<section class="container">
 		
