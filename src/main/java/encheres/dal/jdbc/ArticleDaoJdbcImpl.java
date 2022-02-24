@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import encheres.buisness.bo.*;
 import encheres.dal.ArticleDAO;
@@ -19,6 +21,7 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 	private static final String sqlInsertArticles ="insert into ARTICLES_VENDUS (nom_article, description, date_debut_encheres, date_fin_encheres, prix_initial, no_utilisateur, no_categorie) values (?,?,?,?,?,?,?)";
 	private static final String sqlInsertRetraits ="insert into RETRAITS (no_article, rue, code_postal, ville)values(?,?,?,?)";
 	private static final String sqlUpdate ="update ARTICLES_VENDUS set nom_article = ?, description = ?, date_debut_encheres = ?, date_fin_encheres = ?, prix_initial = ?, no_utilisateur = ?, no_categorie = ?";
+	private static final String sqlSelectAll = "select * from ARTICLES_VENDUS";
 	
 	//TODO update à tester
 	@Override
@@ -128,6 +131,31 @@ public class ArticleDaoJdbcImpl implements ArticleDAO {
 		catch (SQLException e) {
 			throw new DALException("insert retrait failed - "+ noArticle + adresseRetrait,e);
 		}
+	}
+
+	@Override
+	public List<Article> selectAll() throws DALException {
+		List<Article> listeArticles = new ArrayList<>();
+		try (Connection con = JdbcTools.getConnection();
+				Statement stmt = con.createStatement();)
+		{
+			ResultSet rs = stmt.executeQuery(sqlSelectAll);
+			while(rs.next()){
+					listeArticles.add(new Article(rs.getInt("no_article"),
+							rs.getString("nom_article"),
+							rs.getString("description"),
+							rs.getDate("date_debut_encheres"),
+							rs.getDate("date_fin_encheres"),
+							rs.getInt("prix_initial"),
+							rs.getInt("prix_vente"),
+							rs.getInt("no_utilisateur"),
+							rs.getInt("no_categorie")
+							));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();			
+		} 
+		return listeArticles;
 	}
 
 }

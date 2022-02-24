@@ -1,5 +1,7 @@
 package encheres.buisness.bll;
 
+import java.util.List;
+
 import encheres.buisness.bo.Article;
 import encheres.dal.ArticleDAO;
 import encheres.dal.DALException;
@@ -32,6 +34,23 @@ public class ArticleManager {
 			e.printStackTrace();
 		}
 		return article;
+	}
+	
+	/**
+	 * 
+	 * retourne une liste d'article
+	 * @throws Exception 
+	 */
+	public List<Article> getCatalogue() throws Exception{
+		List<Article> listeArticles=null;
+		try {
+			listeArticles = this.articleDAO.selectAll();
+		} catch (DALException e) {
+			e.printStackTrace();
+			throw new Exception("Erreur récupération catalogue", e);
+		}
+		
+		return listeArticles;
 	}
 
 	/**
@@ -69,6 +88,10 @@ public class ArticleManager {
 		}
 
 	}
+	
+	
+	
+	
 }
 
 

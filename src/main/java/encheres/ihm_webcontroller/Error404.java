@@ -20,8 +20,7 @@ public class Error404 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/error404.jsp");
-		rd.forward(request, response);
+		response.sendError(HttpServletResponse.SC_NOT_FOUND);
 	}
 
 	/**
