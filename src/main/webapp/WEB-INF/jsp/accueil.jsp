@@ -15,16 +15,15 @@
 <meta name="keywords"
 	content="Enchere, objet seconde main, Pas d'échange d'argent">
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="32x32"
-	href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="images/marteau.png">
-<link rel="stylesheet" href="css/style2.css">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
 </head>
 
 <body>
 	<header>
-		<nav id="navbar">
+		<nav class="navbar">
 			<div class="logo">
 				<h1>ENI - Enchères</h1>
 			</div>
