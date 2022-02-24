@@ -1,6 +1,5 @@
 package encheres.buisness.bll;
 
-
 import encheres.buisness.bo.Utilisateur;
 import encheres.dal.DALException;
 import encheres.dal.DAOFactory;
