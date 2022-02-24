@@ -19,7 +19,7 @@
 	<header>
 		<nav id="nav-menu-container">
 			<h1>ENI - Enchéres</h1>
-			<ul class="nav-menu">
+			<!--  --><ul class="nav-menu">
 				<li class="nav-item"><a class="nav-link" href="Connexion">Se connecter</a></li>
 				<li class="nav-item"><a class="nav-link" href="CreationCompte">S'inscrire</a></li>
 			</ul>
@@ -41,7 +41,11 @@
 		</p>
 
 	<section class="container">
-		<div class="item">
+	
+		<% @include file="WEB-INF/listeArticle.html" %>
+		
+		
+		<!--  <div class="item">
 			<img src="https://via.placeholder.com/150x120">
 			<h2 class="title">Montre classique</h2>
 			<p class="text">Lorem ipsum dolor sit amet consecte tur
@@ -87,7 +91,7 @@
 				aspernatur officia labore quae rat cupiditate dolor itaque!</p>
 			<p class="vendor">Martin18</p>
 			<p class="price">15 points</p>
-		</div>
+		</div>  -->
 	</section>
 	</main>
 	

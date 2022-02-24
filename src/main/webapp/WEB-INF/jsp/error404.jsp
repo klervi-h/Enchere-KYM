@@ -21,7 +21,7 @@
 
 	<p>Oups !</p>
 	<p>la page que vous recherchez semble introuvable</p>
-	<p>Code d'erreur 404</p>
+	<h2>Code d'erreur 404</h2>
 	
 	<a href="Accueil">retour vers la page d'accueil</a>
 
