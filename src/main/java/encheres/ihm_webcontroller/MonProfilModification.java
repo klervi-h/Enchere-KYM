@@ -108,4 +108,21 @@ public class MonProfilModification extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	//Suppression utilisateur
+	/*		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		try {
+			utilisateurManager.delete(utilisateur);
+		} catch (BusinessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//verif en console
+		System.out.println("une erreur est survenue lors de la suppression du compte dans la page: CreationCompte");
+		
+		//envoi vers la page d'accueil
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
+		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}*/
+
 }
