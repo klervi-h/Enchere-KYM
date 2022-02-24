@@ -1,3 +1,4 @@
+<%@page import="encheres.buisness.bll.UtilisateurManager"%>
 <%@ page import="java.util.List" %>
 <%@ page import="encheres.buisness.bo.Article" %>
 <%@page import="encheres.buisness.bo.Article"%>
@@ -50,6 +51,8 @@
 			<%List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
 			int longeurListe = listeArticle.size();
 				Article article = null;
+				UtilisateurManager uM= new UtilisateurManager();
+				
 				
 				for(int i=0; i < listeArticle.size(); i++) {
 					article=listeArticle.get(i);%>
@@ -59,7 +62,7 @@
 						<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a> <br/>
 						Prix : <%=article.getPrixVente() %> points<br/>
 						Fin de l'enchère : <%=article.getDateFin()%> <br/>
-						Vendeur : <a href="ProfilVendeur?idVendeur=<%=article.getNoUtilisateur()%>"><%=article.getNoUtilisateur()%></a>
+						Vendeur : <a href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
 						</li>
 						<%}%>
 		</ul>
