@@ -1,3 +1,7 @@
+<%@page import="encheres.buisness.bll.UtilisateurManager"%>
+<%@ page import="java.util.List" %>
+<%@ page import="encheres.buisness.bo.Article" %>
+<%@page import="encheres.buisness.bo.Article"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,15 +12,15 @@
 </head>
 <body>
 	<nav>
-		<a href="">acceuil</a> <a href="">Vendre un article</a> <a href="">Mon
+		<a href="/Accueil">acceuil</a> <a href="CreationVente">Vendre un article</a> <a href="MonProfil">Mon
 			profil</a> <a href="">Deconnection</a>
 	</nav>
 	<main>
 		<h1>Liste des enchères</h1>
 		<section aria-label="filtre">
-			<h2>Filtres :</h2>
+			 <h2>Filtres :</h2>
 			<form action="" method="post">
-				<p>
+			<!--	<p>
 					<input type="text" aria-label="Rechercher article par mot clef"
 						name="recherche" placeholder="Le nom de l'article contient">
 					<label for="categorie">Catégorie :</label> <select name="categorie"
@@ -27,6 +31,7 @@
 						<option value="3">Vêtement</option>
 						<option value="4">Sport&Loisirs</option>
 					</select>
+					 -->
 				<p>
 					<input type="radio" name="achat_vente" value="achat" /> <label
 						for="achat">Achats</label>
@@ -51,12 +56,24 @@
 				</div> -->
 			</form>
 		</section>
-		<ul aria-label="Encheres">
-		<%
-		//List<Article> listeEncheres = new ArrayList<Article>() ;
-							
-		%>
-		
+		<ul aria-label = "Listes des articles">
+			<%List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
+			int longeurListe = listeArticle.size();
+				Article article = null;
+				UtilisateurManager uM= new UtilisateurManager();
+				
+				
+				for(int i=0; i < listeArticle.size(); i++) {
+					article=listeArticle.get(i);%>
+						<li> 
+						<p>
+						<img alt="image de l'article" src="" aria-hidden="true">
+						<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a> <br/>
+						Prix : <%=article.getPrixVente() %> points<br/>
+						Fin de l'enchère : <%=article.getDateFin()%> <br/>
+						Vendeur : <a href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
+						</li>
+						<%}%>
 		</ul>
 	</main>
 
