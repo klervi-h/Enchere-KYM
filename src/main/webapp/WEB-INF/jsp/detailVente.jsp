@@ -33,6 +33,7 @@
 	int noUtil = (int) request.getAttribute("noUtilisateur");
 	boolean connecte = (boolean) request.getAttribute("connecte");
 	String estConnecte = connecte?"disabled":"";
+	String pseudoVendeur = (String) request.getAttribute("pseudoVendeur");
 	%>
 
 	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
@@ -73,12 +74,12 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=dateFin%></td>
 			</tr>
 			<tr>
-				<td>Retrait :</td>
-				<td><%=rue%><%=codePostal%><%=ville%></td>
+				<td>Retrait : </td>
+				<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
 			</tr>
 			<tr>
 				<td>Vendeur :</td>
-				<td><%=noUtil%></td>
+				<td><%=pseudoVendeur%></td>
 			</tr>
 		</table>
 		<form action="" method="post">
