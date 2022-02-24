@@ -1,3 +1,6 @@
+<%@ page import="java.util.List" %>
+<%@ page import="encheres.buisness.bo.Article" %>
+<%@page import="encheres.buisness.bo.Article"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +18,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="images/marteau.png">
 <link rel="stylesheet" href="css/style2.css">
 </head>
+
 <body>
 	<header>
 		<nav id="nav-menu-container">
@@ -41,15 +45,23 @@
 		</p>
 
 	<section class="container">
-	
- <%// @include file="WEB-INF/listeArticle.html" %>
 		
 		<ul aria-label = "Listes des articles">
-			<%
-		
-		
-		%>
-		
+			<%List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
+			int longeurListe = listeArticle.size();
+				Article article = null;
+				
+				for(int i=0; i < listeArticle.size(); i++) {
+					article=listeArticle.get(i);%>
+						<li> 
+						<p>
+						<img alt="image de l'article" src="" aria-hidden="true">
+						<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a> <br/>
+						Prix : <%=article.getPrixVente() %> points<br/>
+						Fin de l'enchère : <%=article.getDateFin()%> <br/>
+						Vendeur : <a href="ProfilVendeur?idVendeur=<%=article.getNoUtilisateur()%>"><%=article.getNoUtilisateur()%></a>
+						</li>
+						<%}%>
 		</ul>
 	
 		

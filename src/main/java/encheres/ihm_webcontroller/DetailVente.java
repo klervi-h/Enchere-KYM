@@ -34,11 +34,9 @@ public class DetailVente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/detailVente.jsp");
-		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-
+		int idArt = (int) request.getAttribute("idArticle");
 		try {
-			article = aM.afficherParId(1);
+			article = aM.afficherParId(idArt);
 		} catch (BusinessException e1) {
 			e1.printStackTrace();
 		}
