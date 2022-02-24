@@ -101,27 +101,22 @@ public class MonProfilModification extends HttpServlet {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
 		}
-
-		//envoi sur la jsp Mon profil
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/monProfil.jsp");
-		rd.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	//Suppression utilisateur
-	/*		UtilisateurManager utilisateurManager = new UtilisateurManager();
+		String chemin = "/WEB-INF/jsp/monProfil.jsp";
+	
+		//Suppression utilisateur
 		try {
 			utilisateurManager.delete(utilisateur);
+			chemin = "/Accueil";
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
 		//verif en console
 		System.out.println("une erreur est survenue lors de la suppression du compte dans la page: CreationCompte");
-		
-		//envoi vers la page d'accueil
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
-		//rd.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}*/
 
+		//envoi vers la page d'accueil
+		RequestDispatcher rd = request.getRequestDispatcher(chemin);
+		rd.forward(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
 }
+

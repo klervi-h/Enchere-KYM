@@ -17,7 +17,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 	private static final String sqlUpdate = "update UTILISATEURS set pseudo = ?,nom = ?,prenom = ?,email = ?,telephone = ?,rue = ?,code_postal = ?,ville = ?,mot_de_passe = ?,credit = ? where no_utilisateur = ?";
 	private static final String sqlSelectByPs ="select mot_de_passe from UTILISATEURS where pseudo =?";
 	private static final String sql_ID_SELECT_BY_PSEUDO = "select no_utilisateur from UTILISATEURS where pseudo =?";
-	/*private static final String sqlDeleteById ="delete from UTILISATEURS where no_utilisateur = ?";
+	private static final String sqlDeleteById ="delete from UTILISATEURS where no_utilisateur = ?";
 	
 	@Override
 	public void delete(Utilisateur utilisateur) throws DALException {
@@ -43,7 +43,7 @@ public class UtilisateurDaoJdbcImpl implements UtilisateurDAO {
 		catch (SQLException e) {
 			throw new DALException("delete utilisateur failed - "+ utilisateur ,e);
 		}
-	}	*/
+	}	
 	
 	@Override
 	public void update(Utilisateur utilisateur) throws DALException {

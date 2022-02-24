@@ -14,14 +14,14 @@ public class UtilisateurManager {
 		this.utilisateurDAO=DAOFactory.getUtilisateurDao();
 	}
 	
-	/*public void delete(Utilisateur utilisateur) throws BusinessException{
+	public void delete(Utilisateur utilisateur) throws BusinessException{
 		BusinessException exception = new BusinessException();
 		try {
 			this.utilisateurDAO.delete(utilisateur);
 		} catch (DALException e){
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 	public Utilisateur afficherParId(int id) throws BusinessException{
 		Utilisateur utilisateur = null;
