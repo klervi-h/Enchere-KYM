@@ -55,7 +55,7 @@ public class CreationCompte extends HttpServlet {
 			e.printStackTrace();
 			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : CreationCompte");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationCompte.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/Connexion");
 		rd.forward(request, response);
 	}
 
