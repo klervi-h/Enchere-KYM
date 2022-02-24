@@ -73,49 +73,55 @@ public class MonProfilModification extends HttpServlet {
 		HttpSession session = request.getSession();
 		int noUtil = (int) session.getAttribute("noUtil");
 		int credit;
+		String action = request.getParameter("action");
+		String chemin = null;
 
-		try {
-			Utilisateur utilisateur=null;
-			credit = uM.afficherParId(noUtil).getCredit();	
-			String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
+		if ("enregistrer".equals(action)) {
 
-			utilisateur = new Utilisateur(
-					noUtil,
-					request.getParameter("pseudo"),
-					request.getParameter("nom"),
-					request.getParameter("prenom"),
-					request.getParameter("email"),
-					request.getParameter("telephone"),
-					request.getParameter("rue"),
-					Integer.parseInt(request.getParameter("codePostal")),
-					request.getParameter("ville"),
-					password,
-					credit
-					);
-			uM.update(utilisateur);
+			try {
+				Utilisateur utilisateur=null;
+				credit = uM.afficherParId(noUtil).getCredit();	
+				String password = (request.getParameter("newPassword")!=null)? request.getParameter("newPassword") : request.getParameter("mdp");
+
+				utilisateur = new Utilisateur(
+						noUtil,
+						request.getParameter("pseudo"),
+						request.getParameter("nom"),
+						request.getParameter("prenom"),
+						request.getParameter("email"),
+						request.getParameter("telephone"),
+						request.getParameter("rue"),
+						Integer.parseInt(request.getParameter("codePostal")),
+						request.getParameter("ville"),
+						password,
+						credit
+						);
+				uM.update(utilisateur);
+				//verif en console
+				System.out.println(utilisateur.toString());
+
+			} catch (NumberFormatException | BusinessException e) {
+				e.printStackTrace();
+				System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+			}
+			chemin = "/WEB-INF/jsp/monProfil.jsp";
+		}else if("supprimer".equals(action)) {
+
+			//Suppression utilisateur
+			try {
+				uM.delete(utilisateur);
+				chemin = "/Accueil";
+			} catch (BusinessException e) {
+				e.printStackTrace();
+			}
 			//verif en console
-			System.out.println(utilisateur.toString());
+			System.out.println("une erreur est survenue lors de la suppression du compte dans la page: CreationCompte");
 
-		} catch (NumberFormatException | BusinessException e) {
-			e.printStackTrace();
-			System.out.println("erreur au niveau du format des données saisies par l'utilisateur dans la page : modificationMonProfil");
+			//envoi vers la page d'accueil
+			RequestDispatcher rd = request.getRequestDispatcher(chemin);
+			rd.forward(request, response);
+			response.getWriter().append("Served at: ").append(request.getContextPath());
 		}
-		String chemin = "/WEB-INF/jsp/monProfil.jsp";
-	
-		//Suppression utilisateur
-		try {
-			uM.delete(utilisateur);
-			chemin = "/Accueil";
-		} catch (BusinessException e) {
-			e.printStackTrace();
-		}
-		//verif en console
-		System.out.println("une erreur est survenue lors de la suppression du compte dans la page: CreationCompte");
-
-		//envoi vers la page d'accueil
-		RequestDispatcher rd = request.getRequestDispatcher(chemin);
-		rd.forward(request, response);
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 }
 

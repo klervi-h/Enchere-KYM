@@ -96,9 +96,9 @@
 			</p>
 
 			<div id="validation">
-				<input type="submit" name="boutonEnregistrer" value="Enregistrer"
-					title="Enregistrer" /> <input type="reset" name="boutonSupprimer"
-					value="Supprimer mon compte" title="Supprimer" />
+				<input type="submit" name="action" value="enregistrer"
+					title="Enregistrer" /> <input type="submit" name="action"
+					value="supprimer" title="Supprimer" />
 			</div>
 		</form>
 	</main>
