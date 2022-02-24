@@ -1,6 +1,6 @@
 <%@page import="encheres.buisness.bll.UtilisateurManager"%>
-<%@ page import="java.util.List" %>
-<%@ page import="encheres.buisness.bo.Article" %>
+<%@ page import="java.util.List"%>
+<%@ page import="encheres.buisness.bo.Article"%>
 <%@page import="encheres.buisness.bo.Article"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -13,65 +13,73 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
-<meta name="keywords"content="Enchere, objet seconde main, Pas d'échange d'argent">
+<meta name="keywords"
+	content="Enchere, objet seconde main, Pas d'échange d'argent">
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="32x32" href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="16x16" href="images/marteau.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="images/marteau.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="images/marteau.png">
 <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
 	<header>
-		<nav id="nav-menu-container">
-			<h1>ENI - Enchères</h1>
-			<!--  --><ul class="nav-menu">
-				<li class="nav-item"><a class="nav-link" href="Connexion">Se connecter</a></li>
-				<li class="nav-item"><a class="nav-link" href="CreationCompte">S'inscrire</a></li>
-			</ul>
+		<nav id="navbar">
+			<div class="logo">
+				<h1>ENI - Enchères</h1>
+			</div>
+
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="Connexion">Se connecter</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="CreationCompte">S'inscrire</a>
+				</div>
+
+			</div>
 		</nav>
 	</header>
 
 	<main>
-	<!-- 
-		<input type="search" id="site-search" name="q"
-		       aria-label="Search through site content">
-		<button>Rechercher</button>
-		<p>
-		<label for="categorie">Catégorie</label> <select name="categorie"
-			id="categorie">
-			<option value="1">Informatique</option>
-			<option value="2">Ameublement</option>
-			<option value="3">Vêtement</option>
-			<option value="4">Sport&Loisirs</option>
-		</select>
-		</p>
-		 -->
-
-	<section class="container">
-		
-		<ul aria-label = "Listes des articles">
-			<%List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
+		<ul aria-label="Listes des articles" class="container">
+			<%
+			List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
 			int longeurListe = listeArticle.size();
-				Article article = null;
-				UtilisateurManager uM= new UtilisateurManager();
-				
-				
-				for(int i=0; i < listeArticle.size(); i++) {
-					article=listeArticle.get(i);%>
-						<li> 
-						<p>
-						<img alt="image de l'article" src="" aria-hidden="true">
-						<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a> <br/>
-						Prix : <%=article.getPrixVente() %> points<br/>
-						Fin de l'enchère : <%=article.getDateFin()%> <br/>
-						Vendeur : <a href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
-						</li>
-						<%}%>
+			Article article = null;
+			UtilisateurManager uM = new UtilisateurManager();
+
+			for (int i = 0; i < listeArticle.size(); i++) {
+				article = listeArticle.get(i);
+			%>
+			<li>
+				<p>
+					<img alt="image de l'article" src="" aria-hidden="true">
+				<h2>
+					<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a>
+				</h2>
+				<p class="article">
+					Prix :
+					<%=article.getPrixVente()%>
+					points<br /> Fin de l'enchère :
+					<%=article.getDateFin()%>
+					<br /> Vendeur : <a
+						href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
+				</p>
+			</li>
+			<%
+			}
+			%>
 		</ul>
-	
-		
-		
-		<!--  <div class="item">
+	</main>
+
+	<footer> </footer>
+</body>
+</html>
+
+
+<!--  <div class="item">
 			<img src="https://via.placeholder.com/150x120">
 			<h2 class="title">Montre classique</h2>
 			<p class="text">Lorem ipsum dolor sit amet consecte tur
@@ -118,9 +126,3 @@
 			<p class="vendor">Martin18</p>
 			<p class="price">15 points</p>
 		</div>  -->
-	</section>
-	</main>
-	
-	<footer> </footer>
-</body>
-</html>
