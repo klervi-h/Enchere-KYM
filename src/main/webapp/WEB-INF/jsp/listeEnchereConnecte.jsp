@@ -13,7 +13,7 @@
 <body>
 	<nav>
 		<a href="/Accueil">acceuil</a> <a href="CreationVente">Vendre un article</a> <a href="MonProfil">Mon
-			profil</a> <a href="">Deconnection</a>
+			profil</a> <a href="Deconnexion">Deconnexion</a>
 	</nav>
 	<main>
 		<h1>Liste des enchères</h1>
