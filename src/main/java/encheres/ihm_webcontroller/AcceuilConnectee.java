@@ -32,7 +32,7 @@ public class AcceuilConnectee extends HttpServlet {
 			e.printStackTrace();
 		}		
 		request.setAttribute("listeArticle", listeArticle);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnectee.jsp");
 		rd.forward(request, response);
 	}
 
@@ -40,7 +40,7 @@ public class AcceuilConnectee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/accueilConnectee.jsp");
 		rd.forward(request, response);
 	}
 

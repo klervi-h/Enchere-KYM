@@ -55,7 +55,7 @@ public class Connexion extends HttpServlet {
 			{
 				HttpSession session = request.getSession();
 				session.setAttribute("noUtil", noUtil );
-				chemin="/Accueil";
+				chemin="/AccueilConnectee";
 			}
 			else
 			{chemin ="/Connexion";
