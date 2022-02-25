@@ -28,7 +28,6 @@
 					<a href="AccueilConnectee">ENI - Enchères</a>
 				</h1>
 			</div>
-
 			<div class="link">
 				<div class="nav-item">
 					<a class="nav-link" href="CreationVente">Vendre un article</a>
