@@ -54,11 +54,9 @@
 				article = listeArticle.get(i);
 			%>
 			<li>
-				<p>
-					<img alt="image de l'article" src="" aria-hidden="true">
-				<h2>
+				<h3>
 					<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a>
-				</h2>
+				</h3>
 				<p class="article">
 					Prix :
 					<%=article.getPrixVente()%>
@@ -73,8 +71,6 @@
 			%>
 		</ul>
 	</main>
-
-	<footer> </footer>
 </body>
 </html>
 

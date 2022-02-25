@@ -1,6 +1,6 @@
 <%@page import="encheres.buisness.bll.UtilisateurManager"%>
-<%@ page import="java.util.List" %>
-<%@ page import="encheres.buisness.bo.Article" %>
+<%@ page import="java.util.List"%>
+<%@ page import="encheres.buisness.bo.Article"%>
 <%@page import="encheres.buisness.bo.Article"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -11,16 +11,36 @@
 <title>Liste des Encheres</title>
 </head>
 <body>
-	<nav>
-		<a href="CreationVente">Vendre un article</a> <a href="MonProfil">Mon
-			profil</a> <a href="Deconnexion">Deconnexion</a>
-	</nav>
+	<header>
+		<nav class="navbar">
+			<div class="logo">
+				<h1>ENI - Enchères</h1>
+			</div>
+
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="CreationVente">Vendre un article</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="MonProfil">Mon
+			profil</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="Deconnexion">Deconnexion</a>
+				</div>
+
+			</div>
+		</nav>
+	</header>
+	
 	<main>
-		<h1>Liste des enchères</h1>
+		<h2>Liste des enchères</h2>
+		<!-- Formulaire non actif -->
+		<!-- 
 		<section aria-label="filtre">
-			 <h2>Filtres :</h2>
+			<h3>Filtres :</h3>
 			<form action="" method="post">
-			<!--	<p>
+				<p>
 					<input type="text" aria-label="Rechercher article par mot clef"
 						name="recherche" placeholder="Le nom de l'article contient">
 					<label for="categorie">Catégorie :</label> <select name="categorie"
@@ -31,7 +51,7 @@
 						<option value="3">Vêtement</option>
 						<option value="4">Sport&Loisirs</option>
 					</select>
-					 -->
+					
 				<p>
 					<input type="radio" name="achat_vente" value="achat" /> <label
 						for="achat">Achats</label>
@@ -40,8 +60,9 @@
 					<input type="radio" name="achat_vente" value="vente" /> <label
 						for="vente">Ventes</label>
 				</p>
+				 
 				<button type="submit">Rechercher</button>
-				<!-- CHECKBOX
+				// CHECKBOX
 				<div id="achat">
 					<p><input type="checkbox" name="encheresOuvertes" value="ouverte">
 					<label for="encheresOuvertes">enchères ouvertes</label></p>
@@ -53,27 +74,34 @@
 					<label for="ventesEnCours">mes ventes en cours</label></p>
 					<p><input type="checkbox" name="ventesNonDebutee" value="enCours"><label for="ventesNonDebutee">ventes non débutées</label></p>
 					<p><input type="checkbox" name="ventesTerminees" value="remportee"><label for="ventesTerminees">ventes terminées</label></p>
-				</div> -->
+				</div> 
 			</form>
 		</section>
-		<ul aria-label = "Listes des articles">
-			<%List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
+		-->
+		<ul aria-label="Listes des articles">
+			<%
+			List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
 			int longeurListe = listeArticle.size();
-				Article article = null;
-				UtilisateurManager uM= new UtilisateurManager();
-				
-				
-				for(int i=0; i < listeArticle.size(); i++) {
-					article=listeArticle.get(i);%>
-						<li> 
-						<p>
-						<img alt="image de l'article" src="" aria-hidden="true">
-						<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a> <br/>
-						Prix : <%=article.getPrixVente() %> points<br/>
-						Fin de l'enchère : <%=article.getDateFin()%> <br/>
-						Vendeur : <a href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
-						</li>
-						<%}%>
+			Article article = null;
+			UtilisateurManager uM = new UtilisateurManager();
+
+			for (int i = 0; i < listeArticle.size(); i++) {
+				article = listeArticle.get(i);
+			%>
+			<li>
+				<p>
+					<img alt="image de l'article" src="" aria-hidden="true"> <a
+						href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a>
+					<br /> Prix :
+					<%=article.getPrixVente()%>
+					points<br /> Fin de l'enchère :
+					<%=article.getDateFin()%>
+					<br /> Vendeur : <a
+						href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
+			</li>
+			<%
+			}
+			%>
 		</ul>
 	</main>
 
