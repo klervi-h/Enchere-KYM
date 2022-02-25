@@ -30,8 +30,6 @@ public class CreationVente extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		int noUtil = (int) session.getAttribute("noUtil");
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/creationVente.jsp");
 		rd.forward(request, response);
 	}

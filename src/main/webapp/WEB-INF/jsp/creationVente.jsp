@@ -39,7 +39,7 @@
 			</div>
 		</nav>
 	</header>
-	<form class="tab1">
+	<form action="" method="post"  class="tab1">
 		<h3>Nouvelle Vente</h3>
 		<div class="tab2">
 			<div>
