@@ -35,6 +35,9 @@
 
 	<main>
 		<div class="connection">
+			<img alt="" aria-hidden="true" src="images/feuille.png"
+				class="feuille">
+
 			<form action="" method="post">
 				<div class="champs">
 					<label for="pseudo">Pseudo :</label>
