@@ -1,80 +1,93 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Bienvenue sur le site ENI-Encheres.org</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Bienvenue sur le site ENI-Enchère">
-<meta name="keywords"
-	content="Enchere, objet seconde main, Pas d'échange d'argent">
-<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="32x32"
-	href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="images/marteau.png">
-<link rel="stylesheet" href="css/StylelSheet.css">
-<style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-</style>
+<meta charset="UTF-8">
+<title>Liste des Encheres</title>
 </head>
-
 <body>
 	<header>
-	<div class="ligneSupp"></div>
 		<nav class="navbar">
 			<div class="logo">
-				<img src="images/handshake3.png" class="imageLogo"/><h1>ENI - Enchères</h1>
+				<h1>ENI - Enchères</h1>
 			</div>
 
 			<div class="link">
 				<div class="nav-item">
-					<a class="conexion" href="Connexion">Se connecter</a>
+					<a class="nav-link" href="CreationVente">Vendre un article</a>
 				</div>
 				<div class="nav-item">
-					<a class="creation" href="CreationCompte">S'inscrire</a>
+					<a class="nav-link" href="MonProfil">Mon
+			profil</a>
 				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="Deconnexion">Deconnexion</a>
+				</div>
+
 			</div>
 		</nav>
 	</header>
+	
 	<main>
+		<h2>Liste des enchères</h2>
+		<!-- Formulaire non actif -->
 		<!-- 
-		<input type="search" id="site-search" name="q"
-		       aria-label="Search through site content">
-		<button>Rechercher</button>
-		<p>
-		<label for="categorie">Catégorie</label> <select name="categorie"
-			id="categorie">
-			<option value="1">Informatique</option>
-			<option value="2">Ameublement</option>
-			<option value="3">Vêtement</option>
-			<option value="4">Sport&Loisirs</option>
-		</select>
-		</p>
-		 -->
-
-
-
-		<ul aria-label="Listes des articles" class="container">
-
-			<li>
-
-				<h2>
-					<a href="">NomArticle</a>
-				</h2>
-				<p class="article">
-					Prix :PrixVente points<br /> Fin de l'enchère : article <br />
-					Vendeur : <a href=""></a>
+		<section aria-label="filtre">
+			<h3>Filtres :</h3>
+			<form action="" method="post">
+				<p>
+					<input type="text" aria-label="Rechercher article par mot clef"
+						name="recherche" placeholder="Le nom de l'article contient">
+					<label for="categorie">Catégorie :</label> <select name="categorie"
+						id="categorie">
+						<option value="5" selected="selected">Toutes</option>
+						<option value="1">Informatique</option>
+						<option value="2">Ameublement</option>
+						<option value="3">Vêtement</option>
+						<option value="4">Sport&Loisirs</option>
+					</select>
+					
+				<p>
+					<input type="radio" name="achat_vente" value="achat" /> <label
+						for="achat">Achats</label>
 				</p>
+				<p>
+					<input type="radio" name="achat_vente" value="vente" /> <label
+						for="vente">Ventes</label>
+				</p>
+				 
+				<button type="submit">Rechercher</button>
+				// CHECKBOX
+				<div id="achat">
+					<p><input type="checkbox" name="encheresOuvertes" value="ouverte">
+					<label for="encheresOuvertes">enchères ouvertes</label></p>
+					<p><input type="checkbox" name="encheresEnCours" value="enCours"><label for="encheresEnCours">mes enchères en cours</label></p>
+					<p><input type="checkbox" name="encheresRemportees" value="remportee"><label for="encheresRemportees">mes enchères remportées</label></p>
+				</div>
+				<div id="ventes">
+				<p><input type="checkbox" name="ventesEnCours" value="ouverte">
+					<label for="ventesEnCours">mes ventes en cours</label></p>
+					<p><input type="checkbox" name="ventesNonDebutee" value="enCours"><label for="ventesNonDebutee">ventes non débutées</label></p>
+					<p><input type="checkbox" name="ventesTerminees" value="remportee"><label for="ventesTerminees">ventes terminées</label></p>
+				</div> 
+			</form>
+		</section>
+		-->
+		<ul aria-label="Listes des articles">
+			
+			<li>
+				<p>
+					<img alt="image de l'article" src="" aria-hidden="true"> <a
+						href="DetailVente?idArticle=<%=article.getNoArticle()%>">tNomArticle</a>
+					<br /> Prix :
+					PrixVente()
+					points<br /> Fin de l'enchère :
+					tDateFin
+					<br /> Vendeur : <a
+						href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>">Pseudo</a>
 			</li>
-
+			
 		</ul>
-
 	</main>
 
-	<footer> </footer>
 </body>
 </html>
