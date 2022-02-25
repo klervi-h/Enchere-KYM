@@ -17,11 +17,14 @@
 <link rel="icon" type="image/png" sizes="16x16"
 	href="images/marteau.png">
 <link rel="stylesheet" href="css/StyleSheetM.css">
-<link rel="stylesheet" href="css/StylelSheet.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 </style>
+<!-- ---------------------------------------------- -->
 </head>
 <body>
 	<header>

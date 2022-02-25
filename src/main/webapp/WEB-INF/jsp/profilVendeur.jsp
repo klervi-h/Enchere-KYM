@@ -8,11 +8,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/StyleSheetM.css">
-<link rel="stylesheet" href="css/StylelSheet.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 </style>
+<!-- ---------------------------------------------- -->
 <body>
 	<%
 	String pseudo = (String) request.getAttribute("pseudonyme");
