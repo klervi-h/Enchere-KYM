@@ -60,11 +60,9 @@ body {
 }
 
 .nav-item :hover{
-	background-color: #6d6d6d;
-	width : 130px;
-	height : 35px;
+	background-color: #6d6d6d;	
 	text-align: center;
-	padding: 8%;
+	padding: 5%;
 	border-radius: 20%; 
 	margin : 2%;
 }
