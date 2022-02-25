@@ -59,7 +59,6 @@
 						 <label for="achat">Se souvenir de moi</label> -->
 					</div>
 					<!--<a href="">Mot de passe oublié</a>-->
-
 				</div>
 
 			</form>
