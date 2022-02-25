@@ -15,6 +15,7 @@
 <meta name="keywords"
 	content="Enchere, objet seconde main, Pas d'échange d'argent">
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<link rel="stylesheet" href="css/StylelSheet.css">
 <link rel="stylesheet" href="css/styleAcceuill_connection.css">
 <!-- -------------- CSS Commun ------------------- -->
 <link rel="stylesheet" href="css/styleCommun.css">

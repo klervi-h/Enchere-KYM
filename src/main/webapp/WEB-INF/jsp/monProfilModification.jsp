@@ -16,12 +16,20 @@
 	href="images/marteau.png">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="images/marteau.png">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/StyleSheetM.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
+<!-- ---------------------------------------------- -->
 </head>
 <body>
 	<%
 	String pseudo = (String) request.getAttribute("pseudonyme");
-	String nom =(String) request.getAttribute("nomUtil");
+	String nom = (String) request.getAttribute("nomUtil");
 	String prenom = (String) request.getAttribute("prenomUtil");
 	String email = (String) request.getAttribute("emailUtil");
 	String telephone = (String) request.getAttribute("telephoneUtil");
@@ -33,69 +41,124 @@
 	int noUtil = (int) request.getAttribute("noUtil");
 	%>
 	<header>
-		<nav id="nav-menu-container">
-			<a href ="AccueilConnectee">ENI - Enchères</a>
+		<nav class="navbar">
+			<div class="logo">
+				<h1>ENI - Enchères</h1>
+			</div>
+
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="Connexion">Se connecter</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="CreationCompte">S'inscrire</a>
+				</div>
+
+			</div>
 		</nav>
 	</header>
 
 	<main>
-		<h2>Mon profil</h2>
+		<h3 class="stylecentre">Mon profil</h3>
 		<form action="" method="post">
-			<p>
-				<label for="pseudo">Pseudo :</label> <input type="text" id="pseudo"
-					name="pseudo" value="<%=pseudo%>" required />
-			</p>
-			<p>
-				<label for="nom">Nom :</label> <input type="text" id="nom"
-					name="nom" value="<%=nom%>" required />
-			</p>
-			<p>
-				<label for="prenom">Prénom :</label> <input type="text" id="prenom"
-					name="prenom" value="<%=prenom%>" required />
-			</p>
-			<p>
-				<label for="email">Email :</label> <input type="email" id="email"
-					name="email" value="<%=email%>" required />
-			</p>
-			<p>
-				<label for="telephone">Téléphone :</label> <input type="tel"
-					id="telephone" name="telephone" pattern="[0-9]{10}"
-					value="<%=telephone%>" required />
-			</p>
-			<p>
-				<label for="rue">Rue :</label> <input type="text" id="rue"
-					name="rue" value="<%=rue%>" required />
-			</p>
-			<p>
-				<label for="codePostal">Code Postal :</label> <input type="tel"
-					id="codePostal" name="codePostal" pattern="[0-9]{5}"
-					value="<%=codePostal%>" required />
-			</p>
-			<p>
-				<label for="ville">Ville :</label> <input type="text" id="ville"
-					name="ville" value="<%=ville%>" required />
-			</p>
+			<table class="stylecentre">
+				<tr>
+					<td>
+						<p>
+							<label for="pseudo">Pseudo :</label><br> <input type="text"
+								id="pseudo" name="pseudo" value="<%=pseudo%>" required /><br>
+						</p>
+					</td>
+					<td>
+						<p>
+							<label for="nom">Nom :</label><br> <input type="text" id="nom"
+								name="nom" value="<%=nom%>" required /><br>
+						</p>
+					</td>
+				</tr>
 
-			<p>
-				<label for="password">*Ancient mot de passe :</label> <input
-					type="password" id="password" name="mdp" required />
-			</p>
-			<p>
-				<label for="newPassword">Nouveau mot de passe :</label> <input
-					type="password" id="newPassword" name="newPassword" />
-			</p>
-			<p>
-				<label for="fld-repeat-password">Confirmation <span
-					class="sr-only">nouveau mot de passe </span>:
-				</label> <input type="password" id="fld-repeat-password"
-					name="fld-repeat-password" />
-			</p>
-			<p>
-				Crédit :
-				<%=credit%>
-			</p>
+				<tr>
+					<td><p>
+							<label for="prenom">Prénom :</label><br> <input type="text"
+								id="prenom" name="prenom" value="<%=prenom%>" required /><br>
+						</p></td>
+					<td>
+						<p>
+							<label for="email">Email :</label><br> <input type="email" id="email"
+								name="email" value="<%=email%>" required /><br>
+						</p>
+					</td>
+				</tr>
 
-			<div id="validation">
+				<tr>
+					<td>
+						<p>
+							<label for="telephone">Téléphone :</label><br> <input type="tel"
+								id="telephone" name="telephone" pattern="[0-9]{10}"
+								value="<%=telephone%>" required /><br>
+						</p>
+					</td>
+					<td>
+						<p>
+							<label for="rue">Rue :</label><br> <input type="text" id="rue"
+								name="rue" value="<%=rue%>" required /><br>
+						</p>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<p>
+							<label for="codePostal">Code Postal :</label><br> <input type="tel"
+								id="codePostal" name="codePostal" pattern="[0-9]{5}"
+								value="<%=codePostal%>" required /><br>
+						</p>
+					</td>
+					<td>
+						<p>
+							<label for="ville">Ville :</label><br> <input type="text" id="ville"
+								name="ville" value="<%=ville%>" required /><br>
+						</p>
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<p>
+							<label for="password">*Ancient mot de passe :</label><br> <input
+								type="password" id="password" name="mdp" required /><br>
+						</p>
+					</td>
+					<td></td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<p>
+							<label for="fld-repeat-password">Confirmation <span
+								class="sr-only">nouveau mot de passe </span>:
+							</label><br> <input type="password" id="fld-repeat-password"
+								name="fld-repeat-password" /><br>
+						</p>
+					</td>
+					<td></td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<p>
+							Crédit :
+							<%=credit%>
+						</p>
+					</td>
+					<td></td>
+				</tr>
+			</table>
+			<div id="validation" class="stylecentre">
 				<input type="submit" name="action" value="enregistrer"
 					title="Enregistrer" /> <input type="submit" name="action"
 					value="supprimer" title="Supprimer" />
