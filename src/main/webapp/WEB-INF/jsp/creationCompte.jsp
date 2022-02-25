@@ -5,7 +5,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Créer un nouveau compte ENI-Encheres.org</title>
+<title>Création compte</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
@@ -51,6 +51,8 @@
 		<h2 class="stylecentre">Création compte</h2>
 		<form action="" method="post">
 			<div class="tab1">
+				<img alt="" aria-hidden="true" src="images/feuille.png"
+					class="feuille">
 				<table class="stylecentre">
 					<tr>
 						<td class="entete"><label for="pseudo">Pseudo :</label><br>
