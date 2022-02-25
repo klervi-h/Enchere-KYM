@@ -41,6 +41,7 @@
 	</header>
 	<form class="tab1">
 	<h3>Nouvelle Vente</h3>
+	<div class="tab2^^">
 		<p>
 			<label for="article" class="entete"><span class="sr-only">nom de l'</span>Article
 				: *</label> <input type="text" name="article" id="article" />
@@ -84,7 +85,8 @@
 		<div class="stylecentre">
 		<button type="submit" class="boutton">Enregistrer</button>
 		<button type="button" id="annulerNewVente" class="boutton">Annuler</button>
-		</div>		
+		</div>	
+		</div>	
 	</form>
 </body>
 </html>

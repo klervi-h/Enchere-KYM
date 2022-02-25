@@ -9,19 +9,7 @@ margin: auto;
 	line-height: 300%;
 	box-shadow: 0px 0px 15px #000700;
 	border-radius: 10px/10px; /*
-	background-color: #ffffd9;
-	color: #001d0a;
-	box-shadow: 0px 0px 10px #000700;
-	
-	margin-top: 10%;
-	width: fit-content;
-	height: 260px;
-	padding: 60px;
-	border-radius: 10px/10px;*/
-	
 }
-
-
 h3 {
 	font-size : 20px;
 	background-color: #a5cc77;
@@ -34,6 +22,9 @@ h3 {
 	border-top-left-radius: 10px;
 }
 
+.tab3{
+	margin-left: 10%;
+}
 table{
 	padding-left: 5%;
 	border-spacing: 100px 0px;
