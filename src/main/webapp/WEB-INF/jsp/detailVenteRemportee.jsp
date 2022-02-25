@@ -13,9 +13,15 @@
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
 <link rel="icon" type="image/png" sizes="32x32"
 	href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="images/marteau.png">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/StyleSheetM.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
+<!-- ---------------------------------------------- -->
 <head></head>
 
 <body>
@@ -31,13 +37,27 @@
 	String telephone = (String) request.getAttribute("telephoneVendeur");
 	String pseudo = (String) request.getAttribute("pseudoVendeur");
 	%>
-
-	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
-because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
 	<header>
-		<h1>
-			<a href=Acceuil.html>ENI - Enchères</a>
-		</h1>
+		<nav class="navbar">
+			<div class="logo">
+				<img src="images/handshake3.png" class="imageLogo">
+				<h1>
+					<a href="AccueilConnectee">ENI - Enchères</a>
+				</h1>
+			</div>
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="CreationVente">Vendre un article</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="MonProfil">Mon profil</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="Deconnexion">Deconnexion</a>
+				</div>
+
+			</div>
+		</nav>
 	</header>
 
 
@@ -45,6 +65,7 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 
 		<h2>Vous avez remporté la vente</h2>
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
+		<div class="tab1">
 		<!--Nom de l'article-->
 		<p><%=nomArticle%></p>
 		<table>
@@ -73,7 +94,8 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 				<td><%=telephone%></td>
 			</tr>
 		</table>
-		<form action="/Enchere-KYM/Accueil" name="back">
+		</div>
+		<form action="/Enchere-KYM/Accueil" name="back" class="stylecentre">
 			<input type="submit" value="Back" />
 		</form>
 

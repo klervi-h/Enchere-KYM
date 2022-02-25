@@ -13,9 +13,15 @@
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
 <link rel="icon" type="image/png" sizes="32x32"
 	href="images/marteau.png">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="images/marteau.png">
-<link rel="stylesheet" href="css/style2.css">
+<link rel="stylesheet" href="css/StyleSheetM.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
+<!-- ---------------------------------------------- -->
 <head></head>
 
 <body>
@@ -32,16 +38,30 @@
 	String ville = (String) request.getAttribute("villeUtil");
 	int noUtil = (int) request.getAttribute("noUtilisateur");
 	boolean connecte = (boolean) request.getAttribute("connecte");
-	String estConnecte = connecte?"disabled":"";
+	String estConnecte = connecte ? "disabled" : "";
 	String pseudoVendeur = (String) request.getAttribute("pseudoVendeur");
 	%>
-
-	<!-- TODO debug java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" 
-because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(String)" is null -->
 	<header>
-		<h1>
-			<a href=AccueilConnectee>ENI - Enchères</a>
-		</h1>
+		<nav class="navbar">
+			<div class="logo">
+				<img src="images/handshake3.png" class="imageLogo">
+				<h1>
+					<a href="AccueilConnectee">ENI - Enchères</a>
+				</h1>
+			</div>
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="CreationVente">Vendre un article</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="MonProfil">Mon profil</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="Deconnexion">Deconnexion</a>
+				</div>
+
+			</div>
+		</nav>
 	</header>
 
 
@@ -51,43 +71,45 @@ because the return value of "javax.servlet.http.HttpServletRequest.getAttribute(
 		<img alt="photo de l'article en vente" src="" aria-hidden="true">
 		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
-		<p><%=nomArticle%></p>
-		<table>
-			<tr>
-				<td>Description :</td>
-				<td><%=description%></td>
-			</tr>
-			<tr>
-				<td>Catégorie :</td>
-				<td><%=categorie%></td>
-			</tr>
-			<tr>
-				<td>Meilleure offre :</td>
-				<td><%=prix%></td>
-			</tr>
-			<tr>
-				<td>Mise à Prix :</td>
-				<td><%=prixInit%></td>
-			</tr>
-			<tr>
-				<td>Fin de l'enchère:</td>
-				<td><%=dateFin%></td>
-			</tr>
-			<tr>
-				<td>Retrait : </td>
-				<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
-			</tr>
-			<tr>
-				<td>Vendeur :</td>
-				<td><%=pseudoVendeur%></td>
-			</tr>
-		</table>
-		<form action="" method="post">
+		<div class="tab1">
+			<p><%=nomArticle%></p>
+			<table>
+				<tr>
+					<td>Description :</td>
+					<td><%=description%></td>
+				</tr>
+				<tr>
+					<td>Catégorie :</td>
+					<td><%=categorie%></td>
+				</tr>
+				<tr>
+					<td>Meilleure offre :</td>
+					<td><%=prix%></td>
+				</tr>
+				<tr>
+					<td>Mise à Prix :</td>
+					<td><%=prixInit%></td>
+				</tr>
+				<tr>
+					<td>Fin de l'enchère:</td>
+					<td><%=dateFin%></td>
+				</tr>
+				<tr>
+					<td>Retrait :</td>
+					<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
+				</tr>
+				<tr>
+					<td>Vendeur :</td>
+					<td><%=pseudoVendeur%></td>
+				</tr>
+			</table>
+		</div>
+		<form action="" method="post" class="stylecentre">
 			<label for="newPrixVente">Ma proposition: </label> <input
 				type="number" id="newPrixVente" name="newPrixVente" min="1"
-				max="1000" value="<%=prix + 1%>" <%=connecte%>/> <input type="submit"
-				value="Enchérir" <%=estConnecte%>/><input type="text" name="numeroArticle"
-				value="<%=nArticle%>" hidden="true">
+				max="1000" value="<%=prix + 1%>" <%=connecte%> /> <input
+				type="submit" value="Enchérir" <%=estConnecte%> /><input type="text"
+				name="numeroArticle" value="<%=nArticle%>" hidden="true">
 		</form>
 
 	</main>
