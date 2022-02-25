@@ -48,42 +48,41 @@
 	</header>
 	<div>
 		<main>
-		<h2 class="stylecentre">Profil Vendeur</h2>
-			<table class="tab1">
-				<tr>
-					<td>Pseudo :</td>
-					<td><%=pseudo%></td>
-				</tr>
-				<tr>
-					<td>Nom :</td>
-					<td><%=nom%></td>
-				</tr>
-				<tr>
-					<td>Prénom :</td>
-					<td><%=prenom%></td>
-				</tr>
-				<tr>
-					<td>Email :</td>
-					<td><%=email%></td>
-				</tr>
-				<tr>
-					<td>Téléphone :</td>
-					<td><%=telephone%></td>
-				</tr>
-				<tr>
-					<td>Rue :</td>
-					<td><%=rue%></td>
-				</tr>
-				<tr>
-					<td>Code postal :</td>
-					<td><%=codePostal%></td>
-				</tr>
-				<tr>
-					<td>Ville :</td>
-					<td><%=ville%></td>
-				</tr>
+			<h2 class="stylecentre">Profil Vendeur</h2>
+			<div class="tab1">
+				<h3><%=pseudo%></h3>
+				<table>
+					<tr>
+						<td class="entete">Nom :</td>
+						<td><%=nom%></td>
+					</tr>
+					<tr>
+						<td class="entete">Prénom :</td>
+						<td><%=prenom%></td>
+					</tr>
+					<tr>
+						<td class="entete">Email :</td>
+						<td><%=email%></td>
+					</tr>
+					<tr>
+						<td class="entete">Téléphone :</td>
+						<td><%=telephone%></td>
+					</tr>
+					<tr>
+						<td class="entete">Rue :</td>
+						<td><%=rue%></td>
+					</tr>
+					<tr>
+						<td class="entete">Code postal :</td>
+						<td><%=codePostal%></td>
+					</tr>
+					<tr>
+						<td class="entete">Ville :</td>
+						<td><%=ville%></td>
+					</tr>
 
-			</table>
+				</table>
+			</div>
 		</main>
 
 	</div>

@@ -21,6 +21,7 @@ margin: auto;
 	
 }
 
+
 h3 {
 	font-size : 20px;
 	background-color: #a5cc77;
@@ -35,6 +36,7 @@ h3 {
 
 table{
 	padding-left: 5%;
+	border-spacing: 100px 0px;
 }
 
 .entete{
@@ -83,4 +85,11 @@ a.leBouton2 {
 a.leBouton:hover {
 	background-color: #6d6d6d;
 	color: #a5cc77;
+}
+
+.bas{
+	text-align: center;
+	margin-top: -10%;
+	margin-bottom: 25%;
+	padding-bottom: 4%;
 }
