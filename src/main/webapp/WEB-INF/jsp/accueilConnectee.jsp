@@ -9,12 +9,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Liste des Encheres</title>
+<link rel="stylesheet" href="css/styleAcceuill_connection.css">
+<!-- -------------- CSS Commun ------------------- -->
+<link rel="stylesheet" href="css/styleCommun.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+</style>
+<!-- ---------------------------------------------- -->
 </head>
 <body>
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-				<h1>ENI - Enchères</h1>
+			<img src="images/handshake3.png" class="imageLogo">
+				<h1>
+					<a href="AccueilConnectee">ENI - Enchères</a>
+				</h1>
 			</div>
 
 			<div class="link">
@@ -22,8 +34,7 @@
 					<a class="nav-link" href="CreationVente">Vendre un article</a>
 				</div>
 				<div class="nav-item">
-					<a class="nav-link" href="MonProfil">Mon
-			profil</a>
+					<a class="nav-link" href="MonProfil">Mon profil</a>
 				</div>
 				<div class="nav-item">
 					<a class="nav-link" href="Deconnexion">Deconnexion</a>
@@ -78,7 +89,7 @@
 			</form>
 		</section>
 		-->
-		<ul aria-label="Listes des articles">
+		<ul aria-label="Listes des articles" class="container">
 			<%
 			List<Article> listeArticle = (List<Article>) request.getAttribute("listeArticle");
 			int longeurListe = listeArticle.size();
@@ -89,15 +100,17 @@
 				article = listeArticle.get(i);
 			%>
 			<li>
-				<p>
-					<img alt="image de l'article" src="" aria-hidden="true"> <a
-						href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a>
-					<br /> Prix :
+				<h3>
+					<a href="DetailVente?idArticle=<%=article.getNoArticle()%>"><%=article.getNomArticle()%></a>
+				</h3>
+				<p class="article">
+					Prix :
 					<%=article.getPrixVente()%>
 					points<br /> Fin de l'enchère :
 					<%=article.getDateFin()%>
 					<br /> Vendeur : <a
 						href="ProfilVendeur?idVendeur=<%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%>"><%=(uM.afficherParId(article.getNoUtilisateur())).getPseudo()%></a>
+				</p>
 			</li>
 			<%
 			}
