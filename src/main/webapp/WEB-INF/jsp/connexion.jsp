@@ -34,24 +34,35 @@
 	</header>
 
 	<main>
-		<form action="" method="post">
-			<label for="pseudo">Pseudo :</label><br> <input type="text"
-				id="pseudo" name="pseudo" placeholder="Pseudo" required /><br>
-			<label for="nom">Mot de passe :</label><br> <input
-				type="password" id="password" name="password"
-				placeholder="mot de passe" required /><br>
-			<div id="validation">
-				<button type="submit" id="connexion">Connexion</button>
-				<div>
-					<!--  <input type="checkbox" id= remember name="remember"/>
-						 <label for="achat">Se souvenir de moi</label> -->
+		<div class="connection">
+			<form action="" method="post">
+				<div class="champs">
+					<label for="pseudo">Pseudo :</label>
 				</div>
-				<!--<a href="">Mot de passe oublié</a>-->
-			</div>
+				<div class="champs">
+					<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"
+						required />
+				</div>
+				<div class="champs">
+					<label for="nom">Mot de passe :</label>
+				</div>
+				<div class="champs">
+					<input type="password" id="password" name="password"
+						placeholder="mot de passe" required />
+				</div>
+				<div id="validation" class="bas">
+					<button type="submit" id="connexion" class="boutton">Connexion</button>
+					<a href="CreationCompte" class="leBouton leBouton2">Créer un
+						compte</a>
+					<div>
+						<!--  <input type="checkbox" id= remember name="remember"/>
+						 <label for="achat">Se souvenir de moi</label> -->
+					</div>
+					<!--<a href="">Mot de passe oublié</a>-->
 
-			<a href="CreationCompte">Créer un compte</a>
+				</div>
 
-		</form>
-
+			</form>
+		</div>
 	</main>
 </html>

@@ -3,27 +3,27 @@
 .container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content : space-around;
-	margin : auto;
+	justify-content: space-around;
+	margin: auto;
 }
 
-h2{
+h2 {
 	text-align: center;
 	font-size: 30px;
 }
 
 ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 li {
 	background-color: #ffffd9;
 	color: #001d0a;
 	margin: 3%;
-	width : 40%;
-	line-height : 300%;
-box-shadow: 0px 0px 15px #000700;
-border-radius : 10px / 10px;
+	width: 40%;
+	line-height: 300%;
+	box-shadow: 0px 0px 15px #000700;
+	border-radius: 10px/10px;
 }
 
 h3 {
@@ -31,23 +31,75 @@ h3 {
 	color: #001d0a;
 	margin: 0px;
 	padding: 1.5%;
-	display : flex;
+	display: flex;
 	justify-content: center;
-	border-top-right-radius : 10px;
-	border-top-left-radius : 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 h3 a {
-	border-top-right-radius : 10px/10px;
-	border-top-left-radius : 10px/10px;
+	border-top-right-radius: 10px/10px;
+	border-top-left-radius: 10px/10px;
 	background-color: #a5cc77;
 	color: #001d0a;
 }
 
-
 .article {
 	margin: 3%;
 }
-.article a{
-	color :#0064b7;
+
+.article a {
+	color: #0064b7;
+}
+
+.connection {
+	background-color: #ffffd9;
+	color: #001d0a;
+	margin: auto;
+	margin-top: 10%;
+	width: 40%;
+	line-height: 300%;
+	box-shadow: 0px 0px 15px #000700;
+	border-radius: 10px/10px;
+	text-align: center;
+}
+
+.champs {
+	text-align: center;
+}
+
+a.leBouton {
+	text-decoration: none;
+	padding: 5px 10px;
+	background-color: #a5cc77;
+	color: #001d0a;
+	border: 0.5px solid #001d0a;
+	font-size: 13px;
+}
+
+a.leBouton2 {
+	border-radius: 12px;
+	border: 0.5px solid #001d0a;
+}
+
+a.leBouton:hover {
+	background-color: #6d6d6d;
+	color: #a5cc77;
+}
+
+.boutton {
+	font-family: 'Raleway', sans-serif;
+	font-size : 13px;
+	text-decoration: none;
+	padding: 5px 10px;
+	background-color: #a5cc77;
+	color: #001d0a;
+	border: 0.5px solid #001d0a;
+	border-radius: 12px;
+	border: 0.5px solid #001d0a;
+}
+
+.boutton:hover {
+	background: #6d6d6d;
+	color: #a5cc77;
 }
