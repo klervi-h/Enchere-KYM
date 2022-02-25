@@ -65,38 +65,36 @@
 	<main>
 
 		<h2>Détail vente</h2>
-		<img alt="photo de l'article en vente" src="" aria-hidden="true">
-		<img alt="photo de l'article " src="" aria-hidden="true">
 		<!--Nom de l'article-->
 		<div class="tab1">
-			<p><%=nomArticle%></p>
+			<h3><%=nomArticle%></h3>
 			<table>
 				<tr>
-					<td>Description :</td>
+					<td class="entete">Description :</td>
 					<td><%=description%></td>
 				</tr>
 				<tr>
-					<td>Catégorie :</td>
+					<td class="entete">Catégorie :</td>
 					<td><%=categorie%></td>
 				</tr>
 				<tr>
-					<td>Meilleure offre :</td>
+					<td class="entete">Meilleure offre :</td>
 					<td><%=prix%></td>
 				</tr>
 				<tr>
-					<td>Mise à Prix :</td>
+					<td class="entete">Mise à Prix :</td>
 					<td><%=prixInit%></td>
 				</tr>
 				<tr>
-					<td>Fin de l'enchère:</td>
+					<td class="entete">Fin de l'enchère:</td>
 					<td><%=dateFin%></td>
 				</tr>
 				<tr>
-					<td>Retrait :</td>
+					<td class="entete">Retrait :</td>
 					<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
 				</tr>
 				<tr>
-					<td>Vendeur :</td>
+					<td class="entete">Vendeur :</td>
 					<td><%=pseudoVendeur%></td>
 				</tr>
 			</table>
@@ -105,7 +103,7 @@
 			<label for="newPrixVente">Ma proposition: </label> <input
 				type="number" id="newPrixVente" name="newPrixVente" min="1"
 				max="1000" value="<%=prix + 1%>" <%=connecte%> /> <input
-				type="submit" value="Enchérir" <%=estConnecte%> /><input type="text"
+				type="submit" value="Enchérir" <%=estConnecte%> class="boutton"/><input type="text"
 				name="numeroArticle" value="<%=nArticle%>" hidden="true">
 		</form>
 

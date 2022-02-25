@@ -18,19 +18,19 @@
 <!-- ---------------------------------------------- -->
 <body>
 	<%
-    String pseudo = (String) request.getAttribute("pseudonyme");
-    String nom = (String) request.getAttribute("nomUtil");
-    String prenom = (String) request.getAttribute("prenomUtil");
-    String email = (String) request.getAttribute("emailUtil");
-    String telephone = (String) request.getAttribute("telephoneUtil");
-    String rue = (String) request.getAttribute("rueUtil");
-    int codePostal = (int) request.getAttribute("codePostaleUtil");
-    String ville = (String) request.getAttribute("villeUtil");
-    %>
+	String pseudo = (String) request.getAttribute("pseudonyme");
+	String nom = (String) request.getAttribute("nomUtil");
+	String prenom = (String) request.getAttribute("prenomUtil");
+	String email = (String) request.getAttribute("emailUtil");
+	String telephone = (String) request.getAttribute("telephoneUtil");
+	String rue = (String) request.getAttribute("rueUtil");
+	int codePostal = (int) request.getAttribute("codePostaleUtil");
+	String ville = (String) request.getAttribute("villeUtil");
+	%>
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-			<img src="images/handshake3.png" class="imageLogo">
+				<img src="images/handshake3.png" class="imageLogo">
 				<h1>
 					<a href="AccueilConnectee">ENI - Enchères</a>
 				</h1>
@@ -51,47 +51,46 @@
 	</header>
 	<div>
 		<main>
-		<h2 class="stylecentre">Mon profil</h2>
-			<table class="tab1">
-				<tr>
-					<td>Pseudo :</td>
-					<td><%=pseudo %></td>
-				</tr>
-				<tr>
-					<td>Nom :</td>
-					<td><%=nom %></td>
-				</tr>
-				<tr>
-					<td>Prénom :</td>
-					<td><%=prenom %></td>
-				</tr>
-				<tr>
-					<td>Email :</td>
-					<td><%=email %></td>
-				</tr>
-				<tr>
-					<td>Téléphone :</td>
-					<td><%=telephone %></td>
-				</tr>
-				<tr>
-					<td>Rue :</td>
-					<td><%=rue %></td>
-				</tr>
-				<tr>
-					<td>Code postal :</td>
-					<td><%=codePostal %></td>
-				</tr>
-				<tr>
-					<td>Ville :</td>
-					<td><%=ville %></td>
-				</tr>
-
-			</table>
+			<h2 class="stylecentre">Mon profil</h2>
+			<div class="tab1">
+				<h3><%=pseudo%></h3>
+				<table>
+					<tr>
+						<td class="entete">Nom :</td>
+						<td><%=nom%></td>
+					</tr>
+					<tr>
+						<td class="entete">Prénom :</td>
+						<td><%=prenom%></td>
+					</tr>
+					<tr>
+						<td class="entete">Email :</td>
+						<td><%=email%></td>
+					</tr>
+					<tr>
+						<td class="entete">Téléphone :</td>
+						<td><%=telephone%></td>
+					</tr>
+					<tr>
+						<td class="entete">Rue :</td>
+						<td><%=rue%></td>
+					</tr>
+					<tr>
+						<td class="entete">Code postal :</td>
+						<td><%=codePostal%></td>
+					</tr>
+					<tr>
+						<td class="entete">Ville :</td>
+						<td><%=ville%></td>
+					</tr>
+				</table>
+			</div>
 		</main>
 
 	</div>
 	<div class="stylecentre">
-		<a href="/Enchere-KYM/MonProfilModification" >MODIFIER</a>
+		<a href="/Enchere-KYM/MonProfilModification"
+			class="leBouton leBouton2">MODIFIER</a>
 	</div>
 
 </body>
