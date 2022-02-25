@@ -30,9 +30,11 @@
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-				<h3>ENI - Enchères</h3>
+				<img src="images/handshake3.png" class="imageLogo">
+				<h1>
+					<a href="AccueilConnectee">ENI - Enchères</a>
+				</h1>
 			</div>
-
 			<div class="link">
 				<div class="nav-item">
 					<a class="nav-link" href="Connexion">Se connecter</a>

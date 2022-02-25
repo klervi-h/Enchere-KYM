@@ -43,23 +43,27 @@
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-				<h1>ENI - Enchères</h1>
+			<img src="images/handshake3.png" class="imageLogo">
+				<h1>
+					<a href="AccueilConnectee">ENI - Enchères</a>
+				</h1>
 			</div>
-
 			<div class="link">
 				<div class="nav-item">
-					<a class="nav-link" href="Connexion">Se connecter</a>
+					<a class="nav-link" href="CreationVente">Vendre un article</a>
 				</div>
 				<div class="nav-item">
-					<a class="nav-link" href="CreationCompte">S'inscrire</a>
+					<a class="nav-link" href="MonProfil">Mon profil</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="Deconnexion">Deconnexion</a>
 				</div>
 
 			</div>
 		</nav>
 	</header>
-
 	<main>
-		<h3 class="stylecentre">Mon profil</h3>
+		<h2 class="stylecentre">Mon profil</h2>
 		<form action="" method="post">
 			<table class="stylecentre">
 				<tr>

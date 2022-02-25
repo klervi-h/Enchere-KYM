@@ -17,8 +17,8 @@
 				: *</label> <input type="text" name="article" id="article" />
 		</p>
 		<p>
-			<label for="description">Description : *</label> <input type="text"
-				name="description" id="description" />
+			<label for="description">Description : *</label> <textarea
+				name="description" id="description" /></textarea>
 		</p>
 		<p>
 			<label for="categorie">Catégorie *</label> <select name="categorie"
