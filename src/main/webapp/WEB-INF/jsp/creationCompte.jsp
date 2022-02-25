@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="16x16"
 	href="images/marteau.png">
 <link rel="stylesheet" href="css/StyleSheetM.css">
+<link rel="stylesheet" href="css/StylelSheet.css">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -26,7 +27,7 @@
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-				<h1>ENI - Enchères</h1>
+				<h3>ENI - Enchères</h3>
 			</div>
 
 			<div class="link">

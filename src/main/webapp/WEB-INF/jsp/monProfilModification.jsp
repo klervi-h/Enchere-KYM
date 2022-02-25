@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="16x16"
 	href="images/marteau.png">
 <link rel="stylesheet" href="css/StyleSheetM.css">
+<link rel="stylesheet" href="css/StylelSheet.css">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -55,103 +56,103 @@
 	</header>
 
 	<main>
-		<h2 class="stylecentre">Mon profil</h2>
+		<h3 class="stylecentre">Mon profil</h3>
 		<form action="" method="post">
 			<table class="stylecentre">
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="pseudo">Pseudo :</label> <input type="text"
-								id="pseudo" name="pseudo" value="<%=pseudo%>" required />
+							<label for="pseudo">Pseudo :</label><br> <input type="text"
+								id="pseudo" name="pseudo" value="<%=pseudo%>" required /><br>
 						</p>
 					</td>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="nom">Nom :</label> <input type="text" id="nom"
-								name="nom" value="<%=nom%>" required />
+							<label for="nom">Nom :</label><br> <input type="text" id="nom"
+								name="nom" value="<%=nom%>" required /><br>
 						</p>
 					</td>
 				</tr>
 
 				<tr>
-					<td class="tab2"><p>
-							<label for="prenom">Prénom :</label> <input type="text"
-								id="prenom" name="prenom" value="<%=prenom%>" required />
+					<td><p>
+							<label for="prenom">Prénom :</label><br> <input type="text"
+								id="prenom" name="prenom" value="<%=prenom%>" required /><br>
 						</p></td>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="email">Email :</label> <input type="email" id="email"
-								name="email" value="<%=email%>" required />
+							<label for="email">Email :</label><br> <input type="email" id="email"
+								name="email" value="<%=email%>" required /><br>
 						</p>
 					</td>
 				</tr>
 
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="telephone">Téléphone :</label> <input type="tel"
+							<label for="telephone">Téléphone :</label><br> <input type="tel"
 								id="telephone" name="telephone" pattern="[0-9]{10}"
-								value="<%=telephone%>" required />
+								value="<%=telephone%>" required /><br>
 						</p>
 					</td>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="rue">Rue :</label> <input type="text" id="rue"
-								name="rue" value="<%=rue%>" required />
+							<label for="rue">Rue :</label><br> <input type="text" id="rue"
+								name="rue" value="<%=rue%>" required /><br>
 						</p>
 					</td>
 				</tr>
 
 
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="codePostal">Code Postal :</label> <input type="tel"
+							<label for="codePostal">Code Postal :</label><br> <input type="tel"
 								id="codePostal" name="codePostal" pattern="[0-9]{5}"
-								value="<%=codePostal%>" required />
+								value="<%=codePostal%>" required /><br>
 						</p>
 					</td>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="ville">Ville :</label> <input type="text" id="ville"
-								name="ville" value="<%=ville%>" required />
+							<label for="ville">Ville :</label><br> <input type="text" id="ville"
+								name="ville" value="<%=ville%>" required /><br>
 						</p>
 					</td>
 				</tr>
 
 
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
-							<label for="password">*Ancient mot de passe :</label> <input
-								type="password" id="password" name="mdp" required />
+							<label for="password">*Ancient mot de passe :</label><br> <input
+								type="password" id="password" name="mdp" required /><br>
 						</p>
 					</td>
-					<td class="tab2"></td>
+					<td></td>
 				</tr>
 
 
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
 							<label for="fld-repeat-password">Confirmation <span
 								class="sr-only">nouveau mot de passe </span>:
-							</label> <input type="password" id="fld-repeat-password"
-								name="fld-repeat-password" />
+							</label><br> <input type="password" id="fld-repeat-password"
+								name="fld-repeat-password" /><br>
 						</p>
 					</td>
-					<td class="tab2"></td>
+					<td></td>
 				</tr>
 
 
 				<tr>
-					<td class="tab2">
+					<td>
 						<p>
 							Crédit :
 							<%=credit%>
 						</p>
 					</td>
-					<td class="tab2"></td>
+					<td></td>
 				</tr>
 			</table>
 			<div id="validation" class="stylecentre">

@@ -8,6 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/StyleSheetM.css">
+<link rel="stylesheet" href="css/StylelSheet.css">
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
@@ -26,7 +27,7 @@
 	<header>
 		<nav class="navbar">
 			<div class="logo">
-				<h1>ENI - Enchères</h1>
+				<h3>ENI - Enchères</h3>
 			</div>
 
 			<div class="link">
