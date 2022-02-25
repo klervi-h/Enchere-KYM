@@ -65,17 +65,18 @@
 	<main>
 		<h2 class="stylecentre">Mon profil</h2>
 		<form action="" method="post">
+		<div class="tab1">
 			<table class="stylecentre">
 				<tr>
 					<td>
 						<p>
-							<label for="pseudo">Pseudo :</label><br> <input type="text"
+							<label for="pseudo" class="entete">Pseudo :</label><br> <input type="text"
 								id="pseudo" name="pseudo" value="<%=pseudo%>" required /><br>
 						</p>
 					</td>
 					<td>
 						<p>
-							<label for="nom">Nom :</label><br> <input type="text" id="nom"
+							<label for="nom" class="entete">Nom :</label><br> <input type="text" id="nom"
 								name="nom" value="<%=nom%>" required /><br>
 						</p>
 					</td>
@@ -83,12 +84,12 @@
 
 				<tr>
 					<td><p>
-							<label for="prenom">Prénom :</label><br> <input type="text"
+							<label for="prenom" class="entete">Prénom :</label><br> <input type="text"
 								id="prenom" name="prenom" value="<%=prenom%>" required /><br>
 						</p></td>
 					<td>
 						<p>
-							<label for="email">Email :</label><br> <input type="email" id="email"
+							<label for="email" class="entete">Email :</label><br> <input type="email" id="email"
 								name="email" value="<%=email%>" required /><br>
 						</p>
 					</td>
@@ -97,14 +98,14 @@
 				<tr>
 					<td>
 						<p>
-							<label for="telephone">Téléphone :</label><br> <input type="tel"
+							<label for="telephone" class="entete">Téléphone :</label><br> <input type="tel"
 								id="telephone" name="telephone" pattern="[0-9]{10}"
 								value="<%=telephone%>" required /><br>
 						</p>
 					</td>
 					<td>
 						<p>
-							<label for="rue">Rue :</label><br> <input type="text" id="rue"
+							<label for="rue" class="entete">Rue :</label><br> <input type="text" id="rue"
 								name="rue" value="<%=rue%>" required /><br>
 						</p>
 					</td>
@@ -114,14 +115,14 @@
 				<tr>
 					<td>
 						<p>
-							<label for="codePostal">Code Postal :</label><br> <input type="tel"
+							<label for="codePostal" class="entete">Code Postal :</label><br> <input type="tel"
 								id="codePostal" name="codePostal" pattern="[0-9]{5}"
 								value="<%=codePostal%>" required /><br>
 						</p>
 					</td>
 					<td>
 						<p>
-							<label for="ville">Ville :</label><br> <input type="text" id="ville"
+							<label for="ville" class="entete">Ville :</label><br> <input type="text" id="ville"
 								name="ville" value="<%=ville%>" required /><br>
 						</p>
 					</td>
@@ -131,7 +132,7 @@
 				<tr>
 					<td>
 						<p>
-							<label for="password">*Ancient mot de passe :</label><br> <input
+							<label for="password" class="entete">*Ancient mot de passe :</label><br> <input
 								type="password" id="password" name="mdp" required /><br>
 						</p>
 					</td>
@@ -142,18 +143,23 @@
 				<tr>
 					<td>
 						<p>
-							<label for="fld-repeat-password">Confirmation <span
-								class="sr-only">nouveau mot de passe </span>:
+							<label for="fld-repeat-password" class="entete">Nouveau mot de passe: <span
+								class="sr-only" class="entete">Nouveau mot de passe </span>:
 							</label><br> <input type="password" id="fld-repeat-password"
 								name="fld-repeat-password" /><br>
 						</p>
 					</td>
-					<td></td>
+					<td><p>
+							<label for="fld-repeat-password" class="entete">Confirmation <span
+								class="sr-only" class="entete">Confirmation nouveau mot de passe </span>:
+							</label><br> <input type="password" id="fld-repeat-password"
+								name="fld-repeat-password" /><br>
+						</p></td>
 				</tr>
 
 
 				<tr>
-					<td>
+					<td class="entete">
 						<p>
 							Crédit :
 							<%=credit%>
@@ -162,10 +168,11 @@
 					<td></td>
 				</tr>
 			</table>
-			<div id="validation" class="stylecentre">
+			<div id="validation" class="bas">
 				<input type="submit" name="action" value="enregistrer"
-					title="Enregistrer" /> <input type="submit" name="action"
-					value="supprimer" title="Supprimer" />
+					title="Enregistrer" class="boutton"/> <input type="submit" name="action"
+					value="supprimer" title="Supprimer" class="boutton"/>
+			</div>
 			</div>
 		</form>
 	</main>

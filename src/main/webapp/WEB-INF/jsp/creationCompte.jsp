@@ -48,59 +48,55 @@
 	</header>
 
 	<main>
-		<h2 class="stylecentre">Mon profil</h2>
+		<h2 class="stylecentre">Création compte</h2>
 		<form action="" method="post">
-			<table class="stylecentre">
-				<tr>
-					<td><label for="pseudo">Pseudo :</label><br> <input
-						type="text" id="pseudo" name="pseudo" placeholder="Pseudo"
-						required /><br></td>
-					<td><label for="nom">Nom :</label><br> <input type="text"
-						id="nom" name="nom" placeholder="nom" required /><br></td>
-				</tr>
+			<div class="tab1">
+				<table class="stylecentre">
+					<tr>
+						<td class="entete"><label for="pseudo">Pseudo :</label><br>
+							<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"
+							required /><br></td>
+						<td class="entete"><label for="nom">Nom :</label><br> <input
+							type="text" id="nom" name="nom" placeholder="nom" required /><br></td>
+					</tr>
 
-				<tr>
-					<td><label for="prenom">Prénom :</label><br> <input
-						type="text" id="prenom" name="prenom" placeholder="Votre prénom ?"
-						required /><br></td>
-					<td><label for="email">Email :</label><br> <input
-						type="text" name="email" placeholder="email" required /><br></td>
-				</tr>
+					<tr>
+						<td class="entete"><label for="prenom">Prénom :</label><br>
+							<input type="text" id="prenom" name="prenom"
+							placeholder="Votre prénom ?" required /><br></td>
+						<td class="entete"><label for="email">Email :</label><br>
+							<input type="text" name="email" placeholder="email" required /><br></td>
+					</tr>
 
-				<tr>
-					<td><label for="telephone">Téléphone :</label><br> <input
-						type="text" name="telephone" placeholder="numéro de téléphone" /><br></td>
-					<td><label for="rue">Rue :</label><br> <input type="text"
-						name="rue" placeholder="rue" /><br></td>
-				</tr>
+					<tr>
+						<td class="entete"><label for="telephone">Téléphone :</label><br>
+							<input type="text" name="telephone"
+							placeholder="numéro de téléphone" /><br></td>
+						<td class="entete"><label for="rue">Rue :</label><br> <input
+							type="text" name="rue" placeholder="rue" /><br></td>
+					</tr>
 
-				<tr>
-					<td><label for="codePostal">Code Postal :</label><br> <input
-						type="text" name="codePostal" placeholder="code postal" /><br></td>
-					<td><label for="ville">Ville :</label><br> <input
-						type="text" name="ville" placeholder="ville" /><br></td>
-				</tr>
+					<tr>
+						<td class="entete"><label for="codePostal">Code
+								Postal :</label><br> <input type="text" name="codePostal"
+							placeholder="code postal" /><br></td>
+						<td class="entete"><label for="ville">Ville :</label><br>
+							<input type="text" name="ville" placeholder="ville" /><br></td>
+					</tr>
 
-				<tr>
-					<td><label for="password">Mot de Passe :</label><br> <input
-						type="password" name="password" required /><br></td>
-					<td><label for="fld-repeat-password">Confirmation :</label><br>
-						<input type="password" name="fld-repeat-password" required /><br></td>
-				</tr>
-			</table>
-
-
-
-
-
-
-
-
-
-
+					<tr>
+						<td class="entete"><label for="password">Mot de Passe
+								:</label><br> <input type="password" name="password" required /><br></td>
+						<td class="entete"><label for="fld-repeat-password">Confirmation
+								:</label><br> <input type="password" name="fld-repeat-password"
+							required /><br></td>
+					</tr>
+				</table>
+			</div>
 			<div id="validation" class="stylecentre">
-				<button type="submit" id="creerUtilisateur">Créer</button>
-				<a href="Accueil" type="button" id="annulerCréation">Annuler</a>
+				<button type="submit" id="creerUtilisateur" class="boutton">Créer</button>
+				<a href="Accueil" type="button" id="annulerCréation"
+					class="leBouton leBouton2">Annuler</a>
 
 			</div>
 		</form>
