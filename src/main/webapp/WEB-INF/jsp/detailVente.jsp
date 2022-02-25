@@ -22,7 +22,7 @@
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 </style>
 <!-- ---------------------------------------------- -->
-<head></head>
+</head>
 
 <body>
 	<%
@@ -41,7 +41,7 @@
 	String estConnecte = connecte ? "disabled" : "";
 	String pseudoVendeur = (String) request.getAttribute("pseudoVendeur");
 	%>
-	<header>
+<header>
 		<nav class="navbar">
 			<div class="logo">
 				<img src="images/handshake3.png" class="imageLogo">
@@ -51,13 +51,10 @@
 			</div>
 			<div class="link">
 				<div class="nav-item">
-					<a class="nav-link" href="CreationVente">Vendre un article</a>
+					<a class="nav-link" href="Connexion">Se connecter</a>
 				</div>
 				<div class="nav-item">
-					<a class="nav-link" href="MonProfil">Mon profil</a>
-				</div>
-				<div class="nav-item">
-					<a class="nav-link" href="Deconnexion">Deconnexion</a>
+					<a class="nav-link" href="CreationCompte">S'inscrire</a>
 				</div>
 
 			</div>

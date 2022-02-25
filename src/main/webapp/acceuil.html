@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Connexion ENI-Encheres.org</title>
+<title>Détail vente</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Bienvenue sur le site ENI-Enchère">
 <meta name="keywords"
 	content="Enchere, objet seconde main, Pas d'échange d'argent">
-<link rel="stylesheet" href="css/styleAcceuill_connection.css">
+<link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
+<link rel="icon" type="image/png" sizes="32x32"
+	href="images/marteau.png">
+<link rel="stylesheet" href="css/StyleSheetM.css">
 <!-- -------------- CSS Commun ------------------- -->
 <link rel="stylesheet" href="css/styleCommun.css">
 <link rel="apple-touch-icon" sizes="180x180" href="images/marteau.png">
@@ -18,9 +20,11 @@
 	url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 </style>
 <!-- ---------------------------------------------- -->
-</head>
+<head></head>
+
 <body>
-	<header>
+
+<header>
 		<nav class="navbar">
 			<div class="logo">
 				<img src="images/handshake3.png" class="imageLogo">
@@ -28,38 +32,67 @@
 					<a href="AccueilConnectee">ENI - Enchères</a>
 				</h1>
 			</div>
+			<div class="link">
+				<div class="nav-item">
+					<a class="nav-link" href="Connexion">Se connecter</a>
+				</div>
+				<div class="nav-item">
+					<a class="nav-link" href="CreationCompte">S'inscrire</a>
+				</div>
+
+			</div>
 		</nav>
 	</header>
 
-	<main>
-	<div class="connection">
-		<form action="" method="post">
-			<div class="champs">
-				<label for="pseudo">Pseudo :</label>
-			</div>
-			<div class="champs">
-				<input type="text" id="pseudo" name="pseudo" placeholder="Pseudo"
-					required />
-			</div>
-			<div class="champs">
-				<label for="nom">Mot de passe :</label>
-			</div>
-			<div class="champs">
-				<input type="password" id="password" name="password"
-					placeholder="mot de passe" required />
-			</div>
-			<div id="validation" class="bas">
-				<button type="submit" id="connexion" class="boutton">Connexion</button>
-				<a href="CreationCompte" class="leBouton leBouton2" >Créer un compte</a>
-				<div>
-					<!--  <input type="checkbox" id= remember name="remember"/>
-						 <label for="achat">Se souvenir de moi</label> -->
-				</div>
-				<!--<a href="">Mot de passe oublié</a>-->
-			
-			</div>
 
+	<main>
+
+		<h2>Détail vente</h2>
+		
+		<!--Nom de l'article-->
+		<div class="tab1">
+			<h3><%=nomArticle%></h3>
+			<table>
+				<tr>
+					<td>Description :</td>
+					<td><%=description%></td>
+				</tr>
+				<tr>
+					<td>Catégorie :</td>
+					<td><%=categorie%></td>
+				</tr>
+				<tr>
+					<td>Meilleure offre :</td>
+					<td><%=prix%></td>
+				</tr>
+				<tr>
+					<td>Mise à Prix :</td>
+					<td><%=prixInit%></td>
+				</tr>
+				<tr>
+					<td>Fin de l'enchère:</td>
+					<td><%=dateFin%></td>
+				</tr>
+				<tr>
+					<td>Retrait :</td>
+					<td><%=rue%></br><%=codePostal%></br><%=ville%></td>
+				</tr>
+				<tr>
+					<td>Vendeur :</td>
+					<td><%=pseudoVendeur%></td>
+				</tr>
+			</table>
+		</div>
+		<form action="" method="post" class="stylecentre">
+			<label for="newPrixVente">Ma proposition: </label> <input
+				type="number" id="newPrixVente" name="newPrixVente" min="1"
+				max="1000" value="<%=prix + 1%>"  /> <input
+				type="submit" value="Enchérir" class="boutton" /><input type="text"
+				name="numeroArticle" value="<%=nArticle%>" hidden="true">
 		</form>
-</div>
+
 	</main>
+
+</body>
+
 </html>
